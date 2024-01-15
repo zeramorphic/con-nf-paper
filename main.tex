@@ -20,7 +20,6 @@
 \usepackage{enumerate}
 \usepackage{amsthm}
 \usepackage{faktor}
-\usepackage{physics}
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{relsize}
@@ -32,7 +31,9 @@
 
 \hypersetup{
 	colorlinks=true,
-	% linkcolor=green!40!black,
+	linkcolor=red!50!black,
+	citecolor=green!50!black,
+	urlcolor=magenta!70!black,
 }
 
 \newcommand{\ttype}{\texttt{type}}
@@ -74,7 +75,11 @@
 
 \section{The theories at issue}
 
+\input{theories.tex}
+
 \section{Outline}
+
+\input{outline.tex}
 
 \printbibliography
 

@@ -1,0 +1,103 @@
+
+In 1937, Quine introduced \emph{New Foundations} (NF) \cite{quine-nf}, a set theory with a very small collection of axioms.
+To give a proper exposition of the theory that we intend to prove consistent, we will first make a digression to introduce the related theory TST, as explained by Holmes in \cite{holmes2023nf}.
+We will then describe the theory TTT, which we will use to prove our theorem.
+
+\subsection{The simple theory of types}
+
+The \emph{simple theory of types} (known as \emph{théorie simple des types} or TST) is a first order set theory with several sorts, indexed by the nonnegative integers.
+Each sort, called a \emph{type}, is comprised of \emph{sets} of that type; each variable \( x \) has a nonnegative integer \( \ttype(\mquote x) \) which denotes the type it belongs to.
+For convenience, we may write \( x^n \) to denote a variable \( x \) with type \( n \).
+
+The primitive predicates of this theory are equality and membership.
+An equality \( \mquote{x = y} \) is a well-formed formula precisely when \( \ttype(\mquote{x}) = \ttype(\mquote{y}) \), and similarly a membership formula \( \mquote{x \in y} \) is well-formed precisely when \( \ttype(\mquote{x}) + 1 = \ttype(\mquote{y}) \).
+
+The axioms of this theory are extensionality
+\[ \forall x^{n + 1}.\, \forall y^{n + 1}.\, (\forall z^n.\, z^n \in x^{n+1} \leftrightarrow z^n \in y^{n+1}) \to x^{n+1} = y^{n+1} \]
+and comprehension
+\[ \exists x^{n + 1}.\, \forall y^n.\, (y^n \in x^{n+1} \leftrightarrow \varphi(y^n)) \]
+where \( \varphi \) is any well-formed formula, possibly with parameters.
+
+\begin{remarks}
+	\begin{enumerate}
+		\item These are both axiom schemes, quantifying over all type levels \( n \), and (in the latter case) over all well-formed formulae \( \varphi \).
+		\item The inhabitants of type 0, called \emph{individuals}, cannot be examined using these axioms.
+		\item By comprehension, there is a set at each type that contains all sets of the previous type.
+		Russell-style paradoxes are avoided as formulae of the form \( x^n \in x^n \) are ill-formed.
+		% \item A theory has \emph{atoms}, or \emph{urelements}, if there are objects that have no members yet are not equal.
+		% The axiom of extensionality prohibits atoms from existing in any positive type, since any two such objects would be equal.
+		% Note that there is a different empty set in each type, but they are not atoms; the formula \( \varnothing^n \neq \varnothing^m \) is ill-formed for \( n \neq m \), so they cannot be called `not equal'.
+	\end{enumerate}
+\end{remarks}
+% Replacing the extensionality axiom with
+% \[ \forall x^{n + 1}.\, \forall y^{n + 1}.\, \forall w^n.\, w \in x \to ((\forall z^n.\, z^n \in x^{n+1} \leftrightarrow z^n \in y^{n+1}) \to x^{n+1} = y^{n+1}) \]
+% yields a theory in which atoms in positive types are permitted.
+% We will name the resulting theory TSTU, or TST with urelements.
+
+\subsection{New Foundations}
+
+New Foundations is a one-sorted first-order theory based on TST.
+Its primitive propositions are equality and membership.
+There are no well-formedness constraints on these primitive propositions.
+
+Its axioms are precisely the axioms of TST with all type annotations erased.
+That is, it has an axiom of extensionality
+\[ \forall x.\, \forall y.\, (\forall z.\, z \in x \leftrightarrow z \in y) \to x = y \]
+and an axiom scheme of comprehension
+\[ \exists x.\, \forall y.\, (y \in x \leftrightarrow \varphi(y)) \]
+the latter of which is defined for those formulae \( \varphi \) that can be obtained by erasing the type annotations of a well-formed formula of TST.
+Such formulae are called \emph{stratified}.
+To avoid the explicit dependence on TST, we can equivalently characterise the stratified formulae as follows.
+A formula \( \varphi \) is said to be stratified when there is a function \( \sigma \) from the set of variables to the nonnegative integers, in such a way that for each subformula \( \mquote{x = y} \) of \( \varphi \) we have \( \sigma(\mquote{x}) = \sigma(\mquote{y}) \), and for each subformula \( \mquote{x \in y} \) we have \( \sigma(\mquote{x}) + 1 = \sigma(\mquote{y}) \).
+
+\begin{remarks}
+	\begin{enumerate}
+		\item It is important to emphasise that while the axioms come from a many-sorted theory, NF is not one; it well-formed to ask if any set is a member of, or equal to, any other.
+		\item Russell's paradox is avoided because the set \( \{ x \mid x \notin x \} \) cannot be formed; indeed, \( x \notin x \) is an unstratified formula.
+		Note, however, that the set \( \{ x \mid x = x \} \) is well-formed, and so we have a universe set.
+		% (TODO: add reference for Burali--Forti)
+		\item The infinite set of stratified comprehension axioms can be described with a finite set; this is a result of Hailperin \cite{hailperin-finite-axiomatisation}.
+		\item Specker showed in \cite{specker-choice-nf} that NF disproves the Axiom of Choice.
+	\end{enumerate}
+\end{remarks}
+
+While our main result is that New Foundations is consistent, we attack the problem by means of an indirection through a third theory.
+
+\subsection{Tangled type theory}
+
+Introduced by Holmes in \cite{holmes-ttt}, \emph{tangled type theory} (TTT) is a multi-sorted first order theory based on TST.
+This theory is parametrised by a limit ordinal \( \lambda \), the elements of which will index the sorts.
+As in TST, each variable \( x \) has a type that it belongs to, denoted \( \ttype(\mquote x) \).
+However, in TTT, this is not a positive integer, but an element of \( \lambda \).
+
+The primitive predicates of this theory are equality and membership.
+An equality \( \mquote{x = y} \) is a well-formed formula when \( \ttype(\mquote{x}) = \ttype(\mquote{y}) \).
+A membership formula \( \mquote{x \in y} \) is well-formed when \( \ttype(\mquote{x}) < \ttype(\mquote{y}) \).
+
+The axioms of TTT are obtained by taking the axioms of TST and replacing all type indices in a consistent way with elements of \( \lambda \).
+More precisely, for any order-embedding \( s : \omega \to \lambda \), we can convert a well-formed formula \( \varphi \) of TST into a well-formed formula \( \varphi^s \) of TTT by replacing a type variable \( \alpha \) with \( s(\alpha) \).
+
+\begin{remarks}
+	\begin{enumerate}
+		\item Membership across types in TTT behaves in some quite bizarre ways.
+		Let \( \alpha \in \lambda \), and let \( x \) be a set of type \( \alpha \).
+		For any \( \beta < \alpha \), the extensionality axiom implies that \( x \) is uniquely determined by its type-\( \beta \) elements.
+		However, it is simultaneously determined by its type-\( \gamma \) elements for any \( \gamma < \alpha \).
+		In this way, one extension of a set controls all of the other extensions.
+		\item The comprehension axiom allows a set to be built which has a specified extension in a single type.
+		The elements not of this type may be considered `controlled junk'.
+	\end{enumerate}
+\end{remarks}
+
+We now present the following striking theorem.
+
+\begin{theorem}[Holmes]
+	NF is consistent if and only if TTT is consistent.
+\end{theorem}
+
+The proof is not long, but is outside the scope of this paper; it requires more model theory than the rest of this paper expects a reader to be familiar with, and relies on additional results such as those proven by Specker in \cite{typical-ambiguity}.
+
+Thus, our task of proving NF consistent is reduced to the task of proving TTT consistent.
+We will do this by exhibiting an explicit model (albeit one that requires a great deal of Choice to construct).
+As TTT has types indexed by a limit ordinal, and sets can only contain sets of lower type, we can construct a model by recursion over \( \lambda \).
+This was not an option with NF directly, as the universe set \( \{ x \mid x = x \} \) would necessarily be constructed before many of its elements.
