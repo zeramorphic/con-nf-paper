@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage[a4paper]{geometry}
+\usepackage{parskip}
+\usepackage{fontspec}
+\usepackage{unicode-math}
+\newcommand{\diagup}{\char"27CB}
+\setmainfont[Path=fonts/,
+	UprightFont=*-Regular,
+	BoldFont=*-Bold,
+	ItalicFont=*-Italic,
+	BoldItalicFont=*-BoldItalic,
+	]{STIXTwoText}
+\setmathfont[Path=fonts/]{STIXTwoMath-Regular}
+\setmonofont[Path=fonts/, Scale=MatchLowercase]{FiraCode-Regular}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{enumerate}
+\usepackage{amsthm}
+\usepackage{faktor}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage{relsize}
+\usepackage{quiver}
+
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate,1]{label={(\roman*)}}
+\setlist[enumerate,2]{label={(\alph*)}}
+
+\hypersetup{
+	colorlinks=true,
+	% linkcolor=green!40!black,
+}
+
+\newcommand{\ttype}{\texttt{type}}
+\newcommand{\mquote}[1]{\ensuremath{\text{`}#1\text{'}}}
+\newcommand{\symmdiff}{\mathrel{\raisebox{1pt}{\( \mathsmaller\triangle \)}}}
+\newcommand{\dom}{\operatorname{dom}}
+\newcommand{\ran}{\operatorname{ran}}
+\newcommand{\pr}{\symsf{pr}}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{remarks}{Remarks}
+
+\title{New Foundations is consistent}
+\author{Sky Wilshaw}
+\date{July 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent.
+	This is a `deformalisation' of the formal proof written in Lean at \cite{leanprover-community-con-nf}.
+\end{abstract}
+
+\emph{
+	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
+	We aim to keep this paper proof in line with the formal proof, although as the project is ongoing, some variance is to be expected.
+}
+
+\tableofcontents
+
+\section{The theories at issue}
+
+\section{Outline}
+
+\printbibliography
+
+\end{document}
