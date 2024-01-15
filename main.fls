@@ -158,8 +158,6 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/latex/base/atveryend-ltx.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/base/atveryend-ltx.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/cleveref/cleveref.sty
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/relsize/relsize.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/relsize/relsize.sty
 INPUT ./quiver.sty
@@ -301,6 +299,8 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/cleveref/cleveref.sty
+INPUT /opt/texlive/texdir/texmf-dist/tex/latex/cleveref/cleveref.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT build/main.aux
@@ -327,10 +327,10 @@ OUTPUT build/main.out
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
-INPUT build/main.toc
-INPUT build/main.toc
-INPUT build/main.toc
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT build/main.toc
+INPUT build/main.toc
+INPUT build/main.toc
 OUTPUT build/main.toc
 INPUT ./theories.tex
 INPUT ./theories.tex
