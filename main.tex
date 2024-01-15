@@ -21,9 +21,13 @@
 \usepackage{amsthm}
 \usepackage{faktor}
 \usepackage{hyperref}
-\usepackage{cleveref}
 \usepackage{relsize}
 \usepackage{quiver}
+
+\usepackage{cleveref}
+% https://tex.stackexchange.com/a/81645
+\crefformat{section}{\S#2#1#3}
+\crefmultiformat{section}{\S\S#2#1#3}{ and~#2#1#3}{, #2#1#3}{, and~#2#1#3}
 
 \usepackage[shortlabels]{enumitem}
 \setlist[enumerate,1]{label={(\roman*)}}
@@ -62,23 +66,25 @@
 \maketitle
 
 \begin{abstract}
-	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent.
+	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent relative to the metatheory ZFC.
 	This is a `deformalisation' of the formal proof written in Lean at \cite{leanprover-community-con-nf}.
+	In \cref{sec:theories}, we outline the context for the proof we will present.
+	The mathematical background expected in subsequent sections will be limited to basic familiarity with cardinals and ordinals.
 \end{abstract}
 
 \emph{
 	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
 	We aim to keep this paper proof in line with the formal proof, although as the project is ongoing, some variance is to be expected.
+	The current version of the paper is available at \url{https://zeramorphic.github.io/con-nf-paper/main.pdf}.
 }
 
 \tableofcontents
 
 \section{The theories at issue}
-
+\label{sec:theories}
 \input{theories.tex}
 
 \section{Outline}
-
 \input{outline.tex}
 
 \printbibliography
