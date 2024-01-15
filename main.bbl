@@ -1,0 +1,148 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{holmes2023nf}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=432d6d9b1e5ece343f85180d2cd1639f}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi Randall},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \strng{fullhash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \strng{bibnamehash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \strng{authorbibnamehash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \strng{authornamehash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \strng{authorfullhash}{432d6d9b1e5ece343f85180d2cd1639f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.LO}
+      \field{eprinttype}{arXiv}
+      \field{title}{NF is Consistent}
+      \field{year}{2023}
+      \verb{eprint}
+      \verb 1503.01406
+      \endverb
+    \endentry
+    \entry{quine-nf}{article}{}
+      \name{author}{1}{}{%
+        {{hash=9c9299d851aa969452f97be782202d35}{%
+           family={Quine},
+           familyi={Q\bibinitperiod},
+           given={W.\bibnamedelimi V.},
+           giveni={W\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c9299d851aa969452f97be782202d35}
+      \strng{fullhash}{9c9299d851aa969452f97be782202d35}
+      \strng{bibnamehash}{9c9299d851aa969452f97be782202d35}
+      \strng{authorbibnamehash}{9c9299d851aa969452f97be782202d35}
+      \strng{authornamehash}{9c9299d851aa969452f97be782202d35}
+      \strng{authorfullhash}{9c9299d851aa969452f97be782202d35}
+      \field{sortinit}{Q}
+      \field{sortinithash}{ce69a400a872ddd02ee7fdb3b38c6abd}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Mathematical Monthly}
+      \field{title}{New Foundations for Mathematical Logic}
+      \field{volume}{44}
+      \field{year}{1937}
+      \field{pages}{70\bibrangedash 80}
+      \range{pages}{11}
+      \verb{urlraw}
+      \verb https://api.semanticscholar.org/CorpusID:123927264
+      \endverb
+      \verb{url}
+      \verb https://api.semanticscholar.org/CorpusID:123927264
+      \endverb
+    \endentry
+    \entry{leanprover-community-con-nf}{misc}{}
+      \name{author}{8}{}{%
+        {{hash=82c6c2ec5811ce45b4318d5d282eb76c}{%
+           family={Wilshaw},
+           familyi={W\bibinitperiod},
+           given={Sky},
+           giveni={S\bibinitperiod}}}%
+        {{hash=91bd478bc65752e610f6ab403709c156}{%
+           family={Dillies},
+           familyi={D\bibinitperiod},
+           given={Yaël},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=7c4f8c4cd687c31f652591f365a798ef}{%
+           family={Lumsdaine},
+           familyi={L\bibinitperiod},
+           given={Peter\bibnamedelima LeFanu},
+           giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=d0cd06cf72cf4bd5831ec34543a538e5}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Patrick},
+           giveni={P\bibinitperiod}}}%
+        {{hash=3ceeb3450966ff7a81444ee03de094a8}{%
+           family={Darby},
+           familyi={D\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=32ffed18e44f5867d7a6256a7668f27d}{%
+           family={Matthews},
+           familyi={M\bibinitperiod},
+           given={Angus},
+           giveni={A\bibinitperiod}}}%
+        {{hash=cbc0de117c3ca7bff9a565f2a3a29746}{%
+           family={Hobbis},
+           familyi={H\bibinitperiod},
+           given={Callum},
+           giveni={C\bibinitperiod}}}%
+        {{hash=b3d2f8db69c08b9f9e9d52eb1d6fc7e4}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={Randall},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{3971be1bbe79231f34846dff625ec7c5}
+      \strng{fullhash}{75bd31139ec832438a3153f540144b63}
+      \strng{bibnamehash}{3971be1bbe79231f34846dff625ec7c5}
+      \strng{authorbibnamehash}{3971be1bbe79231f34846dff625ec7c5}
+      \strng{authornamehash}{3971be1bbe79231f34846dff625ec7c5}
+      \strng{authorfullhash}{75bd31139ec832438a3153f540144b63}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{The consistency of New Foundations}
+      \field{year}{2022--2023}
+      \verb{urlraw}
+      \verb https://leanprover-community.github.io/con-nf/
+      \endverb
+      \verb{url}
+      \verb https://leanprover-community.github.io/con-nf/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
