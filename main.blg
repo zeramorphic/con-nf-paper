@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.19
 [0] Config.pm:310> INFO - Logfile is 'build/main.blg'
-[192] biber:340> INFO - === Mon Jan 15, 2024, 17:32:00
-[225] Biber.pm:419> INFO - Reading 'build/main.bcf'
-[400] Biber.pm:979> INFO - Found 3 citekeys in bib section 0
-[430] Biber.pm:4419> INFO - Processing section 0
-[450] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
-[452] bibtex.pm:1713> INFO - LaTeX decoding ...
-[470] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
-[570] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[570] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[570] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[570] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
-[584] bbl.pm:660> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
-[588] bbl.pm:763> INFO - Output to build/main.bbl
-[588] Biber.pm:131> WARN - legacy year field '2022--2023' in entry 'leanprover-community-con-nf' is not an integer - this will probably not sort properly.
-[588] Biber.pm:133> INFO - WARNINGS: 1
+[108] biber:340> INFO - === Mon Jan 15, 2024, 18:33:52
+[125] Biber.pm:419> INFO - Reading 'build/main.bcf'
+[210] Biber.pm:979> INFO - Found 7 citekeys in bib section 0
+[224] Biber.pm:4419> INFO - Processing section 0
+[235] Biber.pm:4610> INFO - Looking for bibtex file 'refs.bib' for section 0
+[236] bibtex.pm:1713> INFO - LaTeX decoding ...
+[252] bibtex.pm:1519> INFO - Found BibTeX data source 'refs.bib'
+[322] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[322] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[322] Biber.pm:4239> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[322] Biber.pm:4245> INFO - No sort tailoring available for locale 'en-US'
+[333] bbl.pm:660> INFO - Writing 'build/main.bbl' with encoding 'UTF-8'
+[337] bbl.pm:763> INFO - Output to build/main.bbl
+[337] Biber.pm:131> WARN - legacy year field '2022--2023' in entry 'leanprover-community-con-nf' is not an integer - this will probably not sort properly.
+[337] Biber.pm:133> INFO - WARNINGS: 1

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  15 JAN 2024 17:32
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  15 JAN 2024 18:33
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -757,9 +757,6 @@ Package: faktor 2006/04/05 v0.1b Faktor-Ringe, -Gruppen, -Raeume (PE)
 \faktor@zaehlerhoehe=\skip78
 \faktor@nennerhoehe=\skip79
 )
-(/opt/texlive/texdir/texmf-dist/tex/latex/physics/physics.sty
-Package: physics 
-)
 (/opt/texlive/texdir/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
 
@@ -1261,7 +1258,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count453
 \enitdp@description=\count454
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 36.
+Package hyperref Info: Option `colorlinks' set `true' on input line 37.
 \c@theorem=\count455
 \c@corollary=\count456
 \@quotelevel=\count457
@@ -1270,26 +1267,26 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 36.
 (build/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 59.
-LaTeX Font Info:    ... okay on input line 59.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
+LaTeX Font Info:    ... okay on input line 60.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1326,9 +1323,9 @@ LaTeX Font Info:    ... okay on input line 59.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 59.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 60.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 59.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 60.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (/opt/texlive/texdir/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1344,71 +1341,74 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
 
 (build/main.bbl)
-Package biblatex Info: Reference section=0 on input line 59.
-Package biblatex Info: Reference segment=0 on input line 59.
-Package hyperref Info: Link coloring ON on input line 59.
+Package biblatex Info: Reference section=0 on input line 60.
+Package biblatex Info: Reference segment=0 on input line 60.
+Package hyperref Info: Link coloring ON on input line 60.
  (build/main.out) (build/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 62.
+(Font)              scaled to size 12.00128pt on input line 63.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 62.
+(Font)              scaled to size 8.00085pt on input line 63.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 62.
+(Font)              scaled to size 6.00064pt on input line 63.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 62.
+(Font)              scaled to size 11.99872pt on input line 63.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 62.
+(Font)              scaled to size 7.99915pt on input line 63.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 62.
- (build/main.toc)
+(Font)              scaled to size 5.99936pt on input line 63.
+ (build/main.toc
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
+(Font)              scaled to size 10.00107pt on input line 2.
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
+(Font)              scaled to size 7.00075pt on input line 2.
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
+(Font)              scaled to size 5.50058pt on input line 2.
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.99893pt on input line 2.
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
+(Font)              scaled to size 6.99925pt on input line 2.
+LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
+(Font)              scaled to size 5.4994pt on input line 2.
+)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
-LaTeX Font Info:    Font shape `TU/FiraCode-Regular(0)/m/n' will be
-(Font)              scaled to size 8.98376pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 10.00107pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 7.00075pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.50058pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 79.
-LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.4994pt on input line 79.
 
-Overfull \hbox (2.49597pt too wide) in paragraph at lines 80--80
+(./theories.tex
+LaTeX Font Info:    Font shape `TU/FiraCode-Regular(0)/m/n' will be
+(Font)              scaled to size 8.98376pt on input line 9.
+ [1
+
+] [2]) (./outline.tex)
+Overfull \hbox (2.49597pt too wide) in paragraph at lines 85--85
 []\TU/STIXTwoText(0)/m/n/10 Sky Wilshaw et al. \TU/STIXTwoText(0)/m/it/10 The c
 onsistency of New Foundations\TU/STIXTwoText(0)/m/n/10 . 2022–2023. \TU/STIXTwo
 Text(0)/m/sc/10 url\TU/STIXTwoText(0)/m/n/10 : [][]$[][][][][] [] [] [] [][][][
 ][][][][][][] [][]
  []
 
-[1
-
-] (build/main.aux)
+[3] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0AD9272C23FA2C369D94BB62844BAB0A;235.
+(rerunfilecheck)             Checksum: 051A8C6EF674B388C18FA7E79DCC8A9D;727.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37441 strings out of 474832
- 759965 string characters out of 5761486
- 1931106 words of memory out of 5000000
- 59025 multiletter control sequences out of 15000+600000
- 561402 words of font info for 85 fonts, out of 8000000 for 9000
+ 36928 strings out of 474832
+ 756320 string characters out of 5761486
+ 1940106 words of memory out of 5000000
+ 58505 multiletter control sequences out of 15000+600000
+ 561442 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,6n,135p,677b,5018s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,6n,135p,1273b,4979s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (1 page, 14836 bytes).
+Output written on build/main.xdv (3 pages, 89972 bytes).

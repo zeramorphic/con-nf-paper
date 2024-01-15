@@ -111,8 +111,6 @@ INPUT /opt/texlive/texdir/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/faktor/faktor.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/faktor/faktor.sty
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/physics/physics.sty
-INPUT /opt/texlive/texdir/texmf-dist/tex/latex/physics/physics.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /opt/texlive/texdir/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -332,9 +330,15 @@ INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT build/main.toc
 INPUT build/main.toc
 INPUT build/main.toc
-OUTPUT build/main.toc
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+OUTPUT build/main.toc
+INPUT ./theories.tex
+INPUT ./theories.tex
+INPUT theories.tex
 OUTPUT build/main.xdv
+INPUT ./outline.tex
+INPUT ./outline.tex
+INPUT outline.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out
