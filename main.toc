@@ -17,3 +17,4 @@
 \contentsline {subsection}{\numberline {4.2}The fuzz map}{10}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Codes and clouds}{10}{subsection.4.3}%
 \contentsline {subsection}{\numberline {4.4}Model elements}{12}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Comments}{14}{subsection.4.5}%
