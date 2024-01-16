@@ -24,7 +24,7 @@ The first component \( \nu \) is an index allowing us to have \( \mu \) distinct
     An \emph{atom} is a pair \( a = (L, i) \) where \( L \) is a litter and \( i \in \kappa \).
     The \emph{associated litter} of an atom is its first projection \( \pr_1(a) \), written \( a^\circ \) for brevity.
     The \emph{litter set} \( \LS(L) \) of a given litter \( L \) is the set of atoms whose associated litter is \( L \); that is, \( \LS(L) = \{ (L, i) \mid i \in \kappa \} \).
-    The litter sets partition the set of atoms into \( \mu \) sets of \( \kappa \) atoms.
+    The litter sets partition the set of atoms into \( \mu \) sets of \( \kappa \) atoms, and there are \( \mu \) atoms in total.
 \end{definition}
 \begin{remark}
     Many of our constructions rely on having only a small set of constraints.
@@ -36,6 +36,7 @@ The first component \( \nu \) is an index allowing us to have \( \mu \) distinct
     We say that the \emph{associated litter} of \( N \) is \( N^\circ = \pr_1(N) \), or that \( N \) is \emph{near} \( L \).
 \end{definition}
 \begin{remarks}
+    \label{rk:mk_near_litter}
     \begin{enumerate}
         \item A set of atoms can be near at most one litter.
         For brevity, we will frequently identify a near-litter with its underlying set.
@@ -45,7 +46,7 @@ The first component \( \nu \) is an index allowing us to have \( \mu \) distinct
 \end{remarks}
 We can now define the allowable permutations of type \( \bot \), although we will give them a different name for now; they will be precisely those permutations of atoms that respect the structure of near-litters.
 \begin{definition}
-    A \emph{near-litter permutation} is a permutation \( \pi \) of atoms that sends near-litters to near-litters.
+    A \emph{near-litter permutation} \( \pi \) is a permutation of atoms that sends near-litters to near-litters.
 \end{definition}
 \begin{remarks}
     \begin{enumerate}
@@ -55,3 +56,110 @@ We can now define the allowable permutations of type \( \bot \), although we wil
         \item The set of near-litter permutations forms a group under composition.
     \end{enumerate}
 \end{remarks}
+
+\subsection{Higher type structure}
+
+A type-\( \alpha \) object has elements of any type \( \beta < \alpha \), which have elements of any type \( \gamma < \beta \), and so on; we must eventually reach \( \bot \) in a finite number of steps by well-foundedness.
+We will now make a definition to deal with sequences of type indices obtained in this way.
+\begin{definition}
+    A \emph{path of type indices} \( \alpha \rightsquigarrow \varepsilon \) is a finite sequence of type indices
+    \[ \alpha > \beta > \gamma > \dots > \varepsilon \]
+    If \( \alpha \) is a type index, an \emph{\( \alpha \)-extended type index} is a path \( \alpha \rightsquigarrow \bot \).
+    If \( A \) is a path \( \alpha \rightsquigarrow \beta \) and \( B \) is a path \( \beta \rightsquigarrow \gamma \), their composition \( A \gg B \) is a path \( \alpha \rightsquigarrow \gamma \) obtained by concatenation of the sequences but removing the duplicated index \( \beta \).
+\end{definition}
+\begin{remark}
+    \label{rk:mk_extended_index}
+    For any \( \alpha \in \lambda^\bot \), the set of \( \alpha \)-extended type indices has size at most \( \lambda \).
+\end{remark}
+In our model, the iterated extensions of objects of type \( \alpha \) are indexed by the \( \alpha \)-extended type indices.
+We can apply operations to an object along each path \( \alpha \rightsquigarrow \bot \).
+One important notion defined in this way will be \emph{structural permutations}.
+\begin{definition}
+    An \emph{\( \alpha \)-structural permutation} \( \pi \) assigns a near-litter permutation to each \( \alpha \)-extended index.
+    If \( A \) is an \( \alpha \)-extended index, the assigned near-litter permutation is called the \emph{derivative} of \( \pi \) along \( A \), and is denoted \( \pi_A \).
+    We can extend this notion to arbitrary paths \( \alpha \rightsquigarrow \beta \); in this case, the derivative \( \pi_A \) is a \( \beta \)-structural permutation.
+\end{definition}
+\begin{remark}
+    Near-litter permutations may be identified with \( \bot \)-structural permutations.
+\end{remark}
+To apply an \( \alpha \)-structural permutation \( \pi \) to some model element \( x \) of type \( \alpha \), we first consider its elements of some type \( \beta < \alpha \).
+By recursion, we apply \( \pi_{(\alpha > \beta)} \) to each such element, where \( \pi_{(\alpha > \beta)} \) is the derivative of \( \pi \) along the one-step path from \( \alpha \) to \( \beta \).
+These images are then assembled to form a new object of type \( \alpha \); note however that this new object need not in general satisfy the constraints outlined in \cref{ss:outline:construction}, so structural permutations need not map elements of the model to other elements of the model.
+
+\subsection{Addresses and supports}
+
+We are interested in objects that can be characterised by a small amount of data; this data will take the form of \emph{addresses}.
+\begin{definition}
+    Let \( \alpha \) be a type index.
+    An \emph{\( \alpha \)-address} is a pair \( (A, x) \) where \( A \) is an \( \alpha \)-extended type index and \( x \) is either an atom or a near-litter.
+\end{definition}
+An \( \alpha \)-address encodes a set of atoms, and a path to get there from a type-\( \alpha \) object by descending through iterated extensions.
+\begin{remark}
+    \label{rk:mk_address}
+    The set of \( \alpha \)-addresses has cardinality \( \mu \).
+    This follows from \cref{rk:mk_near_litter,rk:mk_extended_index}.
+\end{remark}
+
+The group of \( \alpha \)-structural permutations acts on the set of \( \alpha \)-addresses by
+\[ \pi(A, x) = (A, \pi_A(x)) \]
+We would like to say that a \emph{support} is a small set of \( \alpha \)-addresses; for technical reasons that will be discussed later it will actually be better to make the following definition instead.
+\begin{definition}
+    An \( \alpha \)-support is a function \( S \) whose domain is a small ordinal and whose values are \( \alpha \)-addresses, such that whenever \( N_1, N_2 \) are near-litters in the range of \( S \), the atoms in their symmetric difference \( N_1 \symmdiff N_2 \) are also in the range of \( S \).
+    The \emph{underlying set} of a support is its range.
+\end{definition}
+\begin{remarks}
+    \begin{enumerate}
+        \item An address may occur multiple times in the range of a support, but all we usually care about is the presence or absence of an address.
+        The fact that these addresses have indices in a given support will be useful for some constructions later.
+        The symmetric difference condition is also a technical condition that we will use later, it avoids a problem where initial conditions for a construction could be overspecified.
+        \item For any small set of addresses \( s \), there is a support \( S \) whose range is \( s \) together with the small set of atom addresses required to satisfy the symmetric difference constraint.
+    \end{enumerate}
+\end{remarks}
+As with many parts of our construction, we will need to count precisely how many supports there are.
+We will first need to establish the following lemma.
+\begin{lemma}
+    \label{lem:konig_converse}
+    Let \( \mu \) be a strong limit cardinal.
+    Then for any \( \kappa > 0 \) strictly smaller than the cofinality of \( \mu \), we have
+    \[ \mu^\kappa = \mu \]
+\end{lemma}
+Recall that \emph{König's theorem} states that for an infinite cardinal \( \mu \), we have \( \mu^{\operatorname{cf}(\kappa)} > \mu \); this lemma is a partial converse to this theorem in the case where \( \mu \) is a strong limit.
+\begin{proof}
+    Let \( A \) be a set of size \( \kappa \), and let \( B \) be a set of size \( \mu \).
+    We assume that \( B \) has a well-ordering, perhaps obtained from the order on \( \mu \).
+    Given any function \( f : A \to B \), we define a relation \( \prec_f \) on \( A \) by the inverse image of the ordering on \( B \) under \( f \):
+    \[ a \prec_f b \iff f(a) < f(b) \]
+    One can show by induction on \( B \) that any for two functions \( f, g : A \to B \), if \( \im f = \im g \) and \( \prec_f = \prec_g \), then \( f = g \).
+    The amount of pairs \( (\im f, \prec_f) \) is bounded by \( \mu \).
+    Indeed, the amount of possible images of a function \( f : A \to B \) is bounded by \( \mu \) as \( \kappa \) is less than the cofinality of \( \mu \) and \( \mu \) is a strong limit, and the amount of relations \( \prec_f \) is bounded by \( (2^\kappa)^\kappa \), which is bounded by \( \mu \) as it is a strong limit.
+    Thus, \( \mu^\kappa \leq \mu \), and the converse is clear.
+\end{proof}
+We can now prove that there are exactly \( \mu \) supports for any type index \( \alpha \).
+\begin{proposition}
+    \label{prop:mk_support}
+    Let \( \alpha \) be a type index.
+    The set of \( \alpha \)-supports has cardinality \( \mu \).
+\end{proposition}
+\begin{proof}
+    A support is a function from a small ordinal to the set of \( \alpha \)-addresses, which has cardinality \( \mu \) by \cref{rk:mk_address}.
+    Thus, the amount of supports is bounded by
+    \[ \sum_{i < \kappa} \mu^i \]
+    By \cref{lem:konig_converse}, each summand is precisely \( \mu \), and so the sum is precisely \( \kappa \cdot \mu = \mu \).
+\end{proof}
+The \( \alpha \)-structural permutations act on \( \alpha \)-supports pointwise:
+\[ \pi(S)(i) = \pi(S(i)) \]
+We will need to concatenate supports together.
+The naïve concatenation of supports \( S_1, S_2 \) given by
+\[ S(i) = \begin{cases}
+    S_1(i) & \text{if } i \in \dom S_1 \\
+    S_2(i - \dom S_1) & \text{otherwise}
+\end{cases} \]
+need not satisfy the symmetric difference condition, so \( S \) may not be a support.
+There is not a unique way to expand this concatenation into a support, so we will instead make the following definition.
+\begin{definition}
+    Let \( f \) be a function from a small ordinal whose values are \( \alpha \)-support conditions.
+    We say that a support \( S \) is a \emph{completion} of \( f \) if \( S|_{\dom f} = f \) and every address in the extension \( S|_{\dom S \setminus \dom f} \) is an atom address \( (A, x) \) where \( x \in N_1 \symmdiff N_2 \) and \( (A, N_1), (A, N_2) \in \ran f \).
+    Every such function has a completion, as the amount of atom addresses in question is small.
+    A support \( S \) is a \emph{sum} of supports \( S_1, S_2 \) if it is a completion of the concatenation of \( S_1 \) and \( S_2 \).
+    Every pair of supports has a sum.
+\end{definition}
