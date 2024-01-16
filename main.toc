@@ -12,3 +12,8 @@
 \contentsline {subsection}{\numberline {3.1}Atoms, litters, and near-litters}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Higher type structure}{6}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Addresses and supports}{7}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Constructing the types}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Hypotheses}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}The fuzz map}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Codes and clouds}{10}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Model elements}{12}{subsection.4.4}%
