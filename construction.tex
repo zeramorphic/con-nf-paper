@@ -277,3 +277,26 @@ This evidently has a small support \( S \) given by
 \[ \dom S = 1;\quad S(0) = ((\alpha > \bot), N) \]
 and thus this is an \( \alpha \)-object.
 The map \( \typed_\alpha \) thus sends \( N \) to the tangle \( (x, S) \).
+
+\subsection{Comments}
+
+We have constructed tangle data and typed near-litters at level \( \alpha \), under the assumption that they exist (along with position functions) at all lower type levels.
+
+The use of a group of permutations is known as a \emph{Fraenkel--Mostowski construction}.
+Permutations of atoms in a model of a set theory with atoms give rise to permutations of the entire structure.
+Typically, such constructions involve a normal filter of subgroups of such permutations; this role is played by our allowable permutations.
+
+Recall that a tangle is a model elements bundled together with a support.
+The main benefit that tangles provide is that the support function \( \supp \) commutes with allowable permutations.
+In other Fraenkel--Mostowski constructions, objects typically have a \emph{minimal support}, and these commute with allowable permutations; by bundling supports, we retain this nice behaviour without requiring our objects to have minimal supports (and in fact they do not).
+Note that tangles themselves do have minimal supports, namely, the support given by \( \supp \).
+Picturing tangles instead of model elements as the primitive notion, we lose extensionality but gain some some symmetry that we will use to great effect later.
+The idea to bundle tangles in this way was not part of the original proof, and is a new contribution by this author.
+
+We will later impose a restriction on objects that if \( (x, S) \) is an element in some extension, then \( (x, T) \) is also an element for any other support \( T \).
+% TODO: Can this ever violate the small support condition?
+We can then collapse the entire model by taking the first projection of every tangle, reducing it to a model of tangled type theory satisfying extensionality as desired.
+
+The condition that \( \supp(\rho(t)) = \rho(\supp t) \) was not used in this section.
+In particular, this entire construction succeeds by replacing the lower-type tangles in the tangle data with model elements themselves.
+This method was used in an earlier version of the proof before shifting to the new `bundled' approach.
