@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  16 JAN 2024 16:13
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  16 JAN 2024 17:03
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1394,7 +1394,7 @@ xt(0)/m/it/10 . []\TU/STIXTwoText(0)/m/n/10 The set of $[]$-addresses has cardi
 nality $[]$. This follows from remarks [][]3.7[][] and remark [][]3.11[][]. 
  []
 
-[7]) (./construction.tex [8] [9] [10] [11])
+[7]) (./construction.tex [8] [9] [10] [11] [12]) [13]
 Overfull \hbox (2.49597pt too wide) in paragraph at lines 114--114
 []\TU/STIXTwoText(0)/m/n/10 Sky Wilshaw et al. \TU/STIXTwoText(0)/m/it/10 The c
 onsistency of New Foundations\TU/STIXTwoText(0)/m/n/10 . 2022–2023. \TU/STIXTwo
@@ -1402,7 +1402,7 @@ Text(0)/m/sc/10 url\TU/STIXTwoText(0)/m/n/10 : [][]$[][][][][] [] [] [] [][][][
 ][][][][][][] [][]
  []
 
-[12] (build/main.aux)
+[14] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -1418,12 +1418,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37021 strings out of 474832
- 758298 string characters out of 5761486
- 1941106 words of memory out of 5000000
- 58589 multiletter control sequences out of 15000+600000
+ 37023 strings out of 474832
+ 758358 string characters out of 5761486
+ 1940106 words of memory out of 5000000
+ 58591 multiletter control sequences out of 15000+600000
  561466 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,9n,135p,1273b,4979s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,9n,135p,1273b,4981s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (12 pages, 372540 bytes).
+Output written on build/main.xdv (14 pages, 420360 bytes).
