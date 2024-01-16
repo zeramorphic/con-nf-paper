@@ -46,6 +46,7 @@
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\ran}{\operatorname{ran}}
 \newcommand{\pr}{\symsf{pr}}
+\newcommand{\LS}{\symsf{LS}}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -54,8 +55,8 @@
 \newtheorem{corollary}{Corollary}[theorem]
 
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
-\newtheorem*{remarks}{Remarks}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remarks}[theorem]{Remarks}
 
 \title{New Foundations is consistent}
 \author{Sky Wilshaw}
@@ -68,9 +69,18 @@
 \begin{abstract}
 	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent relative to the metatheory ZFC.
 	This is a `deformalisation' of the formal proof written in Lean at \cite{leanprover-community-con-nf}.
-	In \cref{sec:theories}, we outline the context for the proof we will present.
-	The mathematical background expected in subsequent sections will be limited to basic familiarity with cardinals and ordinals.
 \end{abstract}
+
+\tableofcontents
+
+\section*{Overview}
+
+In \cref{sec:theories}, we outline the context for the proof we will present.
+The mathematical background expected in subsequent sections will be limited to basic familiarity with cardinals and ordinals.
+We will then give an outline of the proof in \cref{sec:outline}.
+In \cref{sec:structure}, we introduce some basic preliminaries, and explicitly describe the structure within which our model will reside.
+
+All proofs given in \cref{sec:structure} are verified by the theorem prover Lean.
 
 \emph{
 	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
@@ -78,14 +88,17 @@
 	The current version of the paper is available at \url{https://zeramorphic.github.io/con-nf-paper/main.pdf}.
 }
 
-\tableofcontents
-
 \section{The theories at issue}
 \label{sec:theories}
 \input{theories.tex}
 
 \section{Outline}
+\label{sec:outline}
 \input{outline.tex}
+
+\section{The underlying structure}
+\label{sec:structure}
+\input{structure.tex}
 
 \printbibliography
 

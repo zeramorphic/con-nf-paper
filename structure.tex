@@ -1,0 +1,57 @@
+\subsection{Atoms, litters, and near-litters}
+
+As described in \cref{ss:outline:atoms}, we have an additional level of objects below type zero.
+To index the levels of the model, together with this new level, we make the following definition.
+\begin{definition}
+    A \emph{type index} is an element of \( \lambda \) or a distinguished symbol \( \bot \).
+    We impose an order on type indices by setting \( \bot < \alpha \) for all \( \alpha \in \lambda \).
+    The set of type indices is denoted \( \lambda^\bot \).
+\end{definition}
+Elements of \( \lambda \) may be called \emph{proper type indices}.
+
+Our base type is a set of \emph{atoms}, organised into \emph{litters}.
+\begin{definition}
+    A \emph{litter} is a triple \( L = (\nu, \beta, \gamma) \) where \( \nu \in \mu \), \( \beta \) is a type index, and \( \gamma \neq \beta \) is a proper type index.
+\end{definition}
+This somewhat arcane definition will be used to great effect later when defining the fuzz map.
+A litter \( L = (\nu, \beta, \gamma) \) encodes data coming from type \( \beta \) and going into type \( \gamma \).
+Note that \( \beta \) may be \( \bot \), but \( \gamma \) may not; this corresponds to the fact that we never construct data in type \( \bot \) from data at higher levels.
+The first component \( \nu \) is an index allowing us to have \( \mu \) distinct litters with the same source and target types.
+\begin{remark}
+    There are precisely \( \mu \) litters.
+\end{remark}
+\begin{definition}
+    An \emph{atom} is a pair \( a = (L, i) \) where \( L \) is a litter and \( i \in \kappa \).
+    The \emph{associated litter} of an atom is its first projection \( \pr_1(a) \), written \( a^\circ \) for brevity.
+    The \emph{litter set} \( \LS(L) \) of a given litter \( L \) is the set of atoms whose associated litter is \( L \); that is, \( \LS(L) = \{ (L, i) \mid i \in \kappa \} \).
+    The litter sets partition the set of atoms into \( \mu \) sets of \( \kappa \) atoms.
+\end{definition}
+\begin{remark}
+    Many of our constructions rely on having only a small set of constraints.
+    If our constraints take the form of atoms, the smallness assumption guarantees that most of the atoms in a given litter are unconstrained.
+    Motivated by smallness concerns, we make the following definition.
+\end{remark}
+\begin{definition}
+    A \emph{near-litter} is a pair \( N = (L, s) \) where \( L \) is a litter and \( s \) is a set of atoms with small symmetric difference to the litter set of \( L \).
+    We say that the \emph{associated litter} of \( N \) is \( N^\circ = \pr_1(N) \), or that \( N \) is \emph{near} \( L \).
+\end{definition}
+\begin{remarks}
+    \begin{enumerate}
+        \item A set of atoms can be near at most one litter.
+        For brevity, we will frequently identify a near-litter with its underlying set.
+        \item The litter set of any litter \( L \) can be made into a near-litter: \( (L, \LS(L)) \).
+        \item Each near-litter has size exactly \( \kappa \), and there are \( \mu \) near-litters in total; the latter follows from the fact that the cofinality of \( \mu \) is at least \( \kappa \).
+    \end{enumerate}
+\end{remarks}
+We can now define the allowable permutations of type \( \bot \), although we will give them a different name for now; they will be precisely those permutations of atoms that respect the structure of near-litters.
+\begin{definition}
+    A \emph{near-litter permutation} is a permutation \( \pi \) of atoms that sends near-litters to near-litters.
+\end{definition}
+\begin{remarks}
+    \begin{enumerate}
+        \item A near-litter permutation \( \pi \) induces a permutation of litters, which we will also call \( \pi \).
+        This is defined by mapping \( L \) to the associated litter of \( \pi '' \LS(L) \), where the double apostrophe denotes pointwise function application (\( f '' s \) denotes the set \( \{ f(x) \mid x \in s \} \)).
+        Thus, a near-litter permutation is simultaneously a permutation of atoms, litters, and near-litters.
+        \item The set of near-litter permutations forms a group under composition.
+    \end{enumerate}
+\end{remarks}

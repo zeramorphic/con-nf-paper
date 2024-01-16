@@ -3,8 +3,9 @@ The process for building each type is complicated, and depends on some knowledge
 In the following subsections, we outline the construction the types, as well as the precise facts we need to carry through the inductive hypothesis at each stage.
 
 \subsection{Model parameters}
+\label{ss:outline:params}
 
-As described in \cref{sec:ttt}, the types of a given model of tangled type theory are indexed by a limit ordinal \( \lambda \).
+As described in \cref{ss:theories:ttt}, the types of a given model of tangled type theory are indexed by a limit ordinal \( \lambda \).
 Our model will also have two more cardinal parameters, denoted \( \kappa \) and \( \mu \), satisfying \( \lambda < \kappa < \mu \).
 
 Sets smaller than size \( \kappa \) will be called \emph{small}.
@@ -18,6 +19,7 @@ This assumption will become important whenever we consider objects indexed by sm
 We remark that these constraints are satisfiable; \( \lambda = \aleph_0, \kappa = \aleph_1, \mu = \beth_{\omega_1} \) suffice.
 
 \subsection{Atoms and permutations}
+\label{ss:outline:atoms}
 
 To aid our construction, we will add an additional level of objects below type zero.
 These will not be a part of the final model we construct.
@@ -27,6 +29,7 @@ Alongside the construction of the types of our model, we will also construct a c
 Such permutations will preserve the structure of the model in a strong sense; for instance, they preserve membership.
 
 \subsection{Construction of each type}
+\label{ss:outline:construction}
 
 Objects in our model are defined by their elements at all lower type indices.
 However, not all collections of extensions may become model elements; for example, they may fail to satisfy extensionality at all levels simultaneously.
@@ -44,6 +47,7 @@ This will ensure that the objects of our model are not too complex.
 Because the cofinality of \( \mu \) is at least \( \kappa \), there are only \( \mu \) small sets of elements taken from a collection of size \( \mu \); this observation will play a key role in establishing the sizes of our types.
 
 \subsection{Constraining the size of each type}
+\label{ss:outline:size}
 
 The construction of a given type can only be done under the assumption that each smaller type was of size exactly \( \mu \).
 This means that we need to prove that each type has size \( \mu \) in the inductive step.
@@ -53,6 +57,7 @@ The majority of this paper will be allocated to proving the freedom of action th
 One this is established, we can prove that the size of each type is precisely \( \mu \) by carefully counting the possible ways to describe a model element.
 
 \subsection{Finishing the induction}
+\label{ss:outline:finishing}
 
 We can then finish the inductive step and build the entire model.
 It remains to show that this is a model of TTT as desired.
