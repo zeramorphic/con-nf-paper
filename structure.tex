@@ -75,9 +75,11 @@ In our model, the iterated extensions of objects of type \( \alpha \) are indexe
 We can apply operations to an object along each path \( \alpha \rightsquigarrow \bot \).
 One important notion defined in this way will be \emph{structural permutations}.
 \begin{definition}
+    \label{def:struct_perm}
     An \emph{\( \alpha \)-structural permutation} \( \pi \) assigns a near-litter permutation to each \( \alpha \)-extended index.
     If \( A \) is an \( \alpha \)-extended index, the assigned near-litter permutation is called the \emph{derivative} of \( \pi \) along \( A \), and is denoted \( \pi_A \).
     We can extend this notion to arbitrary paths \( \alpha \rightsquigarrow \beta \); in this case, the derivative \( \pi_A \) is a \( \beta \)-structural permutation.
+    The group of \( \alpha \)-structural permutations is denoted \( S_\alpha \).
 \end{definition}
 \begin{remark}
     Near-litter permutations may be identified with \( \bot \)-structural permutations.
@@ -94,6 +96,9 @@ We are interested in objects that can be characterised by a small amount of data
     An \emph{\( \alpha \)-address} is a pair \( (A, x) \) where \( A \) is an \( \alpha \)-extended type index and \( x \) is either an atom or a near-litter.
 \end{definition}
 An \( \alpha \)-address encodes a set of atoms, and a path to get there from a type-\( \alpha \) object by descending through iterated extensions.
+\begin{note}
+    In \cite{holmes2023nf}, addresses are called \emph{support conditions}.
+\end{note}
 \begin{remark}
     \label{rk:mk_address}
     The set of \( \alpha \)-addresses has cardinality \( \mu \).

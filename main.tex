@@ -47,7 +47,9 @@
 \newcommand{\ran}{\operatorname{ran}}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\pr}{\symsf{pr}}
-\newcommand{\LS}{\symsf{LS}}
+\newcommand{\LS}{\operatorname{\symsf{LS}}}
+\newcommand{\supp}{\operatorname{\symsf{supp}}}
+\newcommand{\typed}{\operatorname{\symsf{typed}}}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -59,6 +61,7 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{remarks}[theorem]{Remarks}
+\newtheorem*{note}{Note}
 
 \title{New Foundations is consistent}
 \author{Sky Wilshaw}
@@ -81,8 +84,9 @@ In \cref{sec:theories}, we outline the context for the proof we will present.
 The mathematical background expected in subsequent sections will be limited to basic familiarity with cardinals and ordinals.
 We will then give an outline of the proof in \cref{sec:outline}.
 In \cref{sec:structure}, we introduce some basic preliminaries, and explicitly describe the structure within which our model will reside.
+The objects of our model will be constructed in \cref{sec:construction}.
 
-All proofs given in \cref{sec:structure} are verified by the theorem prover Lean.
+All proofs given in \cref{sec:structure,sec:construction} are verified by the theorem prover Lean.
 
 \emph{
 	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
@@ -101,6 +105,10 @@ All proofs given in \cref{sec:structure} are verified by the theorem prover Lean
 \section{The underlying structure}
 \label{sec:structure}
 \input{structure.tex}
+
+\section{Constructing the types}
+\label{sec:construction}
+\input{construction.tex}
 
 \printbibliography
 
