@@ -10,3 +10,5 @@
 \contentsline {subsection}{\numberline {2.5}Finishing the induction}{5}{subsection.2.5}%
 \contentsline {section}{\numberline {3}The underlying structure}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Atoms, litters, and near-litters}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Higher type structure}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Addresses and supports}{7}{subsection.3.3}%
