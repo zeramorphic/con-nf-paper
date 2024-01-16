@@ -327,10 +327,10 @@ OUTPUT build/main.out
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
+INPUT build/main.toc
+INPUT build/main.toc
+INPUT build/main.toc
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
-INPUT build/main.toc
-INPUT build/main.toc
-INPUT build/main.toc
 OUTPUT build/main.toc
 INPUT ./theories.tex
 INPUT ./theories.tex
@@ -339,6 +339,9 @@ OUTPUT build/main.xdv
 INPUT ./outline.tex
 INPUT ./outline.tex
 INPUT outline.tex
+INPUT ./structure.tex
+INPUT ./structure.tex
+INPUT structure.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out
