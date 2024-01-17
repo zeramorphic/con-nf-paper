@@ -1,0 +1,193 @@
+\subsection{Outline}
+\label{ss:foa:outline}
+
+In this section, we will prove the freedom of action theorem.
+This will allow us to prove that the collection of model elements we have constructed has size exactly \( \mu \), among other things.
+The idea of the theorem is that under suitable hypotheses, a partially defined map of \( \alpha \)-addresses can be extended into an \( \alpha \)-allowable permutation.
+
+There are many different things one could mean by a `partially defined map', and we will need several of these for various purposes.
+The two most important forms of partial maps of addresses are \emph{approximations} and \emph{actions}, the former of which will be used in the statement of the theorem.
+We will prove some technical results linking approximations and actions.
+
+We will construct the allowable permutation by induction along a particular well-founded relation on addresses: we will define \( \rho((A, x)) \) given the knowledge of \( \rho((B, y)) \) for all \( (B, y) \prec (A, x) \).
+In certain cases, we will need to know that the freedom of action theorem holds at all lower levels; we accomplish this by wrapping the entire proof in an induction over all proper type indices below \( \alpha \).
+
+We will then demonstrate that the map as defined is a permutation, and fulfils the criteria to be an allowable permutation.
+
+Our proof for this theorem will not depend on the construction given in \cref{sec:construction}, but rather on an explicit list of properties that the tangles at each level must satisfy for the theorem to hold; this is discussed in \cref{ss:foa:hypotheses}.
+
+\subsection{Partial permutations}
+
+In the proof of freedom of action, we will often have injective functions that we wish to turn into permutations.
+In this subsection, we describe a sufficient condition for such a permutation to exist.
+
+\begin{definition}
+    A \emph{partial permutation} on a set \( X \) is a partial function \( f : X \rightdasharrow X \) that is a permutation of its domain.
+\end{definition}
+
+Suppose we have an injective partial function \( f : X \rightdasharrow X \).
+We will construct a pair of functions \( g \) and \( h \) that agree with \( f \) and its inverse respectively on \( s = \dom f \), in such a way that forms a partial permutation of \( X \).
+In particular, consider the diagram
+\[\begin{tikzcd}[column sep=small]
+	\cdots & {L_2} & {L_1} & {L_0} & {s \setminus f''s} & \cdots & {f''s \setminus s} & {R_0} & {R_1} & {R_2} & \cdots
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow["f", from=1-5, to=1-6]
+	\arrow["f", from=1-6, to=1-7]
+	\arrow[from=1-7, to=1-8]
+	\arrow[from=1-8, to=1-9]
+	\arrow[from=1-9, to=1-10]
+	\arrow[from=1-10, to=1-11]
+\end{tikzcd}\]
+To fill in the orbits of \( f \), we construct a sequence of disjoint subsets of \( X \) called \( L_n \) and \( R_n \), where for each \( i : \mathbb N \), the cardinality of \( L_i \) is the same as \( s \setminus f''s \), and the cardinality of \( R_i \) is that of \( f''s \setminus s \).
+There are natural bijections along this diagram, mapping \( L_{n + 1} \) to \( L_n \) and \( R_n \) to \( R_{n + 1} \).
+There are also bijections \( f '' s \setminus s \to R_0 \) and \( L_0 \to s \setminus f '' s \).
+This completes the diagram, giving a partial permutation extending \( f \) defined on
+\[ s \cup f '' s \cup \left( \bigcup_{i \in \mathbb N} L_i \right) \cup \left( \bigcup_{i \in \mathbb N} R_i \right) \]
+
+\subsection{Hypotheses}
+\label{ss:foa:hypotheses}
+
+Let \( \alpha \) be a proper type index.
+The complete list of hypotheses we will use when proving the freedom of action theorem at all levels \( \beta \leq \alpha \) are as follows.
+\begin{enumerate}
+    \item We assume that we have tangle data and typed near-litters at all proper type levels \( \beta \leq \alpha \).
+    The data for level \( \alpha \) will later be provided by running the construction in \cref{sec:construction}.
+    We also assume position functions at all proper type levels \( \beta < \alpha \).
+    \item We assume that the groups of allowable permutations \( A_\beta \) can be related by the use of a derivative map.
+    Each path \( A : \beta \rightsquigarrow \gamma \) gives rise to a group homomorphism \( A_\beta \to A_\gamma \), and its action on an allowable \( \rho \) is denoted \( \rho_A \).
+    We assume that the following diagram commutes.
+    \[\begin{tikzcd}
+        {A_\beta} & {S_\beta} \\
+        {A_\gamma} & {S_\gamma}
+        \arrow[from=1-1, to=1-2]
+        \arrow["{\pi \mapsto \pi_A}", from=1-2, to=2-2]
+        \arrow["{\rho \mapsto \rho_A}"', from=1-1, to=2-1]
+        \arrow[from=2-1, to=2-2]
+    \end{tikzcd}\]
+    Alternatively, viewing allowable permutations as subgroups of structural permutations, this assumption states that any derivative of an allowable permutation is also allowable.
+    \item Let \( \beta < \alpha \) be a proper type index and let \( t \in \tau_\beta \).
+    Let \( \gamma < \alpha \) be a type index, let \( \delta < \alpha \) be a proper type index distinct from \( \gamma \), and let \( s \in \tau_\gamma \).
+    Suppose that \( (A, x) \in \ran \supp t \), where \( A \) is a \( \beta \)-extended type index and \( x \) is an atom or a near-litter.
+    Suppose further that either \( x = a \) is an atom with \( a^\circ = f_{\gamma,\delta}(s) \), or that \( x = N \) is a near-litter that has nonempty intersection with \( \LS(f_{\gamma,\delta}(s)) \).
+    Then \( \iota_\gamma(s) < \iota_\beta(t) \).
+    \item Let \( \beta \leq \alpha \) be a type index, let \( \gamma < \alpha \) be a type index, and let \( \delta < \alpha \) be a proper type index distinct from \( \gamma \).
+    Let \( \rho \) be a \( \beta \)-allowable permutation, and let \( t \) be a \( \gamma \)-tangle.
+    Then
+    \[ \rho_{(\beta > \delta > \bot)}(f_{\gamma,\delta}(t)) = f_{\gamma,\delta}(\rho_{(\beta > \gamma)}(t)) \]
+    This is a restatement of equation (\( \ast \)) from \cref{def:allowable}.
+    \item Conversely, let \( \beta \leq \alpha \) be a type index, and let \( \rho_{(\beta > \gamma)} \) be a \( \gamma \)-allowable permutation for each type index \( \gamma < \beta \).
+    Suppose that the \( \rho_{(\beta > \gamma)} \) satisfy the one-step fuzz constraints
+    \[ (\rho_{(\gamma >\delta)})_{(\delta > \bot)}(f_{\gamma,\delta}(t)) = f_{\gamma,\delta}(\rho_{\beta > \gamma}(t)) \]
+    Then we can assemble the \( \rho_{(\beta > \gamma)} \) into a \( \beta \)-allowable permutation; more precisely, there exists an allowable permutation \( \rho \) with one-step derivatives given by the \( \rho_{(\beta > \gamma)} \).
+\end{enumerate}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item Apart from (iii), these conditions are obviously satisfied by our construction in \cref{sec:construction}.
+        Note that this remaining condition only constrains type indices strictly below \( \alpha \), so we may carry this knowledge through the main inductive step.
+        Once we know that a given type is of size \( \mu \), a position function can be constructed in such a way to make (iii) hold, using a similar method to the construction of the fuzz map in \cref{def:fuzz}.
+        \item Hypothesis (v) will be used exactly once, at the end of freedom of action.
+        This will allow us to build the allowable permutation asserted in the theorem.
+    \end{enumerate}
+\end{remarks}
+
+\subsection{Dependency of addresses}
+
+As described in \cref{ss:foa:outline}, we will define a well-founded relation on the set of \( \alpha \)-addresses that will allow us to define the action of an allowable permutation recursively.
+
+\begin{definition}
+    \label{def:dependency}
+    Let \( \beta \leq \alpha \) be a proper type index.
+    We define the \emph{dependency} relation \( \prec \) on \( \beta \)-support conditions by the following constructors.
+    \begin{enumerate}
+        \item Let \( A \) be a \( \beta \)-extended index, and let \( a \) be an atom.
+        Then
+        \[ (A, \NL(a^\circ)) \prec (A, a) \]
+        \item Let \( A \) be a \( \beta \)-extended index, and let \( N \) be a near-litter with \( N \neq \NL(N^\circ) \).
+        Then
+        \[ (A, \NL(N^\circ)) \prec (A, N) \]
+        \item Let \( A \) be a \( \beta \)-extended index, let \( N \) be a near-litter, and let \( a \) be an atom in the symmetric difference \( N \symmdiff \LS(N^\circ) \).
+        Then
+        \[ (A, a) \prec (A, N) \]
+        \item Let \( \gamma \leq \alpha \) be a proper type index, and let \( \delta, \varepsilon < \gamma \) be distinct proper type indices.
+        Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( t \in \tau_\delta \).
+        Then for all \( c \in \ran \supp t \),
+        \[ (A \gg (\gamma > \delta) \gg \pr_1(c), \pr_2(c)) \prec (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
+        \item Let \( \gamma \leq \alpha \) be a proper type index, and let \( \varepsilon < \gamma \) be a proper type index.
+        Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( a \) be an atom.
+        Then
+        \[ (A \gg (\gamma > \bot), a) \prec (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
+    \end{enumerate}
+    If \( x \prec y \), we say that \( y \) \emph{depends on} \( x \).
+\end{definition}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item Let \( x \) be an address and \( \rho \) be an allowable permutation we wish to study, and suppose we know the values of \( \rho(y) \) for \( y \prec x \).
+        We can then deduce some useful information about the possible values of \( \rho(x) \), and in some cases determine it exactly (for instance, if \( x \) is a near-litter \( N \neq \NL(N^\circ) \)).
+        \item Each address depends on only a small set of other addresses.
+        This holds as supports have small ranges.
+        \item A litter is said to be \emph{inflexible} with respect to a particular \( \beta \)-extended index if it is the image of a fuzz map as given by constructors (iv) or (v) above.
+        A litter is \emph{flexible} with respect to an extended index if it is not inflexible.
+        The addresses formed from flexible litters are minimal elements under \( \prec \).
+        It is technically possible for an address formed from an inflexible litter to be minimal under \( \prec \) if its support is empty, but aside from this pathology, this is a full description of the minimal elements.
+    \end{enumerate}
+\end{remarks}
+
+\begin{proposition}
+    The dependency relation is well-founded.
+\end{proposition}
+\begin{proof}
+    If \( X \) is a set endowed with a relation \( \prec \), we say that \( x \in X \) is \emph{\( \prec \)-accessible} if all of its \( \prec \)-predecessors are \( \prec \)-accessible.
+    A relation on \( X \) is well-founded precisely when every \( x \in X \) is accessible under that relation.
+    We make the following observations about accessibility of addresses under the dependency relation, both of which follow directly from the relevant definitions.
+    \begin{enumerate}
+        \item Let \( A \) be a \( \beta \)-extended type index, and let \( a \) be an atom.
+        Then \( (A, a) \) is accessible if \( (A, \NL(a^\circ)) \) is accessible.
+        \item Let \( A \) be a \( \beta \)-extended type index, and let \( N \) be an near-litter.
+        Then \( (A, N) \) is accessible if \( (A, \NL(a^\circ)) \) is accessible for all \( a \in N \).
+    \end{enumerate}
+    We have thus reduced accessibility of arbitrary addresses to accessibility of litter addresses.
+    Motivated by this, we will define an auxiliary relation \( R \) on litters and prove that it is well-founded.
+    We define the following constructors for \( R \).
+    \begin{enumerate}
+        \item Let \( \delta, \varepsilon < \alpha \) be distinct proper type indices, and let \( t \in \tau_\delta \).
+        Then if \( B \) is an extended index and \( a \) is an atom such that either \( (B, a) \in \ran \supp t \) or \( (B, N) \in \ran \supp t \) and \( a \in N \), then
+        \[ a^\circ \mathrel{R} f_{\delta,\varepsilon}(t) \]
+        \item Let \( \varepsilon < \alpha \) be a proper type index, and let \( a \) be an atom.
+        Then
+        \[ a^\circ \mathrel{R} f_{\bot,\varepsilon}(a) \]
+    \end{enumerate}
+    We will say that a litter \( L \) has position \( \nu \in \mu \) if either
+    \begin{enumerate}
+        \item \( \delta, \varepsilon < \alpha \) are distinct proper type indices, \( t \in \tau_\delta \), and
+        \[ L = f_{\delta,\varepsilon}(t); \quad \nu = \iota(t) \]
+        or
+        \item \( \varepsilon < \alpha \), \( a \) is an atom, and
+        \[ L = f_{\bot,\varepsilon}(a); \quad \nu = \iota(a) \]
+    \end{enumerate}
+    First, note that a litter has at most one position; this follows by injectivity of the fuzz map.
+    It follows by definition that if \( L_1 \mathrel{R} L_2 \), then \( L_2 \) has a position.
+    Moreover, if additionally \( L_1 \) has a position, its position is less than that of \( L_2 \).
+    This last fact follows from part (iii) of the definition of the fuzz map in \cref{def:fuzz}, as well as hypothesis (iii) in \cref{ss:foa:hypotheses}.
+    In particular, as the order on \( \mu \) is well-founded, the relation \( R \) must also be well-founded.
+
+    We show by induction on \( R \) that for every litter \( L \) and \( \beta \)-extended index \( A \), the address \( (A, \NL(L)) \) is accessible; the result then follows from the observations above, since they concern only litter addresses.
+    Suppose \( c \prec (A, \NL(L)) \); we must show \( c \) is accessible.
+    Only cases (iv) and (v) of \cref{def:dependency} can possibly occur.
+    Suppose \( c = (B, a) \) and \( L = f_{\delta,\varepsilon}(t) \).
+    Then by observation (i), it suffices to show \( (B, \NL(a^\circ)) \) is accessible, but this is given by the inductive hypothesis.
+    If \( c = (B, N) \) and \( L = f_{\delta,\varepsilon}(t) \), then the result similarly holds by applying observation (ii) to the inductive hypothesis.
+    Finally, if \( c = (B, a) \) and \( L = f_{\bot,\varepsilon}(a) \), then again the result holds by observation (i) and the inductive hypothesis.
+\end{proof}
+
+\begin{remark}
+    If \( x \prec y \) are \( \gamma \)-addresses and \( B \) is a path \( \beta \rightsquigarrow \gamma \), then
+    \[ (B \gg \pr_1(x), \pr_2(x)) \prec (B \gg \pr_1(y), \pr_2(y)) \]
+\end{remark}
+
+We will define a partial order on addresses by defining \( < \) to be the transitive closure of \( \prec \).
+Evidently, the relation \( < \) is also well-founded.

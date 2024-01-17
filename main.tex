@@ -40,16 +40,19 @@
 	urlcolor=magenta!70!black,
 }
 
+\setoperatorfont\symsf
+
 \newcommand{\ttype}{\texttt{type}}
 \newcommand{\mquote}[1]{\ensuremath{\text{`}#1\text{'}}}
 \newcommand{\symmdiff}{\mathrel{\raisebox{1pt}{\( \mathsmaller\triangle \)}}}
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\ran}{\operatorname{ran}}
 \newcommand{\im}{\operatorname{im}}
-\newcommand{\pr}{\symsf{pr}}
-\newcommand{\LS}{\operatorname{\symsf{LS}}}
-\newcommand{\supp}{\operatorname{\symsf{supp}}}
-\newcommand{\typed}{\operatorname{\symsf{typed}}}
+\newcommand{\pr}{\operatorname{pr}}
+\newcommand{\LS}{\operatorname{LS}}
+\newcommand{\NL}{\operatorname{NL}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\typed}{\operatorname{typed}}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[section]
@@ -85,8 +88,9 @@ The mathematical background expected in subsequent sections will be limited to b
 We will then give an outline of the proof in \cref{sec:outline}.
 In \cref{sec:structure}, we introduce some basic preliminaries, and explicitly describe the structure within which our model will reside.
 The objects of our model will be constructed in \cref{sec:construction}.
+We then show the main technical theorem, the \emph{freedom of action theorem}, in \cref{sec:foa}.
 
-All proofs given in \cref{sec:structure,sec:construction} are verified by the theorem prover Lean.
+All proofs given in \cref{sec:structure,sec:construction,sec:foa} are verified by the theorem prover Lean.
 
 \emph{
 	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
@@ -109,6 +113,10 @@ All proofs given in \cref{sec:structure,sec:construction} are verified by the th
 \section{Constructing the types}
 \label{sec:construction}
 \input{construction.tex}
+
+\section{Freedom of action}
+\label{sec:foa}
+\input{foa.tex}
 
 \printbibliography
 
