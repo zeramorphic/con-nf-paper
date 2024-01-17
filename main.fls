@@ -345,6 +345,9 @@ INPUT structure.tex
 INPUT ./construction.tex
 INPUT ./construction.tex
 INPUT construction.tex
+INPUT ./foa.tex
+INPUT ./foa.tex
+INPUT foa.tex
 INPUT build/main.aux
 INPUT build/main.out
 INPUT build/main.out
