@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  17 JAN 2024 13:38
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  17 JAN 2024 17:55
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1396,12 +1396,12 @@ nality $[]$. This follows from remarks [][]4.7[][] and remark [][]4.11[][].
  []
 
 [8]) (./construction.tex [9] [10] [11] [12] [13] [14]) (./foa.tex [15] [16]
-[17] [18] [19] [20])
+[17] [18] [19] [20] [21])
 
 Package biblatex Warning: No driver for 'masterthesis'.
 (biblatex)                Using fallback driver on input line 137.
 
-
+[22]
 Overfull \hbox (7.44597pt too wide) in paragraph at lines 138--138
 []\TU/STIXTwoText(0)/m/n/10 Sky Wilshaw et al. \TU/STIXTwoText(0)/m/it/10 The c
 onsistency of New Foundations\TU/STIXTwoText(0)/m/n/10 . 2022–2023. \TU/STIXTwo
@@ -1409,7 +1409,7 @@ Text(0)/m/sc/10 url\TU/STIXTwoText(0)/m/n/10 : [][]$[][][][][] [] [] [] [][][][
 ][][][][][][] [][]
  []
 
-[21] (build/main.aux)
+[23] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -1425,12 +1425,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37310 strings out of 474832
- 765151 string characters out of 5761486
- 1945106 words of memory out of 5000000
- 58878 multiletter control sequences out of 15000+600000
+ 37318 strings out of 474832
+ 765371 string characters out of 5761486
+ 1948106 words of memory out of 5000000
+ 58886 multiletter control sequences out of 15000+600000
  561442 words of font info for 90 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,15n,135p,1273b,4992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (21 pages, 670304 bytes).
+Output written on build/main.xdv (23 pages, 725736 bytes).
