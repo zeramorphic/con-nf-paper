@@ -19,6 +19,80 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{leantt}{masterthesis}{}
+      \name{author}{1}{}{%
+        {{hash=c19316840220cbed4d3428e3d1173261}{%
+           family={Carneiro},
+           familyi={C\bibinitperiod},
+           given={Mario},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Carnegie Mellon University}%
+      }
+      \strng{namehash}{c19316840220cbed4d3428e3d1173261}
+      \strng{fullhash}{c19316840220cbed4d3428e3d1173261}
+      \strng{bibnamehash}{c19316840220cbed4d3428e3d1173261}
+      \strng{authorbibnamehash}{c19316840220cbed4d3428e3d1173261}
+      \strng{authornamehash}{c19316840220cbed4d3428e3d1173261}
+      \strng{authorfullhash}{c19316840220cbed4d3428e3d1173261}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Type Theory of Lean}
+      \field{year}{2019}
+      \verb{urlraw}
+      \verb https://github.com/digama0/lean-type-theory/releases
+      \endverb
+      \verb{url}
+      \verb https://github.com/digama0/lean-type-theory/releases
+      \endverb
+    \endentry
+    \entry{mathlib2020}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3cce5a80b8277a26ec3bc0711ca4304d}{%
+           family={Community},
+           familyi={C\bibinitperiod},
+           given={The},
+           giveni={T\bibinitperiod},
+           prefix={mathlib},
+           prefixi={m\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, LA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \strng{fullhash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \strng{bibnamehash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \strng{authorbibnamehash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \strng{authornamehash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \strng{authorfullhash}{3cce5a80b8277a26ec3bc0711ca4304d}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs}
+      \field{isbn}{9781450370974}
+      \field{series}{CPP 2020}
+      \field{title}{The Lean Mathematical Library}
+      \field{year}{2020}
+      \field{pages}{367\bibrangedash 381}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1145/3372885.3373824
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3372885.3373824
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3372885.3373824
+      \endverb
+      \keyw{formal proof,formal library,Lean,mathlib}
+    \endentry
     \entry{hailperin-finite-axiomatisation}{article}{}
       \name{author}{1}{}{%
         {{hash=e3fe4418aa30ff62ebec4882e1e914b1}{%
@@ -114,6 +188,52 @@
       \endverb
       \verb{url}
       \verb http://www.jstor.org/stable/2275515
+      \endverb
+    \endentry
+    \entry{lean}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=04ffe79f369bf9f16e299fcf4f98e780}{%
+           family={Moura},
+           familyi={M\bibinitperiod},
+           given={Leonardo\bibnamedelima de},
+           giveni={L\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+        {{hash=f0eef0e3dc5cf232456ab1f5460e2ef4}{%
+           family={Ullrich},
+           familyi={U\bibinitperiod},
+           given={Sebastian},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{5c705fa7f3300303f20110861a4c6130}
+      \strng{fullhash}{5c705fa7f3300303f20110861a4c6130}
+      \strng{bibnamehash}{5c705fa7f3300303f20110861a4c6130}
+      \strng{authorbibnamehash}{5c705fa7f3300303f20110861a4c6130}
+      \strng{authornamehash}{5c705fa7f3300303f20110861a4c6130}
+      \strng{authorfullhash}{5c705fa7f3300303f20110861a4c6130}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Lean 4 is a reimplementation of the Lean interactive theorem prover (ITP) in Lean itself. It addresses many shortcomings of the previous versions and contains many new features. Lean 4 is fully extensible: users can modify and extend the parser, elaborator, tactics, decision procedures, pretty printer, and code generator. The new system has a hygienic macro system custom-built for ITPs. It contains a new typeclass resolution procedure based on tabled resolution, addressing significant performance problems reported by the growing user base. Lean 4 is also an efficient functional programming language based on a novel programming paradigm called functional but in-place. Efficient code generation is crucial for Lean users because many write custom proof automation procedures in Lean itself.}
+      \field{booktitle}{Automated Deduction – CADE 28: 28th International Conference on Automated Deduction, Virtual Event, July 12–15, 2021, Proceedings}
+      \field{isbn}{978-3-030-79875-8}
+      \field{title}{The Lean 4 Theorem Prover and Programming Language}
+      \field{year}{2021}
+      \field{pages}{625\bibrangedash 635}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/978-3-030-79876-5_37
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-79876-5_37
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-79876-5_37
       \endverb
     \endentry
     \entry{quine-nf}{article}{}
