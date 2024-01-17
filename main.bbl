@@ -86,10 +86,10 @@
       \verb 10.1145/3372885.3373824
       \endverb
       \verb{urlraw}
-      \verb https://doi.org/10.1145/3372885.3373824
+      \verb https://github.com/leanprover-community/mathlib4
       \endverb
       \verb{url}
-      \verb https://doi.org/10.1145/3372885.3373824
+      \verb https://github.com/leanprover-community/mathlib4
       \endverb
       \keyw{formal proof,formal library,Lean,mathlib}
     \endentry

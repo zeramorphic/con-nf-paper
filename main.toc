@@ -24,3 +24,4 @@
 \contentsline {subsection}{\numberline {6.2}Partial permutations}{15}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Hypotheses}{16}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Dependency of addresses}{17}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Approximations and actions}{19}{subsection.6.5}%
