@@ -1,4 +1,5 @@
 \documentclass{article}
+\setcounter{tocdepth}{2}
 
 \usepackage[a4paper]{geometry}
 \usepackage{parskip}
@@ -12,7 +13,8 @@
 	BoldItalicFont=*-BoldItalic,
 	]{STIXTwoText}
 \setmathfont[Path=fonts/]{STIXTwoMath-Regular}
-\setmonofont[Path=fonts/, Scale=MatchLowercase]{FiraCode-Regular}
+\setmathfont[Path=fonts/,range=\star]{TeXGyrePagellaMath}
+\setmonofont[Path=fonts/,Scale=MatchLowercase]{FiraCode-Regular}
 
 \usepackage[backend=biber]{biblatex}
 \addbibresource{refs.bib}

@@ -193,7 +193,7 @@ As described in \cref{ss:foa:outline}, we will define a well-founded relation on
 We will define a partial order on addresses by defining \( < \) to be the transitive closure of \( \prec \).
 Evidently, the relation \( < \) is also well-founded.
 
-\subsection{Approximations and actions}
+\subsection{Approximations and the theorem statement}
 
 We can now define one notion of a partially defined map of addresses.
 
@@ -243,6 +243,8 @@ We can now state the freedom of action theorem.
         \item As described in \cref{ss:outline:size}, we will later use the freedom of action theorem to show that the set of \( \alpha \)-objects has cardinality exactly \( \mu \).
     \end{enumerate}
 \end{remarks}
+
+\subsection{Actions}
 
 We will now introduce another form of data that can be used as the input to the freedom of action theorem.
 
@@ -372,11 +374,92 @@ We now briefly describe how near-litter actions are composed to form structural 
     Suppose that for every \( \beta \)-extended index \( A \), the near-litter action \( \psi_A \) maps \( A \)-flexible litters to near-litters that are near \( A \)-flexible litters.
     Then there is a free \( \beta \)-structural approximation such that if \( \varphi \) exactly approximates \( \pi \), we have
     \begin{enumerate}
-        \item if \( a \in \dom \psi_A^A \), then \( \psi_A(a) = \pi_A(a) \);
-        \item if \( L \in \dom \psi_A^L \) is \( A \)-flexible, then \( \psi_A(L)^\circ = \pi_A(L) \); and
-        \item if \( L \in \dom \psi_A^L \) and \( \psi_A(L)^\circ = \pi_A(L) \), then \( \psi(L) = \pi_A(\NL(L)) \).
+        \item if \( a \in \dom{(\psi_A)^A} \), then \( \psi_A(a) = \pi_A(a) \);
+        \item if \( L \in \dom{(\psi_A)^L} \) is \( A \)-flexible, then \( \psi_A(L)^\circ = \pi_A(L) \); and
+        \item if \( L \in \dom{(\psi_A)^L} \) and \( \psi_A(L)^\circ = \pi_A(L) \), then \( \psi(L) = \pi_A(\NL(L)) \).
     \end{enumerate}
 \end{proposition}
 \begin{proof}
     Follows directly from \cref{lem:foa:precise,lem:foa:nl_action_to_approx}.
 \end{proof}
+
+\subsection{Building the permutation}
+
+We now begin to prove the freedom of action theorem.
+Fix a proper type index \( \beta \leq \alpha \) and a \( \beta \)-structural approximation \( \varphi \).
+We may assume by induction on \( \lambda \) that the freedom of action holds for all proper type indices \( \gamma < \beta \); we will use this in \cref{ss:foa:inflexible_coe}.
+
+We will construct the functions \( \rho^\star_A \) which map atoms to atoms, litters to litters, and near-litters to near-litters, with the intent that they will be the derivatives of an allowable permutation \( \rho \).
+We will proceed by recursion along the dependency relation from \cref{def:dependency}; at each stage \( (A, x) \), we assume that we know the value of \( \rho^\star_B(y) \) for all \( (B, y) \prec (A, x) \), and compute \( \rho^\star_A(x) \).
+This construction will take a different form depending on what kind of address \( (A, x) \) is.
+In particular, if \( x = \NL(L) \) is a near-litter that came from a litter, we will break the derivation into two stages: we will first compute \( \rho^\star_A(L) \), and then calculate \( \rho^\star_A(\NL(L)) \) separately.
+
+\subsubsection{Atoms}
+
+Suppose we are at stage \( (A, a) \) where \( a \) is an atom.
+If \( a \) was already assigned by \( \varphi \), we simply define
+\[ \rho^\star_A(a) = \varphi_A(a) \]
+Suppose \( a \notin \dom (\varphi_A)^A \).
+For each extended index \( A \) and litter \( L \), the set \( L^- = L \setminus \dom (\varphi_A)^A \) is a near-litter, near the litter \( L \).
+For each pair of litters \( L_1, L_2 \), we choose in advance a bijection \( \pi_{L_1,L_2} \) between \( L_1^- \) and \( L_2^- \).
+We use this bijection now to define
+\[ \rho^\star_A(a) = \pi_{a^\circ,\rho^\star_A(a^\circ)}(a) \]
+
+\subsubsection{Flexible litters}
+\label{ss:foa:flexible}
+
+Suppose we are at stage \( (A, \NL(L)) \) where \( L \) is \( A \)-flexible.
+If \( L \in \dom (\varphi_A)^L \), then we must define
+\[ \rho^\star_A(L) = \varphi_A(L)^\circ \]
+Otherwise, we will define that
+\[ \rho^\star_A(L) = L \]
+
+\subsubsection{Inflexible litters from proper levels}
+\label{ss:foa:inflexible_coe}
+
+Suppose we are at stage
+\[ x = (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
+where \( \delta, \varepsilon < \gamma \) are distinct proper type indices, \( A \) is a path \( \beta \rightsquigarrow \gamma \), and \( t \in \tau_\delta \).
+We need to enforce the coherence condition that
+\[ \rho_{(A \gg (\gamma > \varepsilon > \bot))}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho_{(A \gg (\gamma > \delta))}(t)) \]
+Thus, we need to compute the right-hand side of this equation.
+However, we do not know if \( \rho^\star \) happens to come from an allowable permutation, so there is no way to apply it to an arbitrary tangle \( t \).
+To deal with this, we invoke the freedom of action theorem at level \( \delta \) to produce a new allowable permutation \( \rho' \) with the same action on \( t \) as \( \rho_{(A \gg (\gamma > \delta))} \) will eventually be shown to have.
+
+The values of \( \rho^\star \) at all addresses that \( x \) depends on can be assembled into a \( \beta \)-structural action \( \psi \).
+We will consider its derivative \( \psi_{(A \gg (\gamma > \delta))} \), which is a \( \delta \)-strutural action.
+Outside of this recursion, we will be able to show that \( \psi_{(A \gg (\gamma > \delta))} \) is lawful and maps flexible litters to flexible litters as required for \cref{lem:foa:struct_action_to_approx}; for now, if it turned out not to be lawful, we would simply assign
+\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(t) \]
+but this case will never actually occur.
+Build a \( \delta \)-structural approximation from \( \psi_{(A \gg (\gamma > \delta))} \) as in \cref{lem:foa:struct_action_to_approx}, and apply the freedom of action theorem at level \( \delta < \gamma \leq \beta \) to obtain a \( \delta \)-allowable permutation \( \rho' \).
+We will later be able to show that \( \rho' \) agrees with \( \rho^\star \) on all elements of the support of \( t \).
+We set
+\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho'(t)) \]
+
+\subsubsection{Inflexible litters from the base level}
+\label{ss:foa:inflexible_bot}
+
+Suppose we are at stage
+\[ x = (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
+where \( \varepsilon < \gamma \) is a proper type index, \( A \) is a path \( \beta \rightsquigarrow \gamma \), and \( a \) is an atom.
+We must enforce
+\[ \rho_{(A \gg (\gamma > \varepsilon > \bot))}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho_{(A \gg (\gamma > \bot))}(a)) \]
+so we have no choice but to define
+\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho^\star_{(A \gg (\gamma > \bot))}(a)) \]
+
+\subsubsection{Near-litters}
+
+Suppose we are at stage \( (A, N) \) where \( N \) is a near-litter.
+Either by inductive hypothesis or by \cref{ss:foa:flexible,ss:foa:inflexible_coe,ss:foa:inflexible_bot}, we know the value of \( \rho^\star_A(N^\circ) \).
+We then define
+\[ \pr_2 (\rho^\star_A(N)) = \left( \rho^\star_A(N^\circ)^- \cup {\psi_A} '' \left(N \cap \dom{(\psi_A)^A}\right) \right) \symmdiff \left\{ \rho^\star_A(a) \mid a \in (N \symmdiff \LS(N^\circ)) \setminus \dom{(\psi_A)^A} \right\} \]
+In the case that \( N = \NL(L) \), this simplifies to
+\[ \pr_2 (\rho^\star_A(\NL(L))) = \rho^\star_A(L)^- \cup {\psi_A} '' \left(\LS(L) \cap \dom{(\psi_A)^A}\right) \]
+This definition has the property that
+\[ \rho^\star_A(N) = \rho^\star_A(\NL(N^\circ)) \symmdiff {\rho^\star_A} '' (N \symmdiff \LS(N^\circ)) \]
+and that for any two distinct litters \( L_1, L_2 \), the images \( \rho^\star_A(\NL(L_1)) \) and \( \rho^\star_A(\NL(L_2)) \) are disjoint.
+
+\subsection{Injectivity}
+
+We have fully described \( \rho^\star \); we will now show that the \( \rho^\star_A \) are near-litter permutations.
+The first step in this process is proving injectivity of the \( \rho^\star_A \).
