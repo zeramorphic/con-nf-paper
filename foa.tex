@@ -191,3 +191,114 @@ As described in \cref{ss:foa:outline}, we will define a well-founded relation on
 
 We will define a partial order on addresses by defining \( < \) to be the transitive closure of \( \prec \).
 Evidently, the relation \( < \) is also well-founded.
+
+\subsection{Approximations and actions}
+
+We can now define one notion of a partially defined map of addresses.
+
+\begin{definition}
+    A \emph{near-litter approximation} is a pair \( \varphi = (\varphi^A, \varphi^L) \) where \( \varphi^A \) is a partial permutation of atoms, \( \varphi^L \) is a partial permutation of litters, and the domain of \( \varphi^A \) contains only a small number of atoms associated to a given litter \( L \).
+\end{definition}
+
+For brevity, we will often suppress the superscripts on approximations.
+
+\begin{definition}
+    A near-litter approximation \( \varphi \) is said to \emph{approximate} a near-litter permutation \( \pi \) when they agree at all atoms and litters at which \( \varphi \) is defined.
+    \[ \forall a \in \dom \varphi^A.\, \pi(a) = \varphi(a);\quad \forall L \in \dom \varphi^L.\, \pi(L) = \varphi(L) \]
+    An atom \( a \) is said to be \emph{exceptional} in a near-litter permutation \( \pi \) if \[ (\pi(a))^\circ \neq \pi(a^\circ) \quad\text{or}\quad (\pi^{-1}(a))^\circ \neq \pi^{-1}(a^\circ) \]
+    We say that \( \varphi \) \emph{exactly} approximates \( \pi \) if it approximates \( \pi \), and in addition, all exceptional atoms in \( \pi \) are in \( \dom \varphi^A \).
+\end{definition}
+
+\begin{remark}
+    If \( \varphi \) exactly approximates \( \pi \), we can determine the exact image of \( \pi(\NL(L)) \) for any litter \( L \in \dom \varphi^L \) from data in \( \varphi \).
+    It can be shown directly that every near-litter approximation exactly approximates some near-litter permutation, although we will not need this fact.
+\end{remark}
+
+In the same way that structural permutations were built up from near-litter permutations in \cref{def:struct_perm}, we will build up structural approximations from near-litter approximations.
+
+\begin{definition}
+    Let \( \beta \) be a type index.
+    A \emph{\( \beta \)-structural approximation} \( \varphi \) assigns a near-litter approximation to each \( \beta \)-extended index.
+    For a given \( \beta \)-extended index \( A \), the assigned near-litter permutation is denoted \( \varphi_A \).
+    A \( \beta \)-structural approximation \( \varphi \) is said to \emph{(exactly) approximate} a \( \beta \)-structural permutation \( \pi \) if \( \varphi_A \) (exactly) approximates \( \pi_A \) for all \( \beta \)-extended indices \( A \).
+    We say that \( \beta \) is \emph{free} if for all \( \beta \)-extended indices \( A \), the only litters that appear in \( \dom (\varphi_A)^L \) are \( A \)-flexible.
+\end{definition}
+
+We can now state the freedom of action theorem.
+
+\begin{theorem}[freedom of action]
+    \label{thm:foa}
+    Let \( \beta \leq \alpha \) be a proper type index.
+    Then any free \( \beta \)-structural approximation \( \varphi \) exactly approximates some \( \beta \)-allowable permutation \( \rho \).
+\end{theorem}
+
+\begin{remarks}
+    \begin{enumerate}
+        \item This theorem extends the fact that any near-litter approximation exactly approximates some near-litter permutation; in fact, this statement is precisely freedom of action for \( \beta = \bot \).
+        \item If \( L \) is \( A \)-inflexible, then the value of \( \rho_A(L) \) depends on a the value of a certain tangle under \( \rho \), so we may not choose it freely.
+        The freedom of action theorem states that this is the only restriction to the images of litters under allowable permutations.
+        \item The theorem is phrased in terms of approximations, although this is somewhat arbitrary.
+        The purpose of the theorem is to construct allowable permutations, but the data we need to encapsulate in an allowable permutation may come in various different forms.
+        \item As described in \cref{ss:outline:size}, we will later use the freedom of action theorem to show that the set of \( \alpha \)-objects has cardinality exactly \( \mu \).
+    \end{enumerate}
+\end{remarks}
+
+We will now introduce another form of data that can be used as the input to the freedom of action theorem.
+
+\begin{definition}
+    A \emph{near-litter action} is a pair \( \psi = (\psi^A, \psi^L) \) where \( \psi^A \) is a partial function from the set of atoms to itself, \( \psi^L \) is a partial function from the set of litters to the set of near-litters, and both \( \psi^A \) and \( \psi^L \) have small domain.
+\end{definition}
+
+As with approximations, we will suppress the superscripts when possible.
+
+\begin{remarks}
+    \begin{enumerate}
+        \item The function \( \psi^L \) encapsulates the mapping \( L \mapsto \pi(\NL(L)) \), whereas for near-litter approximations \( \varphi \), the function \( \varphi^L \) encapsulates \( L \mapsto \pi(L) \).
+        In this way, near-litter actions keep track of more data about where a litter is sent under a permutation, since we know precisely where its set of atoms is sent.
+        \item The appropriate notion of approximating a permutation here is that
+        \[ \forall a \in \dom \psi^A.\, \pi(a) = \psi(a);\quad \forall L \in \dom \psi^L.\, \pi(\NL(L)) = \psi(L) \]
+        We need no distinction between approximating and exactly approximating since near-litter actions already capture precise images of litters.
+        % TODO: I think this should be in Lean!
+        % We can use this idea to define the data format we need for support shenanigans.
+        Not every near-litter action approximate some near-litter permutation, because we may have a situation where \( a \in \dom \psi^A, a^\circ \in \dom \psi^L \) but \( \psi(a) \notin \psi(a^\circ) \).
+        This pathology, as well as injectivity, turns out to be the only way in which near-litter actions can fail to approximate some near-litter permutation.
+        We therefore make the following definition.
+    \end{enumerate}
+\end{remarks}
+
+\begin{definition}
+    A near-litter action \( \psi \) is said to be \emph{lawful} if
+    \begin{enumerate}
+        \item if \( a_1, a_2 \) are atoms and \( \psi(a_1) = \psi(a_2) \) then \( a_1 = a_2 \);
+        \item if \( L_1, L_2 \) are litters and \( \psi(L_1) \cap \psi(L_2) \neq \varnothing \) then \( L_1 = L_2 \);
+        \item if \( a \in \dom \psi^A \) and \( L \in \dom \psi^L \), then \( a^\circ = L \) if and only if \( \psi(a) \in \psi(L) \).
+    \end{enumerate}
+\end{definition}
+
+We now describe a procedure for converting lawful near-litter actions into near-litter approximations.
+This process has two steps: expanding the near-litter action so that it is \emph{precise}, and then completing it into an approximation.
+
+\begin{definition}
+    \label{def:precise}
+    A near-litter action \( \psi \) is said to be \emph{precise} if for all \( L \in \dom \psi^L \),
+    \begin{enumerate}
+        \item \( \psi(L) \symmdiff \LS(\psi(L)^\circ) \subseteq \ran \psi^A \);
+        \item \( \ran \psi^A \cap \LS(L) \subseteq \dom \psi^A \);
+        \item \( \dom \psi^A \cap \psi(L) \subseteq \ran \psi^A \).
+    \end{enumerate}
+\end{definition}
+
+These are precisely the requirements that our completion process needs in order to compute complete orbits for all atoms and litters.
+
+\begin{lemma}
+    Any lawful near-litter action can be extended to a precise near-litter action with the same map on litters.
+\end{lemma}
+This proof is explicit, but unenlightening.
+\begin{proof}
+    Let \( \psi \) be a near-litter action.
+    Call a litter \emph{banned} for \( \psi \) if it contains any atom in the domain or range of \( \psi^A \), is in \( \dom \psi^L \), or shares an atom with any near-litter in \( \ran \psi^L \).
+    Observe that there are only a small amount of banned litters for a given \( \psi \).
+    We will use the unbanned litters to store the extra atoms we need to insert into \( \psi \).
+
+    We will first extend \( \psi \) so that it satisfies condition (i) in \cref{def:precise}.
+\end{proof}
