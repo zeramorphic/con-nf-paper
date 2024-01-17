@@ -17,6 +17,7 @@ We will then demonstrate that the map as defined is a permutation, and fulfils t
 Our proof for this theorem will not depend on the construction given in \cref{sec:construction}, but rather on an explicit list of properties that the tangles at each level must satisfy for the theorem to hold; this is discussed in \cref{ss:foa:hypotheses}.
 
 \subsection{Partial permutations}
+\label{ss:foa:partial_perm}
 
 In the proof of freedom of action, we will often have injective functions that we wish to turn into permutations.
 In this subsection, we describe a sufficient condition for such a permutation to exist.
@@ -275,7 +276,7 @@ As with approximations, we will suppress the superscripts when possible.
     \end{enumerate}
 \end{definition}
 
-We now describe a procedure for converting lawful near-litter actions into near-litter approximations.
+We now describe a procedure for converting lawful near-litter actions into free near-litter approximations.
 This process has two steps: expanding the near-litter action so that it is \emph{precise}, and then completing it into an approximation.
 
 \begin{definition}
@@ -291,6 +292,7 @@ This process has two steps: expanding the near-litter action so that it is \emph
 These are precisely the requirements that our completion process needs in order to compute complete orbits for all atoms and litters.
 
 \begin{lemma}
+    \label{lem:foa:precise}
     Any lawful near-litter action can be extended to a precise near-litter action with the same map on litters.
 \end{lemma}
 This proof is explicit, but unenlightening.
@@ -301,4 +303,80 @@ This proof is explicit, but unenlightening.
     We will use the unbanned litters to store the extra atoms we need to insert into \( \psi \).
 
     We will first extend \( \psi \) so that it satisfies condition (i) in \cref{def:precise}.
+    Suppose that \( a \in \LS(\psi(L)^\circ) \setminus \psi(L) \); we need to allocate a preimage for \( a \) under \( \psi \).
+    Choose an atom \( a' \) in an unbanned litter, and add to \( \psi^A \) that \( \psi(a') = a \).
+    The addition of \( a' \) to \( \psi \) does not create more problems with satisfying \cref{def:precise}, since \( a' \) is part of an unbanned litter.
+    There are only a small amount of atoms in such circumstances, so they can all be added to the same unbanned litter for convenience.
+
+    Now suppose that \( a \in \psi(L) \setminus \LS(\psi(L)^\circ) \).
+    We need to allocate a preimage for \( a \) under \( \psi \) that lies in \( L \).
+    Since there are only a small amount of atoms in question, and only a small amount of atoms in \( L \) already appear in \( \dom \psi^A \), we can fit all necessary preimages inside \( L \).
+    Again, this does not create any more problematic atoms that we must deal with.
+    Performing this process for every \( L \in \dom \psi^L \), we obtain a new near-litter action \( \psi' \) which satisfies condition (i) of \cref{def:precise} and has the same litter map as \( \psi \).
+    One can easily check that \( \psi' \) is lawful.
+
+    We now extend \( \psi' \) so that it satisfies conditions (ii) and (iii), while not disturbing condition (i).
+    To do this, we need to fill in certain images and preimages of atoms.
+    First, use the construction in \cref{ss:foa:partial_perm} to produce a partial permutation of litters \( \pi \) extending \( L \mapsto \psi'(L)^\circ \).
+    We require that all extra litters used to make \( \dom \pi \) are unbanned; this can be arranged since we have a choice of \( \mu \) unbanned litters to use.
+    We then extend \( \pi \) to be defined on all banned litters by setting \( \pi(L) = L \) in this case; the resulting map is clearly still a partial permutation.
+    This map will be used to control the litters inside which the new images and preimages of atoms under \( \psi' \) will be allocated.
+    For now, we will describe only the allocation of forward images; backward images work entirely symmetrically.
+
+    Inside each litter, we reserve enough unused atoms to correspond with all possible pairs \( (n, a) \) where \( a \in \ran \psi^A \setminus \dom \psi^A \).
+    We then define that an atom \( a \in \ran \psi^A \setminus \dom \psi^A \) is mapped to the atom corresponding to \( (0, a) \) in the litter \( \pi(a^\circ) \).
+    If \( a' \) is an atom corresponding to \( (n, a) \) in the litter \( \pi^{n+1}(a^\circ) \), then it is mapped to the atom corresponding to \( (n+1, a) \) in the litter \( \pi^{n+2}(a^\circ) \).
+    This behaviour ensures that we our extra atoms do not violate condition (i) of \cref{def:precise}.
+    Note that most atoms corresponding to one of the pairs \( (n, a) \) will not have an image defined.
+    This completes the description of the forward orbits; after filling the backward orbits analogously, the resulting near-litter action \( \psi'' \) can be seen to be precise and lawful.
+\end{proof}
+
+We now describe the method for turning a precise action into a free approximation.
+
+\begin{lemma}
+    \label{lem:foa:nl_action_to_approx}
+    Let \( \psi \) be a precise lawful near-litter action and let \( A \) be a \( \beta \)-extended index.
+    Suppose that \( \psi \) maps \( A \)-flexible litters to near-litters that are near \( A \)-flexible litters.
+    Then there is a near-litter approximation \( \varphi \) whose litter map contains only \( A \)-flexible litters, such that if \( \varphi \) exactly approximates \( \pi \), we have
+    \begin{enumerate}
+        \item if \( a \in \dom \psi^A \), then \( \psi(a) = \pi(a) \);
+        \item if \( L \in \dom \psi^L \) is \( A \)-flexible, then \( \psi(L)^\circ = \pi(L) \); and
+        \item if \( L \in \dom \psi^L \) and \( \psi(L)^\circ = \pi(L) \), then \( \psi(L) = \pi(\NL(L)) \).
+    \end{enumerate}
+\end{lemma}
+This lemma provides exactly what is needed to use the freedom of action theorem with actions instead of approximations directly.
+We will shortly restate this lemma in a more useful form.
+\begin{proof}
+    First, consider the restriction of \( \psi^L \) to the \( A \)-flexible litters.
+    This map can be completed to a partial permutation \( \varphi^L \) as in \cref{ss:foa:partial_perm}, where any added litters are flexible and unbanned; there is a supply of \( \mu \) such litters, so this can always be arranged.
+    We similarly complete \( \psi^A \) into a partial permutation \( \varphi^A \); the added atoms are chosen to belong to another unbanned litter.
+    This yields a near-litter approximation \( \varphi = (\varphi^A, \varphi^L) \).
+    We claim that this satisfies the conclusion of the lemma.
+    It is clear that (i) and (ii) hold.
+    Part (iii) can be shown by checking all possible cases of where an atom can come from and be sent; this requires the full strength of the hypothesis that \( \psi \) was precise.
+\end{proof}
+
+This concludes the main work of this subsection.
+We now briefly describe how near-litter actions are composed to form structural actions, and combine \cref{lem:foa:precise,lem:foa:nl_action_to_approx} to make an easy way to apply freedom of action to structural actions.
+
+\begin{definition}
+    Let \( \beta \) be a type index.
+    A \emph{\( \beta \)-structural action} \( \psi \) assigns a near-litter action to each \( \beta \)-extended index.
+    For a given \( \beta \)-extended index \( A \), the assigned near-litter action is denoted \( \psi_A \).
+    We say that \( \beta \) is \emph{lawful} if for all \( \beta \)-extended indices \( A \), the near-litter action \( \psi_A \) is lawful.
+\end{definition}
+
+\begin{proposition}[converting actions to approximations]
+    \label{lem:foa:struct_action_to_approx}
+    Let \( \psi \) be a lawful \( \beta \)-structural action.
+    Suppose that for every \( \beta \)-extended index \( A \), the near-litter action \( \psi_A \) maps \( A \)-flexible litters to near-litters that are near \( A \)-flexible litters.
+    Then there is a free \( \beta \)-structural approximation such that if \( \varphi \) exactly approximates \( \pi \), we have
+    \begin{enumerate}
+        \item if \( a \in \dom \psi_A^A \), then \( \psi_A(a) = \pi_A(a) \);
+        \item if \( L \in \dom \psi_A^L \) is \( A \)-flexible, then \( \psi_A(L)^\circ = \pi_A(L) \); and
+        \item if \( L \in \dom \psi_A^L \) and \( \psi_A(L)^\circ = \pi_A(L) \), then \( \psi(L) = \pi_A(\NL(L)) \).
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    Follows directly from \cref{lem:foa:precise,lem:foa:nl_action_to_approx}.
 \end{proof}
