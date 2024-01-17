@@ -7,12 +7,12 @@
 \contentsline {subsection}{\numberline {3.1}Model parameters}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Atoms and permutations}{5}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Construction of each type}{5}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Constraining the size of each type}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Constraining the size of each type}{6}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Finishing the induction}{6}{subsection.3.5}%
 \contentsline {section}{\numberline {4}The underlying structure}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Atoms, litters, and near-litters}{6}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Higher type structure}{7}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Addresses and supports}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.3}Addresses and supports}{8}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Constructing the types}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Hypotheses}{9}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}The fuzz map}{10}{subsection.5.2}%
@@ -21,7 +21,15 @@
 \contentsline {subsection}{\numberline {5.5}Comments}{14}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Freedom of action}{15}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Outline}{15}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Partial permutations}{15}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.2}Partial permutations}{16}{subsection.6.2}%
 \contentsline {subsection}{\numberline {6.3}Hypotheses}{16}{subsection.6.3}%
 \contentsline {subsection}{\numberline {6.4}Dependency of addresses}{17}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}Approximations and actions}{19}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.5}Approximations and the theorem statement}{19}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Actions}{20}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Building the permutation}{22}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Atoms}{23}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Flexible litters}{23}{subsubsection.6.7.2}%
+\contentsline {subsubsection}{\numberline {6.7.3}Inflexible litters from proper levels}{23}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.4}Inflexible litters from the base level}{24}{subsubsection.6.7.4}%
+\contentsline {subsubsection}{\numberline {6.7.5}Near-litters}{24}{subsubsection.6.7.5}%
+\contentsline {subsection}{\numberline {6.8}Injectivity}{24}{subsection.6.8}%

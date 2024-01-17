@@ -331,8 +331,8 @@ INPUT build/main.toc
 INPUT build/main.toc
 INPUT build/main.toc
 INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
-OUTPUT build/main.toc
 OUTPUT build/main.xdv
+OUTPUT build/main.toc
 INPUT ./theories.tex
 INPUT ./theories.tex
 INPUT theories.tex
