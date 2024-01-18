@@ -411,6 +411,7 @@ Even though freedom of action only guarantees nice behaviour to flexible litters
 \end{proof}
 
 \subsection{Building the permutation}
+\label{ss:foa:construction}
 
 We now begin to prove the freedom of action theorem.
 Fix a proper type index \( \beta \leq \alpha \) and a free \( \beta \)-structural approximation \( \varphi \).
@@ -637,4 +638,26 @@ We will prove the result for near-litters from the following result on litters.
     \[ (B \gg (\gamma > \delta) \gg \pr_1 z, \pr_2 z) < \left(B \gg (\gamma > \varepsilon > \bot), f_{\delta,\varepsilon}\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) \]
     But since allowable permutations commute with supports, we can deduce \( z \in \supp (\rho^s_{B \gg (\gamma > \delta)})^{-1}(t) \) from the fact that
     \[ \rho^s_{B \gg (\gamma > \delta)}(z) = \rho^\star_{B \gg (\gamma > \delta)}(z) = y \in \supp t \]
+\end{proof}
+
+\subsection{Finishing the proof}
+
+We can now prove the freedom of action theorem, which states the following.
+
+\begin{theorem*}[freedom of action, restatement of \cref{thm:foa}]
+    Let \( \beta \leq \alpha \) be a proper type index.
+    Then any free \( \beta \)-structural approximation \( \varphi \) exactly approximates some \( \beta \)-allowable permutation \( \rho \).
+\end{theorem*}
+\begin{proof}
+    We proceed by induction on \( \beta \).
+    Let \( \varphi \) be a free \( \beta \)-structural approximation, and let \( \rho^\star \) be the map as defined in \cref{ss:foa:construction}.
+    For any path \( A : \beta \rightsquigarrow \gamma \), we will say that \( \rho^\star \) is \emph{allowable below \( A \)} if there is a \( \gamma \)-allowable permutation \( \rho \) such that \( \rho^\star_A \) and \( \rho \) agree.
+    We first show that for each \( \beta \)-extended index \( A \), \( \rho^\star \) is allowable below \( A \).
+    But a \( \bot \)-allowable permutation is precisely a near-litter permutation, and each \( \rho^\star_A \) is a permutation of atoms and preserves near-litters as required.
+
+    Now, let \( A : \beta \rightsquigarrow \gamma \) where \( \gamma \) is a proper type index.
+    We show that \( \rho \) is allowable below \( A \) given that it is allowable below \( A \gg (\gamma > \delta) \) for all type indices \( \delta < \gamma \).
+    Hypothesis (v) in \cref{ss:foa:hypotheses} allows us to construct a suitable allowable permutation; it suffices to check the coherence condition, which holds by construction.
+    Hence, by induction on \( \gamma \), \( \rho^\star \) is allowable below every path, and in particular below the empty path, giving a \( \beta \)-allowable permutation \( \rho \) that coincides with \( \rho^\star \) everywhere.
+    One can check that \( \varphi \) exactly aproximates \( \rho \); this is a simple computation.
 \end{proof}
