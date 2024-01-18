@@ -1,9 +1,9 @@
 \contentsline {section}{\numberline {1}Overview}{2}{section.1}%
-\contentsline {section}{\numberline {2}The theories at issue}{2}{section.2}%
+\contentsline {section}{\numberline {2}The theories at issue}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}The simple theory of types}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}New Foundations}{3}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Tangled type theory}{4}{subsection.2.3}%
-\contentsline {section}{\numberline {3}Outline}{4}{section.3}%
+\contentsline {section}{\numberline {3}Outline}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Model parameters}{5}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Atoms and permutations}{5}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Construction of each type}{5}{subsection.3.3}%
@@ -15,10 +15,10 @@
 \contentsline {subsection}{\numberline {4.3}Addresses and supports}{8}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Constructing the types}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Hypotheses}{9}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}The fuzz map}{10}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.2}The fuzz map}{11}{subsection.5.2}%
 \contentsline {subsection}{\numberline {5.3}Codes and clouds}{11}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}Model elements}{13}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Comments}{14}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.5}Comments}{15}{subsection.5.5}%
 \contentsline {section}{\numberline {6}Freedom of action}{15}{section.6}%
 \contentsline {subsection}{\numberline {6.1}Outline}{15}{subsection.6.1}%
 \contentsline {subsection}{\numberline {6.2}Partial permutations}{16}{subsection.6.2}%
@@ -33,3 +33,4 @@
 \contentsline {subsubsection}{\numberline {6.7.4}Inflexible litters from the base level}{24}{subsubsection.6.7.4}%
 \contentsline {subsubsection}{\numberline {6.7.5}Near-litters}{24}{subsubsection.6.7.5}%
 \contentsline {subsection}{\numberline {6.8}Injectivity}{25}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Surjectivity}{27}{subsection.6.9}%
