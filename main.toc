@@ -34,3 +34,4 @@
 \contentsline {subsubsection}{\numberline {6.7.5}Near-litters}{24}{subsubsection.6.7.5}%
 \contentsline {subsection}{\numberline {6.8}Injectivity}{25}{subsection.6.8}%
 \contentsline {subsection}{\numberline {6.9}Surjectivity}{27}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Finishing the proof}{28}{subsection.6.10}%
