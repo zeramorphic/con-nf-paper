@@ -78,10 +78,10 @@ The complete list of hypotheses we will use when proving the freedom of action t
     Let \( \rho \) be a \( \beta \)-allowable permutation, and let \( t \) be a \( \gamma \)-tangle.
     Then
     \[ \rho_{(\beta > \delta > \bot)}(f_{\gamma,\delta}(t)) = f_{\gamma,\delta}(\rho_{(\beta > \gamma)}(t)) \]
-    This is a restatement of equation (\( \ast \)) from \cref{def:allowable}.
+    This is a restatement of equation (\( \ast \)) from \cref{def:allowable}, and is sometimes called the \emph{coherence condition} for allowable permutations.
     \item Conversely, let \( \beta \leq \alpha \) be a type index, and let \( \rho_{(\beta > \gamma)} \) be a \( \gamma \)-allowable permutation for each type index \( \gamma < \beta \).
     Suppose that the \( \rho_{(\beta > \gamma)} \) satisfy the one-step fuzz constraints
-    \[ (\rho_{(\gamma >\delta)})_{(\delta > \bot)}(f_{\gamma,\delta}(t)) = f_{\gamma,\delta}(\rho_{\beta > \gamma}(t)) \]
+    \[ (\rho_{(\gamma >\delta)})_{(\delta > \bot)}(f_{\gamma,\delta}(t)) = f_{\gamma,\delta}(\rho_{(\beta > \gamma)}(t)) \]
     Then we can assemble the \( \rho_{(\beta > \gamma)} \) into a \( \beta \)-allowable permutation; more precisely, there exists an allowable permutation \( \rho \) with one-step derivatives given by the \( \rho_{(\beta > \gamma)} \).
 \end{enumerate}
 
@@ -383,14 +383,41 @@ We now briefly describe how near-litter actions are composed to form structural 
     Follows directly from \cref{lem:foa:precise,lem:foa:nl_action_to_approx}.
 \end{proof}
 
+We will sometimes convert actions to approximations, then convert approximations to allowable permutations using freedom of action.
+Even though freedom of action only guarantees nice behaviour to flexible litters, we can show that any two suitably similar allowable permutations created in this way must agree on arbitrary litters.
+
+\begin{definition}
+    \label{def:exact}
+    Let \( \pi_1, \pi_2 \) be \( \beta \)-structural permutations, and let \( x \) be a \( \beta \)-address.
+    We say that \( \pi_1 \) and \( \pi_2 \) are \emph{exact before \( x \)} if:
+    \begin{enumerate}
+        \item for all \( (A, a) \leq x \), we have \( (\pi_1)_A(a) = (\pi_2)_A(a) \);
+        \item for all \( (A, \NL(L)) \leq x \) where \( L \) is \( A \)-flexible, we have \( (\pi_1)_A(L) = (\pi_2)_A(L) \);
+        \item for all \( (A, \NL(L)) \leq x \), if \( (\pi_1)_A(L) = (\pi_2)_A(L) \), then \( (\pi_1)_A(\NL(L)) = (\pi_2)_A(\NL(L)) \).
+    \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+    \label{lem:exact}
+    Let \( \rho_1, \rho_2 \) be \( \beta \)-allowable permutations.
+    If \( \rho_1, \rho_2 \) are exact before \( x \), then \( \rho_1(x) = \rho_2(x) \).
+\end{lemma}
+\begin{proof}
+    We prove this by induction on \( x \) along the dependency relation.
+    If \( x = (A, a) \) is an atom address, the conclusion holds by part (i) of \cref{def:exact}.
+    If \( x = (A, N) \) is a near-litter address with \( N \neq \NL(N^\circ) \), we are done immediately by applying the inductive hypothesis.
+    If \( x = (A, \NL(L)) \) where \( L \) is a litter, we use part (iii) of \cref{def:exact} to reduce to proving \( (\rho_1)_A(L) = (\rho_2)_A(L) \).
+    If \( L \) is \( A \)-flexible, the result holds by (ii), and if \( L \) is \( A \)-inflexible, the result holds by the coherence condition on allowable permutations.
+\end{proof}
+
 \subsection{Building the permutation}
 
 We now begin to prove the freedom of action theorem.
-Fix a proper type index \( \beta \leq \alpha \) and a \( \beta \)-structural approximation \( \varphi \).
+Fix a proper type index \( \beta \leq \alpha \) and a free \( \beta \)-structural approximation \( \varphi \).
 We may assume by induction on \( \lambda \) that the freedom of action holds for all proper type indices \( \gamma < \beta \); we will use this in \cref{ss:foa:inflexible_coe}.
 
 We will construct the functions \( \rho^\star_A \) which map atoms to atoms, litters to litters, and near-litters to near-litters, with the intent that they will be the derivatives of an allowable permutation \( \rho \).
-We will proceed by recursion along the dependency relation from \cref{def:dependency}; at each stage \( (A, x) \), we assume that we know the value of \( \rho^\star_B(y) \) for all \( (B, y) \prec (A, x) \), and compute \( \rho^\star_A(x) \).
+We will proceed by recursion along the transitive closure of the dependency relation from \cref{def:dependency}; at each stage \( (A, x) \), we assume that we know the value of \( \rho^\star_B(y) \) for all \( (B, y) < (A, x) \), and compute \( \rho^\star_A(x) \).
 This construction will take a different form depending on what kind of address \( (A, x) \) is.
 In particular, if \( x = \NL(L) \) is a near-litter that came from a litter, we will break the derivation into two stages: we will first compute \( \rho^\star_A(L) \), and then calculate \( \rho^\star_A(\NL(L)) \) separately.
 
@@ -426,15 +453,19 @@ Thus, we need to compute the right-hand side of this equation.
 However, we do not know if \( \rho^\star \) happens to come from an allowable permutation, so there is no way to apply it to an arbitrary tangle \( t \).
 To deal with this, we invoke the freedom of action theorem at level \( \delta \) to produce a new allowable permutation \( \rho' \) with the same action on \( t \) as \( \rho_{(A \gg (\gamma > \delta))} \) will eventually be shown to have.
 
-The values of \( \rho^\star \) at all addresses that \( x \) depends on can be assembled into a \( \beta \)-structural action \( \psi \).
-We will consider its derivative \( \psi_{(A \gg (\gamma > \delta))} \), which is a \( \delta \)-strutural action.
-Outside of this recursion, we will be able to show that \( \psi_{(A \gg (\gamma > \delta))} \) is lawful and maps flexible litters to flexible litters as required for \cref{lem:foa:struct_action_to_approx}; for now, if it turned out not to be lawful, we would simply assign
+For a given small set of addresses \( s \), there is a structural action \( \psi^s \) with
+\[ a \in \dom (\psi^s_A)^A \iff (A, a) \in s;\quad L \in \dom (\psi^s_A)^L \iff (A, \NL(L)) \in s \]
+given by \( \rho^\star \) on its domain.
+In particular, we can define
+\[ \psi^x = \psi^s;\quad s = \{ y \mid y < x \} \]
+We will consider its derivative \( \psi^x_{(A \gg (\gamma > \delta))} \), which is a \( \delta \)-strutural action.
+Outside of this recursion, we will be able to show that \( \psi^x_{(A \gg (\gamma > \delta))} \) is lawful and maps flexible litters to flexible litters as required for \cref{lem:foa:struct_action_to_approx}; for now, if it turned out not to be lawful, we would simply assign
 \[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(t) \]
 but this case will never actually occur.
-Build a \( \delta \)-structural approximation from \( \psi_{(A \gg (\gamma > \delta))} \) as in \cref{lem:foa:struct_action_to_approx}, and apply the freedom of action theorem at level \( \delta < \gamma \leq \beta \) to obtain a \( \delta \)-allowable permutation \( \rho' \).
-We will later be able to show that \( \rho' \) agrees with \( \rho^\star \) on all elements of the support of \( t \).
+Build a \( \delta \)-structural approximation from \( \psi^x_{(A \gg (\gamma > \delta))} \) as in \cref{lem:foa:struct_action_to_approx}, and apply the freedom of action theorem at level \( \delta < \gamma \leq \beta \) to obtain a \( \delta \)-allowable permutation \( \rho^x \).
+We will later be able to show that \( \rho^x \) agrees with \( \rho^\star \) on all elements of the support of \( t \).
 We set
-\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho'(t)) \]
+\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho^x(t)) \]
 
 \subsubsection{Inflexible litters from the base level}
 \label{ss:foa:inflexible_bot}
@@ -463,3 +494,103 @@ and that for any two distinct litters \( L_1, L_2 \), the images \( \rho^\star_A
 
 We have fully described \( \rho^\star \); we will now show that the \( \rho^\star_A \) are near-litter permutations.
 The first step in this process is proving injectivity of the \( \rho^\star_A \).
+
+In particular, for a given pair of addresses \( x, y \), we will write
+\[ \psi^{x,y} = \psi^s;\quad s = \{z \mid z \leq x \text{ or } z \leq y\} \]
+We will prove injectivity by induction along two addresses at once, and our inductive hypothesis will be that \( \psi^{x,y} \) is lawful.
+Given this hypothesis, we can immediately show that injectivity of atoms extends to the current stage.
+
+\begin{lemma}
+    \label{lem:atom_injective}
+    Suppose \( \psi^{x,y} \) is lawful.
+    Let \( A \) be an extended index, and let \( a, b \) be atoms such that \( (A, a) \leq x \) or \( y \), and \( (A, b) \leq x \) or \( y \).
+    Then if \( \rho^\star_A(a) = \rho^\star_A(b) \), we have \( a = b \).
+\end{lemma}
+\begin{proof}
+    If both \( a \) and \( b \) lie in \( \dom (\psi_A)^A \), this holds by injectivity of \( \psi_A \).
+    If just one lies in the domain, this holds as the image of the other atom lies in \( L^- \) for some litter.
+    In the other case, \( \rho^\star_A(a^\circ) = \rho^\star_A(b^\circ) \) so \( a^\circ = b^\circ \) by assumption, so we can reverse the bijection \( \pi_{a^\circ, \rho^\star_A(a^\circ)} = \pi_{b^\circ, \rho^\star_A(b^\circ)} \) to show \( a = b \).
+\end{proof}
+
+\begin{lemma}[coherence lemma]
+    Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) where \( \gamma \) is a proper type index, and let \( B \) be a \( \gamma \)-extended type index.
+    Let \( s \) be a small set of \( \beta \)-addresses such that \( \psi^s \) is lawful, and let \( \psi^s_A \) exactly approximate the \( \gamma \)-allowable permutation \( \rho \) (under the conversion to an approximation given in \cref{lem:foa:struct_action_to_approx}).
+    Let \( x \) be an address such that \( (A \gg \pr_1 x, \pr_2 x) \leq y \) for some \( y \in s \).
+    Then
+    \[ \rho^\star_A(x) = \rho(x) \]
+\end{lemma}
+\begin{proof}
+    We proceed by induction along the relation \( < \) for \( \gamma \)-addresses.
+    The result for atom addresses is simple, and the result for near-litter addresses reduces to that for litter addresses.
+    It suffices to show, for every \( \gamma \)-extended index \( B \) and litter \( L \) such that \( (A \gg B, \NL(L)) \leq y \) for some \( y \in s \),
+    \[ \rho^\star_{A \gg B}(L) = \rho_B(L) \]
+    The case where \( L \) is \( B \)-flexible is easy, as is the case where \( L = f_{\bot,\zeta}(a) \).
+    Suppose that
+    \[ L = f_{\varepsilon,\zeta}(t);\quad t \in \tau_\varepsilon;\quad B = C \gg (\delta > \zeta > \bot) \]
+    The coherence condition gives
+    \[ \rho_{C \gg (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho_{C \gg (\delta > \varepsilon)}(t)) \]
+    By the inductive hypothesis, \( \psi^s \) is lawful, so the structural action \( \psi^x \) defined in \cref{ss:foa:inflexible_coe} is also lawful.
+    Therefore, by construction,
+    \[ \rho^\star_{A \gg C \gg (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho^x(t)) \]
+    where \( \rho^x \) is an \( \varepsilon \)-allowable permutation made from \( \psi^x \).
+    Thus, it suffices to show that
+    \[ \rho_{C \gg (\delta > \varepsilon)}(t) = \rho^x(t) \]
+    We show that both of these \( \varepsilon \)-allowable permutations have the same action on the support of \( t \).
+    It suffices by \cref{lem:exact} to show that they are exact before all addresses in this support, and this simply follows from the fact that both \( \rho \) and \( \rho^x \) came from applying \cref{lem:foa:struct_action_to_approx} to \( \rho^\star \).
+\end{proof}
+
+\begin{corollary}
+    \label{cor:foa_both}
+    Suppose that \( \psi^{x,y} \) is lawful.
+    Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( t \in \tau_\delta \).
+    Let \( L = f_{\delta,\varepsilon}(t) \) be a litter such that \( (A, \NL(L)) \leq x \).
+    Then
+    \[ \rho^x_{(A \gg (\gamma > \delta))}(t) = \rho^{x,y}_{(A \gg (\gamma > \delta))}(t) \]
+    where \( \rho^s \) is the allowable permutation obtained from applying freedom of action to \( \psi^s \) as in \cref{ss:foa:inflexible_coe}.
+\end{corollary}
+This follows directly from applying the coherence lemma to each address in the support of \( t \).
+
+\begin{lemma}
+    \label{lem:litter_injective}
+    Suppose \( \psi^{x,y} \) is lawful.
+    Let \( A \) be an extended index, and let \( L_1, L_2 \) be litters such that \( (A, \NL(L_1)) \leq x \) or \( y \), and \( (A, \NL(L_2)) \leq x \) or \( y \).
+    Then if \( \rho^\star_A(L_1) = \rho^\star_A(L_2) \), we have \( L_1 = L_2 \).
+\end{lemma}
+\begin{proof}
+    Note that \( \rho^\star_A \) maps \( A \)-flexible litters to \( A \)-flexible litters, and the same holds for \( A \)-inflexible litters.
+    Thus, \( L_1 \) is \( A \)-flexible precisely when \( L_2 \) is.
+    If \( L_1 \) and \( L_2 \) are \( A \)-flexible, then the values of \( \rho^\star_A(L_1) \) and \( \rho^\star_A(L_2) \) are given by applying the same partial permutation as defined in \cref{ss:foa:flexible}, so we must have \( L_1 = L_2 \).
+
+    If \( L_i = f_{\bot,\varepsilon}(a_i) \) and \( A = B \gg (\gamma > \varepsilon > \bot) \), then by \cref{ss:foa:inflexible_bot},
+    \[ \rho^\star_A(L_i) = f_{\bot,\varepsilon}(\rho^\star_{(A \gg (\gamma > \bot))}(a_i)) \]
+    Hence, by injectivity of the fuzz map and lawfulness of \( \psi^{x,y} \), we must have \( a_1 = a_2 \), giving the result.
+
+    Now suppose \( L_i = f_{\delta,\varepsilon}(t_i) \) and \( A = B \gg (\gamma > \varepsilon > \bot) \).
+    \[ \rho^\star_A(L_i) = f_{\delta,\varepsilon}(\rho^z_{(A \gg (\gamma > \delta))}(t_i)) \]
+    where \( z \) is either \( x \) or \( y \).
+    By \cref{cor:foa_both}, we obtain
+    \[ f_{\delta,\varepsilon}(\rho^{x,y}_{(A \gg (\gamma > \delta))}(t_1)) = f_{\delta,\varepsilon}(\rho^{x,y}_{(A \gg (\gamma > \delta))}(t_2)) \]
+    and thus \( t_1 = t_2 \).
+\end{proof}
+
+\begin{lemma}
+    All of the \( \psi^{x,y} \) are lawful.
+\end{lemma}
+\begin{proof}
+    We proceed by induction on the relation on pairs of addresses given by
+    \begin{alignat*}{5}
+        (x_1, y) &\vartriangleleft (x_2, y) && \quad\text{if }\quad & x_1 &\prec x_2 \\
+        (x, y_1) &\vartriangleleft (x, y_2) && \quad\text{if }\quad & y_1 &\prec y_2 \\
+        (z_1, z_2) &\vartriangleleft (x, y) && \quad\text{if }\quad & z_1, z_2 &\prec x \\
+        (z_1, z_2) &\vartriangleleft (x, y) && \quad\text{if }\quad & z_1, z_2 &\prec y
+    \end{alignat*}
+    This is well-founded, and the inductive hypothesis is the precise form needed to show lawfulness from \cref{lem:atom_injective,lem:litter_injective}.
+    Part (iii) of the definition of lawfulness requires some simple explicit checking.
+\end{proof}
+
+\begin{corollary}
+    The \( \rho^\star_A \) maps are injective on atoms and litters, and atoms inside litters are mapped inside the corresponding image near-litter.
+\end{corollary}
+\begin{proof}
+    Apply \cref{lem:atom_injective,lem:litter_injective} once to the previous lemma.
+\end{proof}
