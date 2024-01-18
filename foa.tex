@@ -513,6 +513,7 @@ Given this hypothesis, we can immediately show that injectivity of atoms extends
 \end{proof}
 
 \begin{lemma}[coherence lemma]
+    \label{lem:coherence}
     Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) where \( \gamma \) is a proper type index, and let \( B \) be a \( \gamma \)-extended type index.
     Let \( s \) be a small set of \( \beta \)-addresses such that \( \psi^s \) is lawful, and let \( \psi^s_A \) exactly approximate the \( \gamma \)-allowable permutation \( \rho \) (under the conversion to an approximation given in \cref{lem:foa:struct_action_to_approx}).
     Let \( x \) be an address such that \( (A \gg \pr_1 x, \pr_2 x) \leq y \) for some \( y \in s \).
@@ -591,6 +592,49 @@ This follows directly from applying the coherence lemma to each address in the s
 \begin{corollary}
     The \( \rho^\star_A \) maps are injective on atoms and litters, and atoms inside litters are mapped inside the corresponding image near-litter.
 \end{corollary}
+\begin{corollary}
+    All of the \( \psi^s \) are lawful.
+\end{corollary}
+
+\subsection{Surjectivity}
+
+As with injectivity, the result for atoms is easy to prove.
+
+\begin{lemma}
+    Suppose \( A \) is a \( \beta \)-extended index and \( a \) is an atom such that \( a^\circ \in \ran \rho^\star_A \).
+    Then \( a \in \ran \rho^\star_A \).
+\end{lemma}
 \begin{proof}
-    Apply \cref{lem:atom_injective,lem:litter_injective} once to the previous lemma.
+    Either \( a \in \dom (\psi_A)^A \), in which case \( a \in \ran (\psi_A)^A \) as required, or \( a \in (a^\circ)^- \), in which case the result holds.
+\end{proof}
+
+We will prove the result for near-litters from the following result on litters.
+
+\begin{lemma}
+    Let \( A \) be a \( \beta \)-extended index and let \( L \) be a litter.
+    Suppose that for all \( x \prec (A, \NL(L)) \), we have \( \pr_2 x \in \ran \rho^\star_{\pr_1 x} \).
+    Then \( L \in \ran \rho^\star_A \).
+\end{lemma}
+\begin{proof}
+    If \( L \) is \( A \)-flexible or \( L = f_{\bot,\varepsilon}(a) \), the result is clear.
+    Suppose \( A = B \gg (\gamma > \varepsilon > \bot) \) and \( L = f_{\delta,\varepsilon}(t) \).
+    We claim that
+    \[ L = \rho^\star_A(f_{\delta,\varepsilon}((\rho^s)^{-1}(t))) \]
+    where
+    \[ s = {(\rho^\star)^{-1}} '' \{ d \mid d < (A, L) \} \]
+    Note that \( s \) is small as \( \rho^\star \) is injective on addresses.
+    Let \( \rho^x \) be the allowable permutation obtained in \cref{ss:foa:inflexible_coe}, so
+    \[ \rho^\star_A\left(f_{\delta,\varepsilon}\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) = f_{\delta,\varepsilon}\left(\rho^x\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) \]
+    We show that
+    \[ (\rho^x)^{-1}(t) = \left(\rho^s_{B \gg (\gamma > \delta)}\right)^{-1}(t) \]
+    from which we obtain the desired result.
+    It suffices to check the action on addresses \( y \in \supp t \):
+    \[ (\rho^x)^{-1}(y) = \left(\rho^s_{B \gg (\gamma > \delta)}\right)^{-1}(y) \]
+    By assumption, \( y = \rho^\star_{B \gg (\gamma > \delta)}(z) \) for some \( z \); it therefore suffices to show that
+    \[ \rho^x(z) = \rho^\star_{B \gg (\gamma > \delta)}(z) = \rho^s_{B \gg (\gamma > \delta)}(z) \]
+    The coherence lemma (\cref{lem:coherence}) immediately gives the right-hand equality.
+    It also gives the left-hand equality, but with slightly more work; we must show that
+    \[ (B \gg (\gamma > \delta) \gg \pr_1 z, \pr_2 z) < \left(B \gg (\gamma > \varepsilon > \bot), f_{\delta,\varepsilon}\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) \]
+    But since allowable permutations commute with supports, we can deduce \( z \in \supp (\rho^s_{B \gg (\gamma > \delta)})^{-1}(t) \) from the fact that
+    \[ \rho^s_{B \gg (\gamma > \delta)}(z) = \rho^\star_{B \gg (\gamma > \delta)}(z) = y \in \supp t \]
 \end{proof}
