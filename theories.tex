@@ -18,9 +18,9 @@ and comprehension
 \[ \exists x^{n + 1}.\, \forall y^n.\, (y^n \in x^{n+1} \leftrightarrow \varphi(y^n)) \]
 where \( \varphi \) is any well-formed formula, possibly with parameters.
 
-\begin{remarks}
+\begin{remarks}\mbox{\negthinspace}
 	\begin{enumerate}
-		\item These are both axiom schemes, quantifying over all type levels \( n \), and (in the latter case) over all well-formed formulae \( \varphi \).
+		\item These are both axiom schemes, instantiated for all type levels \( n \), and (in the latter case) for all well-formed formulae \( \varphi \).
 		\item The inhabitants of type 0, called \emph{individuals}, cannot be examined using these axioms.
 		\item By comprehension, there is a set at each type that contains all sets of the previous type.
 		Russell-style paradoxes are avoided as formulae of the form \( x^n \in x^n \) are ill-formed.
@@ -50,13 +50,13 @@ Such formulae are called \emph{stratified}.
 To avoid the explicit dependence on TST, we can equivalently characterise the stratified formulae as follows.
 A formula \( \varphi \) is said to be stratified when there is a function \( \sigma \) from the set of variables to the nonnegative integers, in such a way that for each subformula \( \mquote{x = y} \) of \( \varphi \) we have \( \sigma(\mquote{x}) = \sigma(\mquote{y}) \), and for each subformula \( \mquote{x \in y} \) we have \( \sigma(\mquote{x}) + 1 = \sigma(\mquote{y}) \).
 
-\begin{remarks}
+\begin{remarks}\mbox{\negthinspace}
 	\begin{enumerate}
-		\item It is important to emphasise that while the axioms come from a many-sorted theory, NF is not one; it well-formed to ask if any set is a member of, or equal to, any other.
+		\item It is important to emphasise that while the axioms come from a many-sorted theory, NF is not one; it is well-formed to ask if any set is a member of, or equal to, any other.
 		\item Russell's paradox is avoided because the set \( \{ x \mid x \notin x \} \) cannot be formed; indeed, \( x \notin x \) is an unstratified formula.
 		Note, however, that the set \( \{ x \mid x = x \} \) is well-formed, and so we have a universe set.
 		% (TODO: add reference for Burali--Forti)
-		\item The infinite set of stratified comprehension axioms can be described with a finite set; this is a result of Hailperin \cite{hailperin-finite-axiomatisation}.
+		\item The infinite set of stratified comprehension axioms can be captured by a finite subset; this is a result of Hailperin \cite{hailperin-finite-axiomatisation}.
 		\item Specker showed in \cite{specker-choice-nf} that NF disproves the Axiom of Choice.
 	\end{enumerate}
 \end{remarks}
@@ -78,7 +78,7 @@ A membership formula \( \mquote{x \in y} \) is well-formed when \( \ttype(\mquot
 The axioms of TTT are obtained by taking the axioms of TST and replacing all type indices in a consistent way with elements of \( \lambda \).
 More precisely, for any order-embedding \( s : \omega \to \lambda \), we can convert a well-formed formula \( \varphi \) of TST into a well-formed formula \( \varphi^s \) of TTT by replacing a type variable \( \alpha \) with \( s(\alpha) \).
 
-\begin{remarks}
+\begin{remarks}\mbox{\negthinspace}
 	\begin{enumerate}
 		\item Membership across types in TTT behaves in some quite bizarre ways.
 		Let \( \alpha \in \lambda \), and let \( x \) be a set of type \( \alpha \).
