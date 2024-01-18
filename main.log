@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  17 JAN 2024 20:12
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.1)  18 JAN 2024 16:58
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1284,9 +1284,8 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 43.
 \c@theorem=\count455
-\c@corollary=\count456
-\@quotelevel=\count457
-\@quotereset=\count458
+\@quotelevel=\count456
+\@quotereset=\count457
 
 (build/main.aux)
 \openout1 = `main.aux'.
@@ -1419,12 +1418,12 @@ nality $[]$. This follows from remarks [][]4.7[][] and remark [][]4.11[][].
  []
 
 [8]) (./construction.tex [9] [10] [11] [12] [13] [14]) (./foa.tex [15] [16]
-[17] [18] [19] [20] [21] [22] [23])
+[17] [18] [19] [20] [21] [22] [23] [24] [25] [26])
 
 Package biblatex Warning: No driver for 'masterthesis'.
 (biblatex)                Using fallback driver on input line 139.
 
-[24]
+
 Overfull \hbox (7.44597pt too wide) in paragraph at lines 140--140
 []\TU/STIXTwoText(0)/m/n/10 Sky Wilshaw et al. \TU/STIXTwoText(0)/m/it/10 The c
 onsistency of New Foundations\TU/STIXTwoText(0)/m/n/10 . 2022–2023. \TU/STIXTwo
@@ -1432,7 +1431,7 @@ Text(0)/m/sc/10 url\TU/STIXTwoText(0)/m/n/10 : [][]$[][][][][] [] [] [] [][][][
 ][][][][][][] [][]
  []
 
-[25] (build/main.aux)
+[27] (build/main.aux)
  ***********
 LaTeX2e <2023-11-01>
 L3 programming layer <2023-12-11>
@@ -1448,12 +1447,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37348 strings out of 474832
- 766617 string characters out of 5761486
+ 37358 strings out of 474832
+ 766873 string characters out of 5761486
  1951106 words of memory out of 5000000
- 58906 multiletter control sequences out of 15000+600000
+ 58916 multiletter control sequences out of 15000+600000
  562027 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,15n,135p,1273b,4990s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,15n,135p,1273b,4992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.xdv (25 pages, 778772 bytes).
+Output written on build/main.xdv (27 pages, 848412 bytes).

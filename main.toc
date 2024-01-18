@@ -26,10 +26,10 @@
 \contentsline {subsection}{\numberline {6.4}Dependency of addresses}{17}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Approximations and the theorem statement}{19}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Actions}{20}{subsection.6.6}%
-\contentsline {subsection}{\numberline {6.7}Building the permutation}{22}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.7}Building the permutation}{23}{subsection.6.7}%
 \contentsline {subsubsection}{\numberline {6.7.1}Atoms}{23}{subsubsection.6.7.1}%
 \contentsline {subsubsection}{\numberline {6.7.2}Flexible litters}{23}{subsubsection.6.7.2}%
-\contentsline {subsubsection}{\numberline {6.7.3}Inflexible litters from proper levels}{23}{subsubsection.6.7.3}%
+\contentsline {subsubsection}{\numberline {6.7.3}Inflexible litters from proper levels}{24}{subsubsection.6.7.3}%
 \contentsline {subsubsection}{\numberline {6.7.4}Inflexible litters from the base level}{24}{subsubsection.6.7.4}%
 \contentsline {subsubsection}{\numberline {6.7.5}Near-litters}{24}{subsubsection.6.7.5}%
-\contentsline {subsection}{\numberline {6.8}Injectivity}{24}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.8}Injectivity}{25}{subsection.6.8}%
