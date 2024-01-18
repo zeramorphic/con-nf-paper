@@ -55,7 +55,7 @@ A formula \( \varphi \) is said to be stratified when there is a function \( \si
 		\item It is important to emphasise that while the axioms come from a many-sorted theory, NF is not one; it is well-formed to ask if any set is a member of, or equal to, any other.
 		\item Russell's paradox is avoided because the set \( \{ x \mid x \notin x \} \) cannot be formed; indeed, \( x \notin x \) is an unstratified formula.
 		Note, however, that the set \( \{ x \mid x = x \} \) is well-formed, and so we have a universe set.
-		% (TODO: add reference for Burali--Forti)
+		% (TODO: add reference for Burali--Forti and Cantor)
 		\item The infinite set of stratified comprehension axioms can be captured by a finite subset; this is a result of Hailperin \cite{hailperin-finite-axiomatisation}.
 		\item Specker showed in \cite{specker-choice-nf} that NF disproves the Axiom of Choice.
 	\end{enumerate}
@@ -76,7 +76,7 @@ An equality \( \mquote{x = y} \) is a well-formed formula when \( \ttype(\mquote
 A membership formula \( \mquote{x \in y} \) is well-formed when \( \ttype(\mquote{x}) < \ttype(\mquote{y}) \).
 
 The axioms of TTT are obtained by taking the axioms of TST and replacing all type indices in a consistent way with elements of \( \lambda \).
-More precisely, for any order-embedding \( s : \omega \to \lambda \), we can convert a well-formed formula \( \varphi \) of TST into a well-formed formula \( \varphi^s \) of TTT by replacing a type variable \( \alpha \) with \( s(\alpha) \).
+More precisely, for any order-embedding \( s : \omega \to \lambda \), we can convert a well-formed formula \( \varphi \) of TST into a well-formed formula \( \varphi^s \) of TTT by replacing each type variable \( \alpha \) with \( s(\alpha) \).
 
 \begin{remarks}\mbox{\negthinspace}
 	\begin{enumerate}
