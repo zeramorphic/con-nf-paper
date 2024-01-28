@@ -343,7 +343,9 @@
       \range{pages}{8}
     \endentry
     \entry{leanprover-community-con-nf}{misc}{}
-      \name{author}{8}{}{%
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{3}{}{%
         {{hash=82c6c2ec5811ce45b4318d5d282eb76c}{%
            family={Wilshaw},
            familyi={W\bibinitperiod},
@@ -359,41 +361,16 @@
            familyi={L\bibinitperiod},
            given={Peter\bibnamedelima LeFanu},
            giveni={P\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=d0cd06cf72cf4bd5831ec34543a538e5}{%
-           family={Luo},
-           familyi={L\bibinitperiod},
-           given={Patrick},
-           giveni={P\bibinitperiod}}}%
-        {{hash=3ceeb3450966ff7a81444ee03de094a8}{%
-           family={Darby},
-           familyi={D\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod}}}%
-        {{hash=32ffed18e44f5867d7a6256a7668f27d}{%
-           family={Matthews},
-           familyi={M\bibinitperiod},
-           given={Angus},
-           giveni={A\bibinitperiod}}}%
-        {{hash=cbc0de117c3ca7bff9a565f2a3a29746}{%
-           family={Hobbis},
-           familyi={H\bibinitperiod},
-           given={Callum},
-           giveni={C\bibinitperiod}}}%
-        {{hash=b3d2f8db69c08b9f9e9d52eb1d6fc7e4}{%
-           family={Holmes},
-           familyi={H\bibinitperiod},
-           given={Randall},
-           giveni={R\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {GitHub}%
       }
-      \strng{namehash}{3971be1bbe79231f34846dff625ec7c5}
-      \strng{fullhash}{75bd31139ec832438a3153f540144b63}
-      \strng{bibnamehash}{3971be1bbe79231f34846dff625ec7c5}
-      \strng{authorbibnamehash}{3971be1bbe79231f34846dff625ec7c5}
-      \strng{authornamehash}{3971be1bbe79231f34846dff625ec7c5}
-      \strng{authorfullhash}{75bd31139ec832438a3153f540144b63}
+      \strng{namehash}{e4b87442a0816b20f04778e22275d598}
+      \strng{fullhash}{e4b87442a0816b20f04778e22275d598}
+      \strng{bibnamehash}{e4b87442a0816b20f04778e22275d598}
+      \strng{authorbibnamehash}{e4b87442a0816b20f04778e22275d598}
+      \strng{authornamehash}{e4b87442a0816b20f04778e22275d598}
+      \strng{authorfullhash}{e4b87442a0816b20f04778e22275d598}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{labelnamesource}{author}
