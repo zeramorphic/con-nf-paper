@@ -2,12 +2,14 @@
 \label{ss:foa:outline}
 
 In this section, we will prove the freedom of action theorem.
+Two versions are stated in \cref{thm:foa,thm:foa_behaviour}.
 This will allow us to prove that the collection of model elements we have constructed has size exactly \( \mu \), among other things.
 The idea of the theorem is that under suitable hypotheses, a partially defined map of \( \alpha \)-addresses can be extended into an \( \alpha \)-allowable permutation.
 
 There are many different things one could mean by a `partially defined map', and we will need several of these for various purposes.
 The two most important forms of partial maps of addresses are \emph{approximations} and \emph{actions}, the former of which will be used in the statement of the theorem.
 We will prove some technical results linking approximations and actions.
+The version of freedom of action stated in \cref{thm:foa_behaviour} uses a third notion, called \emph{behaviours}.
 
 We will construct the allowable permutation by induction along a particular well-founded relation on addresses: we will define \( \rho((A, x)) \) given the knowledge of \( \rho((B, y)) \) for all \( (B, y) \prec (A, x) \).
 In certain cases, we will need to know that the freedom of action theorem holds at all lower levels; we accomplish this by wrapping the entire proof in an induction over all proper type indices below \( \alpha \).
@@ -204,15 +206,22 @@ We can now define one notion of a partially defined map of addresses.
 For brevity, we will often suppress the superscripts on approximations.
 
 \begin{definition}
-    A near-litter approximation \( \varphi \) is said to \emph{approximate} a near-litter permutation \( \pi \) when they agree at all atoms and litters at which \( \varphi \) is defined.
-    \[ \forall a \in \dom \varphi^A.\, \pi(a) = \varphi(a);\quad \forall L \in \dom \varphi^L.\, \pi(L) = \varphi(L) \]
     An atom \( a \) is said to be \emph{exceptional} in a near-litter permutation \( \pi \) if \[ (\pi(a))^\circ \neq \pi(a^\circ) \quad\text{or}\quad (\pi^{-1}(a))^\circ \neq \pi^{-1}(a^\circ) \]
-    We say that \( \varphi \) \emph{exactly} approximates \( \pi \) if it approximates \( \pi \), and in addition, all exceptional atoms in \( \pi \) are in \( \dom \varphi^A \).
+\end{definition}
+\begin{definition}
+    A near-litter approximation \( \varphi \) is said to \emph{approximate} a near-litter permutation \( \pi \) when they agree at all atoms and litters at which \( \varphi \) is defined:
+    \[ \forall a \in \dom \varphi^A.\, \pi(a) = \varphi(a);\quad \forall L \in \dom \varphi^L.\, \pi(L) = \varphi(L) \]
+    and additionally that all exceptional atoms in \( \pi \) are in \( \dom \varphi^A \).
 \end{definition}
 
 \begin{remark}
-    If \( \varphi \) exactly approximates \( \pi \), we can determine the exact image of \( \pi(\NL(L)) \) for any litter \( L \in \dom \varphi^L \) from data in \( \varphi \).
-    It can be shown directly that every near-litter approximation exactly approximates some near-litter permutation, although we will not need this fact.
+    In \cite{holmes2023nf}, Holmes makes a distinction between merely `approximating' a permutation and `exactly approximating' it.
+    We make no use of the weaker notion, so we will refer to `exactly approximating' as simply `approximating'.
+\end{remark}
+
+\begin{remark}
+    If \( \varphi \) approximates \( \pi \), we can determine the exact image of \( \pi(\NL(L)) \) for any litter \( L \in \dom \varphi^L \) from data in \( \varphi \).
+    It can be shown directly that every near-litter approximation approximates some near-litter permutation, although we will not need this fact.
 \end{remark}
 
 In the same way that structural permutations were built up from near-litter permutations in \cref{def:struct_perm}, we will build up structural approximations from near-litter approximations.
@@ -225,17 +234,18 @@ In the same way that structural permutations were built up from near-litter perm
     We say that \( \beta \) is \emph{free} if for all \( \beta \)-extended indices \( A \), the only litters that appear in \( \dom (\varphi_A)^L \) are \( A \)-flexible.
 \end{definition}
 
-We can now state the freedom of action theorem.
+We can now state one form of the freedom of action theorem.
+\Cref{thm:foa_behaviour} is a slightly weaker statement of the same result, but is often more useful in practice.
 
 \begin{theorem}[freedom of action]
     \label{thm:foa}
     Let \( \beta \leq \alpha \) be a proper type index.
-    Then any free \( \beta \)-structural approximation \( \varphi \) exactly approximates some \( \beta \)-allowable permutation \( \rho \).
+    Then any free \( \beta \)-structural approximation \( \varphi \) approximates some \( \beta \)-allowable permutation \( \rho \).
 \end{theorem}
 
 \begin{remarks}\mbox{\negthinspace}
     \begin{enumerate}
-        \item This theorem extends the fact that any near-litter approximation exactly approximates some near-litter permutation; in fact, this statement is precisely freedom of action for \( \beta = \bot \).
+        \item This theorem extends the fact that any near-litter approximation approximates some near-litter permutation; in fact, this statement is precisely freedom of action for \( \beta = \bot \).
         \item If \( L \) is \( A \)-inflexible, then the value of \( \rho_A(L) \) depends on a the value of a certain tangle under \( \rho \), so we may not choose it freely.
         The freedom of action theorem states that this is the only restriction to the images of litters under allowable permutations.
         \item The theorem is phrased in terms of approximations, although this is somewhat arbitrary.
@@ -263,7 +273,7 @@ As with approximations, we will suppress the superscripts when possible.
         We need no distinction between approximating and exactly approximating since near-litter actions already capture precise images of litters.
         % TODO: I think this should be in Lean!
         % We can use this idea to define the data format we need for support shenanigans.
-        Not every near-litter action approximate some near-litter permutation, because we may have a situation where \( a \in \dom \psi^A, a^\circ \in \dom \psi^L \) but \( \psi(a) \notin \psi(a^\circ) \).
+        Not every near-litter action approximates some near-litter permutation, because we may have a situation where \( a \in \dom \psi^A, a^\circ \in \dom \psi^L \) but \( \psi(a) \notin \psi(a^\circ) \).
         This pathology, as well as injectivity, turns out to be the only way in which near-litter actions can fail to approximate some near-litter permutation.
         We therefore make the following definition.
     \end{enumerate}
@@ -282,6 +292,7 @@ We now describe a procedure for converting lawful near-litter actions into free 
 This process has two steps: expanding the near-litter action so that it is \emph{precise}, and then completing it into an approximation.
 
 \begin{definition}
+    % TODO: this might be wrong, check defs
     \label{def:precise}
     A near-litter action \( \psi \) is said to be \emph{precise} if for all \( L \in \dom \psi^L \),
     \begin{enumerate}
@@ -339,7 +350,7 @@ We now describe the method for turning a precise action into a free approximatio
     \label{lem:foa:nl_action_to_approx}
     Let \( \psi \) be a precise lawful near-litter action and let \( A \) be a \( \beta \)-extended index.
     Suppose that \( \psi \) maps \( A \)-flexible litters to near-litters that are near \( A \)-flexible litters.
-    Then there is a near-litter approximation \( \varphi \) whose litter map contains only \( A \)-flexible litters, such that if \( \varphi \) exactly approximates \( \pi \), we have
+    Then there is a near-litter approximation \( \varphi \) whose litter map contains only \( A \)-flexible litters, such that if \( \varphi \) approximates \( \pi \), we have
     \begin{enumerate}
         \item if \( a \in \dom \psi^A \), then \( \psi(a) = \pi(a) \);
         \item if \( L \in \dom \psi^L \) is \( A \)-flexible, then \( \psi(L)^\circ = \pi(L) \); and
@@ -368,11 +379,11 @@ We now briefly describe how near-litter actions are composed to form structural 
     We say that \( \beta \) is \emph{lawful} if for all \( \beta \)-extended indices \( A \), the near-litter action \( \psi_A \) is lawful.
 \end{definition}
 
-\begin{proposition}[converting actions to approximations]
+\begin{proposition}
     \label{lem:foa:struct_action_to_approx}
     Let \( \psi \) be a lawful \( \beta \)-structural action.
     Suppose that for every \( \beta \)-extended index \( A \), the near-litter action \( \psi_A \) maps \( A \)-flexible litters to near-litters that are near \( A \)-flexible litters.
-    Then there is a free \( \beta \)-structural approximation such that if \( \varphi \) exactly approximates \( \pi \), we have
+    Then there is a free \( \beta \)-structural approximation such that if \( \varphi \) approximates \( \pi \), we have
     \begin{enumerate}
         \item if \( a \in \dom{(\psi_A)^A} \), then \( \psi_A(a) = \pi_A(a) \);
         \item if \( L \in \dom{(\psi_A)^L} \) is \( A \)-flexible, then \( \psi_A(L)^\circ = \pi_A(L) \); and
@@ -646,7 +657,7 @@ We can now prove the freedom of action theorem, which states the following.
 
 \begin{theorem*}[freedom of action, restatement of \cref{thm:foa}]
     Let \( \beta \leq \alpha \) be a proper type index.
-    Then any free \( \beta \)-structural approximation \( \varphi \) exactly approximates some \( \beta \)-allowable permutation \( \rho \).
+    Then any free \( \beta \)-structural approximation \( \varphi \) approximates some \( \beta \)-allowable permutation \( \rho \).
 \end{theorem*}
 \begin{proof}
     We proceed by induction on \( \beta \).
@@ -661,3 +672,111 @@ We can now prove the freedom of action theorem, which states the following.
     Hence, by induction on \( \gamma \), \( \rho^\star \) is allowable below every path, and in particular below the empty path, giving a \( \beta \)-allowable permutation \( \rho \) that coincides with \( \rho^\star \) everywhere.
     One can check that \( \varphi \) exactly aproximates \( \rho \); this is a simple computation.
 \end{proof}
+
+\subsection{Corollaries}
+
+While \cref{thm:foa} is comparatively simple to state, the data that we want to combine into an allowable permutation rarely takes the form of a free structural approximation.
+In this subsection, we describe a necessary criterion for partial functions of atoms and near-litters to come from an allowable permutation.
+
+\begin{definition}
+    A \emph{near-litter behaviour} is a pair \( \xi = (\xi^A, \xi^N) \) where \( \xi^A \) is a partial function from atoms to atoms and \( \xi^N \) is a partial function from near-litters to near-litters, such that the domains of \( \xi^A \) and \( \xi^N \) are small.
+    A \emph{\( \beta \)-structural behaviour} assigns to each \( \beta \)-extended index \( A \) a near-litter behaviour \( \xi_A \).
+\end{definition}
+
+\begin{definition}
+    A near-litter behaviour \( \xi \) \emph{approximates} a near-litter permutation \( \pi \) if \( \xi(a) = \pi(a) \) and \( \xi(N) = \pi(N) \) for all \( a \in \dom \xi^A \) and \( N \in \dom \xi^N \).
+    Analogously, a structural behaviour \( \xi \) \emph{approximates} a structural permutation \( \pi \) if \( \xi_A \) approximates \( \pi_A \).
+\end{definition}
+
+We will describe a sufficient condition for a structural behaviour to approximate some allowable permutation.
+
+\begin{definition}
+    \label{def:foa:beh_lawful}
+    A near-litter behaviour \( \xi \) is said to be \emph{lawful} if it satisfies
+    \begin{enumerate}
+        \item \( \xi^A \) is injective on its domain;
+        \item if \( a \in \dom \xi^A \) and \( N \in \dom \xi^N \), then \( a \in N \leftrightarrow \xi(a) \in \xi(N) \);
+        \item if \( N_1, N_2 \in \dom \xi^N \) and \( N_1^\circ = N_2^\circ \), then \( N_1 \symmdiff N_2 \subseteq \dom \xi^A \) and \( \xi(N_1) \symmdiff \xi(N_2) \subseteq \ran \xi^A \);
+        \item if \( N_1, N_2 \in \dom \xi^N \) and \( N_1^\circ \neq N_2^\circ \), then \( N_1 \cap N_2 \subseteq \dom \xi^A \) and \( \xi(N_1) \cap \xi(N_2) \subseteq \ran \xi^A \).
+    \end{enumerate}
+    We say that a structural behaviour \( \xi \) is lawful if \( \xi_A \) is lawful for all \( A \).
+\end{definition}
+
+\begin{remark}
+    From this, we can deduce that for \( N_1, N_2 \in \dom \xi^N \), we have \( N_1^\circ = N_2^\circ \leftrightarrow \xi(N_1)^\circ = \xi(N_2)^\circ \).
+    This follows from the fact that \( \dom \xi^A \) is small by considering the cardinality of the relevant intersections.
+\end{remark}
+
+We describe a procedure for converting near-litter behaviours into near-litter actions.
+This allows us to use \cref{lem:foa:nl_action_to_approx} to turn them into approximations, and then apply freedom of action.
+
+\begin{lemma}
+    \label{lem:foa:beh_to_action}
+    Any lawful near-litter behaviour \( \xi \) can be extended to one defined on \( \NL(L) \) for all litters \( L = N^\circ \) for \( N \in \dom \xi^N \).
+\end{lemma}
+\begin{proof}
+    We first add the atoms in one of the \( N \symmdiff \LS(N^\circ) \) to \( \xi \); there are only a small amount of these, so the result will be a near-litter behaviour.
+    First suppose that \( L \) is a litter and
+    \[ a \in \left(\bigcap_{N \in \dom \xi^N, N^\circ = L} N \setminus \LS(L)\right) \setminus \dom \xi^A \]
+    We must allocate an image for \( a \) in the set
+    \[ \left(\bigcap_{N \in \dom \xi^N, N^\circ = L} \xi(N)\right) \setminus \ran \xi^A \]
+    This set is not small, so this allocation can always be done.
+    Note that this set depends on the value of \( L \), which is unique for a given \( a \); if it were not, \( a \) would lie in the domain of \( \xi^A \) by part (iv) of \cref{def:foa:beh_lawful}.
+    Instead, suppose that
+    \[ a \in \left[\bigcup_{N \in \dom \xi^N} \LS(N^\circ) \setminus \bigcup_{N' \in \dom \xi^N} N' \right] \setminus \dom \xi^A \]
+    Pick a litter \( L \) such that
+    \[ \left(\ran \xi^A \cup \bigcup \ran \xi^N\right) \cap \LS(L) = \varnothing \]
+    This can always be done as there are \( \mu \) litters but the amount of litters banned by the left-hand side is small.
+    We allocate images for all atoms of this form inside \( \LS(L) \).
+    One can check that this operation is well-defined and defines images of atoms \( a \in N \symmdiff \LS(N^\circ) \) for all \( N \in \dom \xi^N \).
+
+    We now define the action of \( \xi \) on a litter \( L \) such that \( L = N^\circ \) for some \( N \in \dom \xi^N \).
+    \[ \xi(\NL(L)) = \xi(N) \symmdiff \{ \xi(a) \mid a \in N \symmdiff \LS(N^\circ) \} \]
+    This definition does not depend on the choice of \( N \), because for any other \( N' \) such that \( {N'}^\circ = L \), part (iii) of \cref{def:foa:beh_lawful} fixes any problematic atoms.
+    One then checks directly that this behaviour is lawful.
+\end{proof}
+
+\begin{definition}
+    \label{def:foa:beh_coherent}
+    A \( \beta \)-structural behaviour \( \xi \) is said to be \emph{coherent} if it satisfies the following conditions.
+    \begin{enumerate}
+        \item For every extended index \( A : \beta \rightsquigarrow \bot \) and near-litter \( N \in \dom (\xi_A)^N \), if \( N^\circ \) is \( A \)-flexible then \( \xi(N)^\circ \) is \( A \)-flexible.
+        \item Let \( A : \beta \rightsquigarrow \gamma \) and \( \delta, \varepsilon < \gamma \) be distinct proper type indices.
+        Let \( t \) be a \( \delta \)-tangle, and let \( N \) be a near-litter such that \( N^\circ = f_{\delta,\varepsilon}(t) \) and
+        \[ N \in \dom \left(\xi_{A \gg (\gamma > \varepsilon > \bot)}\right)^N \]
+        Then for all addresses \( (B, x) \in \ran \supp t \), we have
+        \[ x \in \dom \xi_{A \gg (\gamma > \delta) \gg B} \]
+        Moreover, in this situation, if \( \rho \) is \( \gamma \)-allowable and satisfies
+        \[ \xi_{A \gg (\gamma > \delta) \gg B}(x) = \rho_{(\gamma > \delta) \gg B}(x) \]
+        for each such address, then
+        \[ \xi_{A \gg (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\delta,\varepsilon}(\rho_{(\gamma > \delta)}(t)) \]
+        \item Let \( A : \beta \rightsquigarrow \gamma \) and \( \varepsilon < \gamma \) be a proper type index.
+        Then for all atoms \( a \) and near-litters \( N \) such that \( N^\circ = f_{\bot,\varepsilon}(a) \) and
+        \[ N \in \dom \left(\xi_{A \gg (\gamma > \varepsilon > \bot)}\right)^N \]
+        we have
+        \[ a \in \dom \left(\xi_{A \gg (\gamma > \bot)}\right)^A \]
+        Moreover, in this situation, if \( \rho \) is \( \gamma \)-allowable and satisfies
+        \[ \xi_{A \gg (\gamma > \bot)}(a) = \rho_{(\gamma > \bot)}(a) \]
+        then
+        \[ \xi_{A \gg (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\bot,\varepsilon}(\rho_{(\gamma > \bot)}(a)) \]
+    \end{enumerate}
+\end{definition}
+
+We can now state freedom of action for behaviours.
+
+\begin{theorem}
+    \label{thm:foa_behaviour}
+    Every \( \beta \)-structural behaviour \( \xi \) that is both lawful and coherent approximates some \( \beta \)-allowable permutation \( \rho \).
+\end{theorem}
+\begin{proof}
+    Augment \( \xi \) so that it is defined on all litters by using \cref{lem:foa:beh_to_action}.
+    Define a structural action \( \psi \) by
+    \[ (\psi_A)^A(a) = (\xi_A)^A(a);\quad (\psi_A)^L(L) = (\xi_A)^N(\NL(L)) \]
+    One easily checks that this is a lawful action.
+    By \cref{lem:foa:struct_action_to_approx}, we can convert it to a structural approximation \( \varphi \); we can do this by part (i) of the fact that \( \xi \) is coherent.
+    We apply freedom of action to obtain a \( \beta \)-allowable permutation \( \rho \) that \( \varphi \) approximates.
+    By induction on addresses, we can show directly that \( \xi \) has the same action as \( \rho \) on all addresses in its domain.
+    The hypothesis needed for this induction to work is precisely parts (ii) and (iii) of the fact that \( \xi \) is coherent, as well as part (iii) of \cref{lem:foa:struct_action_to_approx}.
+\end{proof}
+
+Thus, we have established a sufficient condition for partial functions on atoms and near-litters to arise from an allowable permutation; it suffices to check that the corresponding behaviour is lawful and coherent.
