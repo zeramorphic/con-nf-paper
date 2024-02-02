@@ -34,28 +34,23 @@ The first component \( \nu \) is an index allowing us to have \( \mu \) distinct
 \begin{definition}
     A \emph{near-litter} is a pair \( N = (L, s) \) where \( L \) is a litter and \( s \) is a set of atoms with small symmetric difference to the litter set of \( L \).
     We say that the \emph{associated litter} of \( N \) is \( N^\circ = \pr_1(N) \), or that \( N \) is \emph{near} \( L \).
+    For brevity, we will frequently identify a near-litter with its underlying set.
 \end{definition}
 \begin{remarks}\mbox{\negthinspace}
     \label{rk:mk_near_litter}
     \begin{enumerate}
         \item A set of atoms can be near at most one litter.
-        For brevity, we will frequently identify a near-litter with its underlying set.
         \item The litter set of any litter \( L \) can be made into a near-litter: \( \NL(L) = (L, \LS(L)) \).
-        \item Each near-litter has size exactly \( \kappa \), and there are \( \mu \) near-litters in total; the latter follows from the fact that the cofinality of \( \mu \) is at least \( \kappa \).
+        \item Each (second projection of a) near-litter has size exactly \( \kappa \), and there are \( \mu \) near-litters in total; the latter follows from the fact that the cofinality of \( \mu \) is at least \( \kappa \).
     \end{enumerate}
 \end{remarks}
 We can now define the allowable permutations of type \( \bot \), although we will give them a different name for now; they will be precisely those permutations of atoms that respect the structure of near-litters.
 \begin{definition}
-    A \emph{near-litter permutation} \( \pi \) is a permutation of atoms that sends near-litters to near-litters.
+    A \emph{near-litter permutation} \( \pi \) is a permutation of atoms such that for every near-litter \( N = (L, s) \), there is some (necessarily unique) litter \( L' \) such that \( (L', \pi '' s) \) is a near-litter.
 \end{definition}
-\begin{remarks}\mbox{\negthinspace}
-    \begin{enumerate}
-        \item A near-litter permutation \( \pi \) induces a permutation of litters, which we will also call \( \pi \).
-        This is defined by mapping \( L \) to the associated litter of \( \pi '' \LS(L) \), where the double apostrophe denotes pointwise function application (\( f '' s \) denotes the set \( \{ f(x) \mid x \in s \} \)).
-        Thus, a near-litter permutation is simultaneously a permutation of atoms, litters, and near-litters.
-        \item The set of near-litter permutations forms a group under composition.
-    \end{enumerate}
-\end{remarks}
+A near-litter permutation \( \pi \) induces a permutation of near-litters, which we will also call \( \pi \).
+Moreover, a near-litter permutation \( \pi \) induces a permutation of litters (which we will again call \( \pi \)), defined by mapping \( L \) to the associated litter of \( \pi '' \LS(L) \).
+Thus, a near-litter permutation is simultaneously a permutation of atoms, litters, and near-litters.
 
 \subsection{Higher type structure}
 
@@ -65,15 +60,14 @@ We will now make a definition to deal with sequences of type indices obtained in
     A \emph{path of type indices} \( \alpha \rightsquigarrow \varepsilon \) is a finite sequence of type indices
     \[ \alpha > \beta > \gamma > \dots > \varepsilon \]
     If \( \alpha \) is a type index, an \emph{\( \alpha \)-extended type index} is a path \( \alpha \rightsquigarrow \bot \).
-    If \( A \) is a path \( \alpha \rightsquigarrow \beta \) and \( B \) is a path \( \beta \rightsquigarrow \gamma \), their composition \( A \gg B \) is a path \( \alpha \rightsquigarrow \gamma \) obtained by concatenation of the sequences but removing the duplicated index \( \beta \).
+    If \( A \) is a path \( \alpha \rightsquigarrow \beta \) and \( B \) is a path \( \beta \rightsquigarrow \gamma \), their composition \( A \pcomp B \) is a path \( \alpha \rightsquigarrow \gamma \) obtained by concatenation of the sequences but removing the duplicated index \( \beta \).
 \end{definition}
 \begin{remark}
     \label{rk:mk_extended_index}
     For any \( \alpha \in \lambda^\bot \), the set of \( \alpha \)-extended type indices has size at most \( \lambda \).
 \end{remark}
 In our model, the iterated extensions of objects of type \( \alpha \) are indexed by the \( \alpha \)-extended type indices.
-We can apply operations to an object along each path \( \alpha \rightsquigarrow \bot \).
-One important notion defined in this way will be \emph{structural permutations}.
+We would like to apply operations to an object along each path \( \alpha \rightsquigarrow \bot \); this motivates the definition of \emph{structural permutations}.
 \begin{definition}
     \label{def:struct_perm}
     An \emph{\( \alpha \)-structural permutation} \( \pi \) assigns a near-litter permutation to each \( \alpha \)-extended index.
@@ -84,9 +78,10 @@ One important notion defined in this way will be \emph{structural permutations}.
 \begin{remark}
     Near-litter permutations may be identified with \( \bot \)-structural permutations.
 \end{remark}
-To apply an \( \alpha \)-structural permutation \( \pi \) to some model element \( x \) of type \( \alpha \), we first consider its elements of some type \( \beta < \alpha \).
-By recursion, we apply \( \pi_{(\alpha > \beta)} \) to each such element, where \( \pi_{(\alpha > \beta)} \) is the derivative of \( \pi \) along the one-step path from \( \alpha \) to \( \beta \).
-These images are then assembled to form a new object of type \( \alpha \); note however that this new object need not in general satisfy the constraints outlined in \cref{ss:outline:construction}, so structural permutations need not map elements of the model to other elements of the model.
+
+At proper type indices \( \alpha \), we will define the set of \( \alpha \)-allowable permutations to be a certain subgroup of the group of \( \alpha \)-structural permutations.
+These permutations will be chosen in such a way that gives an action on the set of model elements at level \( \alpha \).
+Not every structural permutation will have such an action.
 
 \subsection{Addresses and supports}
 
@@ -95,9 +90,9 @@ We are interested in objects that can be characterised by a small amount of data
     Let \( \alpha \) be a type index.
     An \emph{\( \alpha \)-address} is a pair \( (A, x) \) where \( A \) is an \( \alpha \)-extended type index and \( x \) is either an atom or a near-litter.
 \end{definition}
-An \( \alpha \)-address encodes a set of atoms, and a path to get there from a type-\( \alpha \) object by descending through iterated extensions.
+An \( \alpha \)-address encodes a set of atoms (possibly a singleton), and a path to get there from a type-\( \alpha \) object by descending through iterated extensions.
 \begin{note}
-    In \cite{holmes2023nf}, addresses are called \emph{support conditions}.
+    In \cite{holmes2023nf}, addresses are called \emph{support conditions}, and the elements are written in the reverse order.
 \end{note}
 \begin{remark}
     \label{rk:mk_address}
@@ -107,17 +102,20 @@ An \( \alpha \)-address encodes a set of atoms, and a path to get there from a t
 
 The group of \( \alpha \)-structural permutations acts on the set of \( \alpha \)-addresses by
 \[ \pi(A, x) = (A, \pi_A(x)) \]
-We would like to say that a \emph{support} is a small set of \( \alpha \)-addresses; for technical reasons that will be discussed later it will actually be better to make the following definition instead.
+We would like to say that a \emph{support} is a small set of \( \alpha \)-addresses; for technical reasons that will be required for \cref{thm:foa_behaviour}, it will actually be better to make the following definition instead.
 \begin{definition}
-    An \( \alpha \)-support is a function \( S \) whose domain is a small ordinal and whose values are \( \alpha \)-addresses, such that whenever \( N_1, N_2 \) are near-litters in the range of \( S \), the atoms in their symmetric difference \( N_1 \symmdiff N_2 \) are also in the range of \( S \).
+    An \( \alpha \)-support is a function \( S \) whose domain is a small ordinal and whose values are \( \alpha \)-addresses, such that for all near-litters \( N_1, N_2 \) in the range of \( S \),
+    \begin{enumerate}
+        \item if \( N_1^\circ = N_2^\circ \), then the atoms in their symmetric difference \( N_1 \symmdiff N_2 \) are in the range of \( S \); and
+        \item if \( N_1^\circ \neq N_2^\circ \), then the atoms in their intersection \( N_1 \cap N_2 \) are in the range of \( S \).
+    \end{enumerate}
     The \emph{underlying set} of a support is its range.
 \end{definition}
 \begin{remarks}\mbox{\negthinspace}
     \begin{enumerate}
         \item An address may occur multiple times in the range of a support, but all we usually care about is the presence or absence of an address.
         The fact that these addresses have indices in a given support will be useful for some constructions later.
-        The symmetric difference condition is also a technical condition that we will use later, it avoids a problem where initial conditions for a construction could be overspecified.
-        \item For any small set of addresses \( s \), there is a support \( S \) whose range is \( s \) together with the small set of atom addresses required to satisfy the symmetric difference constraint.
+        \item For any small set of addresses \( s \), there is a support \( S \) whose range is \( s \) together with the small set of atom addresses required to satisfy the symmetric difference and intersection constraints.
     \end{enumerate}
 \end{remarks}
 As with many parts of our construction, we will need to count precisely how many supports there are.
@@ -159,11 +157,11 @@ The naïve concatenation of supports \( S_1, S_2 \) given by
     S_1(i) & \text{if } i \in \dom S_1 \\
     S_2(i - \dom S_1) & \text{otherwise}
 \end{cases} \]
-need not satisfy the symmetric difference condition, so \( S \) may not be a support.
+need not satisfy the extra atom conditions, so \( S \) may not be a support.
 There is not a unique way to expand this concatenation into a support, so we will instead make the following definition.
 \begin{definition}
     Let \( f \) be a function from a small ordinal whose values are \( \alpha \)-support conditions.
-    We say that a support \( S \) is a \emph{completion} of \( f \) if \( S|_{\dom f} = f \) and every address in the extension \( S|_{\dom S \setminus \dom f} \) is an atom address \( (A, x) \) where \( x \in N_1 \symmdiff N_2 \) and \( (A, N_1), (A, N_2) \in \ran f \).
+    We say that a support \( S \) is a \emph{completion} of \( f \) if \( S|_{\dom f} = f \) and every address in the extension \( S|_{\dom S \setminus \dom f} \) is an atom address \( (A, x) \) that is forced to be in \( \ran S \) by the definition of a support.
     Every such function has a completion, as the amount of atom addresses in question is small.
     A support \( S \) is a \emph{sum} of supports \( S_1, S_2 \) if it is a completion of the concatenation of \( S_1 \) and \( S_2 \).
     Every pair of supports has a sum.

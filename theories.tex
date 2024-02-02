@@ -67,7 +67,7 @@ While our main result is that New Foundations is consistent, we attack the probl
 \label{ss:theories:ttt}
 
 Introduced by Holmes in \cite{holmes-ttt}, \emph{tangled type theory} (TTT) is a multi-sorted first order theory based on TST.
-This theory is parametrised by a limit ordinal \( \lambda \), the elements of which will index the sorts.
+This theory is parametrised by a limit ordinal \( \lambda \), the elements of which will index the sorts; \( \omega \) works, but we prefer generality.
 As in TST, each variable \( x \) has a type that it belongs to, denoted \( \ttype(\mquote x) \).
 However, in TTT, this is not a positive integer, but an element of \( \lambda \).
 
@@ -101,4 +101,5 @@ The proof is not long, but is outside the scope of this paper; it requires more 
 Thus, our task of proving NF consistent is reduced to the task of proving TTT consistent.
 We will do this by exhibiting an explicit model (albeit one that requires a great deal of Choice to construct).
 As TTT has types indexed by a limit ordinal, and sets can only contain sets of lower type, we can construct a model by recursion over \( \lambda \).
+In particular, a model of TTT is a well-founded structure.
 This was not an option with NF directly, as the universe set \( \{ x \mid x = x \} \) would necessarily be constructed before many of its elements.

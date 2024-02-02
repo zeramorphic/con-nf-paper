@@ -29,8 +29,10 @@ In this subsection, we describe a sufficient condition for such a permutation to
 \end{definition}
 
 Suppose we have an injective partial function \( f : X \rightdasharrow X \).
-We will construct a pair of functions \( g \) and \( h \) that agree with \( f \) and its inverse respectively on \( s = \dom f \), in such a way that forms a partial permutation of \( X \).
-In particular, consider the diagram
+We will construct a pair of functions \( g \) and \( h \) that agree with \( f \) and its inverse respectively on \( s = \dom f \), in such a way that forms a partial permutation of \( X \), where the extra elements of the domain of this partial permutation lie in a given set \( t \subseteq X \setminus (s \cup f''s) \).
+To do this, we require the hypothesis
+\[ |s \symmdiff f''s| \cdot \aleph_0 \leq |t| \]
+Consider the diagram
 \[\begin{tikzcd}[column sep=small]
 	\cdots & {L_2} & {L_1} & {L_0} & {s \setminus f''s} & \cdots & {f''s \setminus s} & {R_0} & {R_1} & {R_2} & \cdots
 	\arrow[from=1-1, to=1-2]
@@ -118,11 +120,11 @@ As described in \cref{ss:foa:outline}, we will define a well-founded relation on
         \item Let \( \gamma \leq \alpha \) be a proper type index, and let \( \delta, \varepsilon < \gamma \) be distinct proper type indices.
         Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( t \in \tau_\delta \).
         Then for all \( c \in \ran \supp t \),
-        \[ (A \gg (\gamma > \delta) \gg \pr_1(c), \pr_2(c)) \prec (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
+        \[ (A \pcomp (\gamma > \delta) \pcomp \pr_1(c), \pr_2(c)) \prec (A \pcomp (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
         \item Let \( \gamma \leq \alpha \) be a proper type index, and let \( \varepsilon < \gamma \) be a proper type index.
         Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( a \) be an atom.
         Then
-        \[ (A \gg (\gamma > \bot), a) \prec (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
+        \[ (A \pcomp (\gamma > \bot), a) \prec (A \pcomp (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
     \end{enumerate}
     If \( x \prec y \), we say that \( y \) \emph{depends on} \( x \).
 \end{definition}
@@ -189,7 +191,7 @@ As described in \cref{ss:foa:outline}, we will define a well-founded relation on
 
 \begin{remark}
     If \( x \prec y \) are \( \gamma \)-addresses and \( B \) is a path \( \beta \rightsquigarrow \gamma \), then
-    \[ (B \gg \pr_1(x), \pr_2(x)) \prec (B \gg \pr_1(y), \pr_2(y)) \]
+    \[ (B \pcomp \pr_1(x), \pr_2(x)) \prec (B \pcomp \pr_1(y), \pr_2(y)) \]
 \end{remark}
 
 We will define a partial order on addresses by defining \( < \) to be the transitive closure of \( \prec \).
@@ -457,38 +459,38 @@ Otherwise, we will define that
 \label{ss:foa:inflexible_coe}
 
 Suppose we are at stage
-\[ x = (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
+\[ x = (A \pcomp (\gamma > \varepsilon > \bot), \NL(f_{\delta,\varepsilon}(t))) \]
 where \( \delta, \varepsilon < \gamma \) are distinct proper type indices, \( A \) is a path \( \beta \rightsquigarrow \gamma \), and \( t \in \tau_\delta \).
 We need to enforce the coherence condition that
-\[ \rho_{(A \gg (\gamma > \varepsilon > \bot))}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho_{(A \gg (\gamma > \delta))}(t)) \]
+\[ \rho_{(A \pcomp (\gamma > \varepsilon > \bot))}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho_{(A \pcomp (\gamma > \delta))}(t)) \]
 Thus, we need to compute the right-hand side of this equation.
 However, we do not know if \( \rho^\star \) happens to come from an allowable permutation, so there is no way to apply it to an arbitrary tangle \( t \).
-To deal with this, we invoke the freedom of action theorem at level \( \delta \) to produce a new allowable permutation \( \rho' \) with the same action on \( t \) as \( \rho_{(A \gg (\gamma > \delta))} \) will eventually be shown to have.
+To deal with this, we invoke the freedom of action theorem at level \( \delta \) to produce a new allowable permutation \( \rho' \) with the same action on \( t \) as \( \rho_{(A \pcomp (\gamma > \delta))} \) will eventually be shown to have.
 
 For a given small set of addresses \( s \), there is a structural action \( \psi^s \) with
 \[ a \in \dom (\psi^s_A)^A \iff (A, a) \in s;\quad L \in \dom (\psi^s_A)^L \iff (A, \NL(L)) \in s \]
 given by \( \rho^\star \) on its domain.
 In particular, we can define
 \[ \psi^x = \psi^s;\quad s = \{ y \mid y < x \} \]
-We will consider its derivative \( \psi^x_{(A \gg (\gamma > \delta))} \), which is a \( \delta \)-strutural action.
-Outside of this recursion, we will be able to show that \( \psi^x_{(A \gg (\gamma > \delta))} \) is lawful and maps flexible litters to flexible litters as required for \cref{lem:foa:struct_action_to_approx}; for now, if it turned out not to be lawful, we would simply assign
-\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(t) \]
+We will consider its derivative \( \psi^x_{(A \pcomp (\gamma > \delta))} \), which is a \( \delta \)-strutural action.
+Outside of this recursion, we will be able to show that \( \psi^x_{(A \pcomp (\gamma > \delta))} \) is lawful and maps flexible litters to flexible litters as required for \cref{lem:foa:struct_action_to_approx}; for now, if it turned out not to be lawful, we would simply assign
+\[ \rho^\star_{A \pcomp (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(t) \]
 but this case will never actually occur.
-Build a \( \delta \)-structural approximation from \( \psi^x_{(A \gg (\gamma > \delta))} \) as in \cref{lem:foa:struct_action_to_approx}, and apply the freedom of action theorem at level \( \delta < \gamma \leq \beta \) to obtain a \( \delta \)-allowable permutation \( \rho^x \).
+Build a \( \delta \)-structural approximation from \( \psi^x_{(A \pcomp (\gamma > \delta))} \) as in \cref{lem:foa:struct_action_to_approx}, and apply the freedom of action theorem at level \( \delta < \gamma \leq \beta \) to obtain a \( \delta \)-allowable permutation \( \rho^x \).
 We will later be able to show that \( \rho^x \) agrees with \( \rho^\star \) on all elements of the support of \( t \).
 We set
-\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho^x(t)) \]
+\[ \rho^\star_{A \pcomp (\gamma > \varepsilon > \bot)}(f_{\delta,\varepsilon}(t)) = f_{\delta,\varepsilon}(\rho^x(t)) \]
 
 \subsubsection{Inflexible litters from the base level}
 \label{ss:foa:inflexible_bot}
 
 Suppose we are at stage
-\[ x = (A \gg (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
+\[ x = (A \pcomp (\gamma > \varepsilon > \bot), \NL(f_{\bot,\varepsilon}(a))) \]
 where \( \varepsilon < \gamma \) is a proper type index, \( A \) is a path \( \beta \rightsquigarrow \gamma \), and \( a \) is an atom.
 We must enforce
-\[ \rho_{(A \gg (\gamma > \varepsilon > \bot))}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho_{(A \gg (\gamma > \bot))}(a)) \]
+\[ \rho_{(A \pcomp (\gamma > \varepsilon > \bot))}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho_{(A \pcomp (\gamma > \bot))}(a)) \]
 so we have no choice but to define
-\[ \rho^\star_{A \gg (\gamma > \varepsilon > \bot)}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho^\star_{(A \gg (\gamma > \bot))}(a)) \]
+\[ \rho^\star_{A \pcomp (\gamma > \varepsilon > \bot)}(f_{\bot,\varepsilon}(a)) = f_{\bot,\varepsilon}(\rho^\star_{(A \pcomp (\gamma > \bot))}(a)) \]
 
 \subsubsection{Near-litters}
 
@@ -528,26 +530,26 @@ Given this hypothesis, we can immediately show that injectivity of atoms extends
     \label{lem:coherence}
     Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) where \( \gamma \) is a proper type index, and let \( B \) be a \( \gamma \)-extended type index.
     Let \( s \) be a small set of \( \beta \)-addresses such that \( \psi^s \) is lawful, and let \( \psi^s_A \) exactly approximate the \( \gamma \)-allowable permutation \( \rho \) (under the conversion to an approximation given in \cref{lem:foa:struct_action_to_approx}).
-    Let \( x \) be an address such that \( (A \gg \pr_1 x, \pr_2 x) \leq y \) for some \( y \in s \).
+    Let \( x \) be an address such that \( (A \pcomp \pr_1 x, \pr_2 x) \leq y \) for some \( y \in s \).
     Then
     \[ \rho^\star_A(x) = \rho(x) \]
 \end{lemma}
 \begin{proof}
     We proceed by induction along the relation \( < \) for \( \gamma \)-addresses.
     The result for atom addresses is simple, and the result for near-litter addresses reduces to that for litter addresses.
-    It suffices to show, for every \( \gamma \)-extended index \( B \) and litter \( L \) such that \( (A \gg B, \NL(L)) \leq y \) for some \( y \in s \),
-    \[ \rho^\star_{A \gg B}(L) = \rho_B(L) \]
+    It suffices to show, for every \( \gamma \)-extended index \( B \) and litter \( L \) such that \( (A \pcomp B, \NL(L)) \leq y \) for some \( y \in s \),
+    \[ \rho^\star_{A \pcomp B}(L) = \rho_B(L) \]
     The case where \( L \) is \( B \)-flexible is easy, as is the case where \( L = f_{\bot,\zeta}(a) \).
     Suppose that
-    \[ L = f_{\varepsilon,\zeta}(t);\quad t \in \tau_\varepsilon;\quad B = C \gg (\delta > \zeta > \bot) \]
+    \[ L = f_{\varepsilon,\zeta}(t);\quad t \in \tau_\varepsilon;\quad B = C \pcomp (\delta > \zeta > \bot) \]
     The coherence condition gives
-    \[ \rho_{C \gg (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho_{C \gg (\delta > \varepsilon)}(t)) \]
+    \[ \rho_{C \pcomp (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho_{C \pcomp (\delta > \varepsilon)}(t)) \]
     By the inductive hypothesis, \( \psi^s \) is lawful, so the structural action \( \psi^x \) defined in \cref{ss:foa:inflexible_coe} is also lawful.
     Therefore, by construction,
-    \[ \rho^\star_{A \gg C \gg (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho^x(t)) \]
+    \[ \rho^\star_{A \pcomp C \pcomp (\delta > \zeta > \bot)}(f_{\varepsilon,\zeta}(t)) = f_{\varepsilon,\zeta}(\rho^x(t)) \]
     where \( \rho^x \) is an \( \varepsilon \)-allowable permutation made from \( \psi^x \).
     Thus, it suffices to show that
-    \[ \rho_{C \gg (\delta > \varepsilon)}(t) = \rho^x(t) \]
+    \[ \rho_{C \pcomp (\delta > \varepsilon)}(t) = \rho^x(t) \]
     We show that both of these \( \varepsilon \)-allowable permutations have the same action on the support of \( t \).
     It suffices by \cref{lem:exact} to show that they are exact before all addresses in this support, and this simply follows from the fact that both \( \rho \) and \( \rho^x \) came from applying \cref{lem:foa:struct_action_to_approx} to \( \rho^\star \).
 \end{proof}
@@ -558,7 +560,7 @@ Given this hypothesis, we can immediately show that injectivity of atoms extends
     Let \( A \) be a path \( \beta \rightsquigarrow \gamma \) and let \( t \in \tau_\delta \).
     Let \( L = f_{\delta,\varepsilon}(t) \) be a litter such that \( (A, \NL(L)) \leq x \).
     Then
-    \[ \rho^x_{(A \gg (\gamma > \delta))}(t) = \rho^{x,y}_{(A \gg (\gamma > \delta))}(t) \]
+    \[ \rho^x_{(A \pcomp (\gamma > \delta))}(t) = \rho^{x,y}_{(A \pcomp (\gamma > \delta))}(t) \]
     where \( \rho^s \) is the allowable permutation obtained from applying freedom of action to \( \psi^s \) as in \cref{ss:foa:inflexible_coe}.
 \end{corollary}
 This follows directly from applying the coherence lemma to each address in the support of \( t \).
@@ -574,15 +576,15 @@ This follows directly from applying the coherence lemma to each address in the s
     Thus, \( L_1 \) is \( A \)-flexible precisely when \( L_2 \) is.
     If \( L_1 \) and \( L_2 \) are \( A \)-flexible, then the values of \( \rho^\star_A(L_1) \) and \( \rho^\star_A(L_2) \) are given by applying the same partial permutation as defined in \cref{ss:foa:flexible}, so we must have \( L_1 = L_2 \).
 
-    If \( L_i = f_{\bot,\varepsilon}(a_i) \) and \( A = B \gg (\gamma > \varepsilon > \bot) \), then by \cref{ss:foa:inflexible_bot},
-    \[ \rho^\star_A(L_i) = f_{\bot,\varepsilon}(\rho^\star_{(A \gg (\gamma > \bot))}(a_i)) \]
+    If \( L_i = f_{\bot,\varepsilon}(a_i) \) and \( A = B \pcomp (\gamma > \varepsilon > \bot) \), then by \cref{ss:foa:inflexible_bot},
+    \[ \rho^\star_A(L_i) = f_{\bot,\varepsilon}(\rho^\star_{(A \pcomp (\gamma > \bot))}(a_i)) \]
     Hence, by injectivity of the fuzz map and lawfulness of \( \psi^{x,y} \), we must have \( a_1 = a_2 \), giving the result.
 
-    Now suppose \( L_i = f_{\delta,\varepsilon}(t_i) \) and \( A = B \gg (\gamma > \varepsilon > \bot) \).
-    \[ \rho^\star_A(L_i) = f_{\delta,\varepsilon}(\rho^z_{(A \gg (\gamma > \delta))}(t_i)) \]
+    Now suppose \( L_i = f_{\delta,\varepsilon}(t_i) \) and \( A = B \pcomp (\gamma > \varepsilon > \bot) \).
+    \[ \rho^\star_A(L_i) = f_{\delta,\varepsilon}(\rho^z_{(A \pcomp (\gamma > \delta))}(t_i)) \]
     where \( z \) is either \( x \) or \( y \).
     By \cref{cor:foa_both}, we obtain
-    \[ f_{\delta,\varepsilon}(\rho^{x,y}_{(A \gg (\gamma > \delta))}(t_1)) = f_{\delta,\varepsilon}(\rho^{x,y}_{(A \gg (\gamma > \delta))}(t_2)) \]
+    \[ f_{\delta,\varepsilon}(\rho^{x,y}_{(A \pcomp (\gamma > \delta))}(t_1)) = f_{\delta,\varepsilon}(\rho^{x,y}_{(A \pcomp (\gamma > \delta))}(t_2)) \]
     and thus \( t_1 = t_2 \).
 \end{proof}
 
@@ -629,26 +631,26 @@ We will prove the result for near-litters from the following result on litters.
 \end{lemma}
 \begin{proof}
     If \( L \) is \( A \)-flexible or \( L = f_{\bot,\varepsilon}(a) \), the result is clear.
-    Suppose \( A = B \gg (\gamma > \varepsilon > \bot) \) and \( L = f_{\delta,\varepsilon}(t) \).
+    Suppose \( A = B \pcomp (\gamma > \varepsilon > \bot) \) and \( L = f_{\delta,\varepsilon}(t) \).
     We claim that
     \[ L = \rho^\star_A(f_{\delta,\varepsilon}((\rho^s)^{-1}(t))) \]
     where
     \[ s = {(\rho^\star)^{-1}} '' \{ d \mid d < (A, L) \} \]
     Note that \( s \) is small as \( \rho^\star \) is injective on addresses.
     Let \( \rho^x \) be the allowable permutation obtained in \cref{ss:foa:inflexible_coe}, so
-    \[ \rho^\star_A\left(f_{\delta,\varepsilon}\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) = f_{\delta,\varepsilon}\left(\rho^x\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) \]
+    \[ \rho^\star_A\left(f_{\delta,\varepsilon}\left((\rho^s_{B \pcomp (\gamma > \delta)})^{-1}(t)\right)\right) = f_{\delta,\varepsilon}\left(\rho^x\left((\rho^s_{B \pcomp (\gamma > \delta)})^{-1}(t)\right)\right) \]
     We show that
-    \[ (\rho^x)^{-1}(t) = \left(\rho^s_{B \gg (\gamma > \delta)}\right)^{-1}(t) \]
+    \[ (\rho^x)^{-1}(t) = \left(\rho^s_{B \pcomp (\gamma > \delta)}\right)^{-1}(t) \]
     from which we obtain the desired result.
     It suffices to check the action on addresses \( y \in \supp t \):
-    \[ (\rho^x)^{-1}(y) = \left(\rho^s_{B \gg (\gamma > \delta)}\right)^{-1}(y) \]
-    By assumption, \( y = \rho^\star_{B \gg (\gamma > \delta)}(z) \) for some \( z \); it therefore suffices to show that
-    \[ \rho^x(z) = \rho^\star_{B \gg (\gamma > \delta)}(z) = \rho^s_{B \gg (\gamma > \delta)}(z) \]
+    \[ (\rho^x)^{-1}(y) = \left(\rho^s_{B \pcomp (\gamma > \delta)}\right)^{-1}(y) \]
+    By assumption, \( y = \rho^\star_{B \pcomp (\gamma > \delta)}(z) \) for some \( z \); it therefore suffices to show that
+    \[ \rho^x(z) = \rho^\star_{B \pcomp (\gamma > \delta)}(z) = \rho^s_{B \pcomp (\gamma > \delta)}(z) \]
     The coherence lemma (\cref{lem:coherence}) immediately gives the right-hand equality.
     It also gives the left-hand equality, but with slightly more work; we must show that
-    \[ (B \gg (\gamma > \delta) \gg \pr_1 z, \pr_2 z) < \left(B \gg (\gamma > \varepsilon > \bot), f_{\delta,\varepsilon}\left((\rho^s_{B \gg (\gamma > \delta)})^{-1}(t)\right)\right) \]
-    But since allowable permutations commute with supports, we can deduce \( z \in \supp (\rho^s_{B \gg (\gamma > \delta)})^{-1}(t) \) from the fact that
-    \[ \rho^s_{B \gg (\gamma > \delta)}(z) = \rho^\star_{B \gg (\gamma > \delta)}(z) = y \in \supp t \]
+    \[ (B \pcomp (\gamma > \delta) \pcomp \pr_1 z, \pr_2 z) < \left(B \pcomp (\gamma > \varepsilon > \bot), f_{\delta,\varepsilon}\left((\rho^s_{B \pcomp (\gamma > \delta)})^{-1}(t)\right)\right) \]
+    But since allowable permutations commute with supports, we can deduce \( z \in \supp (\rho^s_{B \pcomp (\gamma > \delta)})^{-1}(t) \) from the fact that
+    \[ \rho^s_{B \pcomp (\gamma > \delta)}(z) = \rho^\star_{B \pcomp (\gamma > \delta)}(z) = y \in \supp t \]
 \end{proof}
 
 \subsection{Finishing the proof}
@@ -667,7 +669,7 @@ We can now prove the freedom of action theorem, which states the following.
     But a \( \bot \)-allowable permutation is precisely a near-litter permutation, and each \( \rho^\star_A \) is a permutation of atoms and preserves near-litters as required.
 
     Now, let \( A : \beta \rightsquigarrow \gamma \) where \( \gamma \) is a proper type index.
-    We show that \( \rho \) is allowable below \( A \) given that it is allowable below \( A \gg (\gamma > \delta) \) for all type indices \( \delta < \gamma \).
+    We show that \( \rho \) is allowable below \( A \) given that it is allowable below \( A \pcomp (\gamma > \delta) \) for all type indices \( \delta < \gamma \).
     Hypothesis (v) in \cref{ss:foa:hypotheses} allows us to construct a suitable allowable permutation; it suffices to check the coherence condition, which holds by construction.
     Hence, by induction on \( \gamma \), \( \rho^\star \) is allowable below every path, and in particular below the empty path, giving a \( \beta \)-allowable permutation \( \rho \) that coincides with \( \rho^\star \) everywhere.
     One can check that \( \varphi \) exactly aproximates \( \rho \); this is a simple computation.
@@ -743,22 +745,22 @@ This allows us to use \cref{lem:foa:nl_action_to_approx} to turn them into appro
         \item For every extended index \( A : \beta \rightsquigarrow \bot \) and near-litter \( N \in \dom (\xi_A)^N \), if \( N^\circ \) is \( A \)-flexible then \( \xi(N)^\circ \) is \( A \)-flexible.
         \item Let \( A : \beta \rightsquigarrow \gamma \) and \( \delta, \varepsilon < \gamma \) be distinct proper type indices.
         Let \( t \) be a \( \delta \)-tangle, and let \( N \) be a near-litter such that \( N^\circ = f_{\delta,\varepsilon}(t) \) and
-        \[ N \in \dom \left(\xi_{A \gg (\gamma > \varepsilon > \bot)}\right)^N \]
+        \[ N \in \dom \left(\xi_{A \pcomp (\gamma > \varepsilon > \bot)}\right)^N \]
         Then for all addresses \( (B, x) \in \ran \supp t \), we have
-        \[ x \in \dom \xi_{A \gg (\gamma > \delta) \gg B} \]
+        \[ x \in \dom \xi_{A \pcomp (\gamma > \delta) \pcomp B} \]
         Moreover, in this situation, if \( \rho \) is \( \gamma \)-allowable and satisfies
-        \[ \xi_{A \gg (\gamma > \delta) \gg B}(x) = \rho_{(\gamma > \delta) \gg B}(x) \]
+        \[ \xi_{A \pcomp (\gamma > \delta) \pcomp B}(x) = \rho_{(\gamma > \delta) \pcomp B}(x) \]
         for each such address, then
-        \[ \xi_{A \gg (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\delta,\varepsilon}(\rho_{(\gamma > \delta)}(t)) \]
+        \[ \xi_{A \pcomp (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\delta,\varepsilon}(\rho_{(\gamma > \delta)}(t)) \]
         \item Let \( A : \beta \rightsquigarrow \gamma \) and \( \varepsilon < \gamma \) be a proper type index.
         Then for all atoms \( a \) and near-litters \( N \) such that \( N^\circ = f_{\bot,\varepsilon}(a) \) and
-        \[ N \in \dom \left(\xi_{A \gg (\gamma > \varepsilon > \bot)}\right)^N \]
+        \[ N \in \dom \left(\xi_{A \pcomp (\gamma > \varepsilon > \bot)}\right)^N \]
         we have
-        \[ a \in \dom \left(\xi_{A \gg (\gamma > \bot)}\right)^A \]
+        \[ a \in \dom \left(\xi_{A \pcomp (\gamma > \bot)}\right)^A \]
         Moreover, in this situation, if \( \rho \) is \( \gamma \)-allowable and satisfies
-        \[ \xi_{A \gg (\gamma > \bot)}(a) = \rho_{(\gamma > \bot)}(a) \]
+        \[ \xi_{A \pcomp (\gamma > \bot)}(a) = \rho_{(\gamma > \bot)}(a) \]
         then
-        \[ \xi_{A \gg (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\bot,\varepsilon}(\rho_{(\gamma > \bot)}(a)) \]
+        \[ \xi_{A \pcomp (\gamma > \varepsilon > \bot)}(N)^\circ = f_{\bot,\varepsilon}(\rho_{(\gamma > \bot)}(a)) \]
     \end{enumerate}
 \end{definition}
 

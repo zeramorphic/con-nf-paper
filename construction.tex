@@ -14,7 +14,7 @@ The data constructed at each level is called \emph{tangle data}; for uniformity 
         \item A group \( A_\alpha \), called the set of \emph{\( \alpha \)-allowable permutations}, which acts on \( \tau_\alpha \).
         Allowable permutations will be denoted using the symbol \( \rho \).
         \item A group homomorphism \( A_\alpha \to S_\alpha \), where \( S_\alpha \) is the group of \( \alpha \)-structural permutations as defined in \cref{def:struct_perm}.
-        We will notationally suppress this homomorphism, and treat \( A_\alpha \) as a subgroup of \( S_\alpha \), so allowable permutations act on anything that structural permutations do.
+        We will notationally suppress this homomorphism and treat \( A_\alpha \) as a subgroup of \( S_\alpha \), so in particular \( \alpha \)-allowable permutations act on \( \alpha \)-addresses and \( \alpha \)-supports.
         \item A function \( \supp \) that assigns an \( \alpha \)-support to each \( \alpha \)-tangle.
         This support must actually support the input tangle: for any \( \alpha \)-allowable permutation \( \rho \), if \( \rho \) fixes \( \supp t \) pointwise, it fixes \( t \).
         \[ (\forall i.\, \rho((\supp t)(i)) = (\supp t)(i)) \to \rho(t) = t \]
@@ -47,7 +47,7 @@ Let \( \alpha \in \lambda \), and let \( N \) be a near-litter.
 We will construct our model in such a way that there is an element \( x \) of type \( \alpha \) with a \( \bot \)-extension that is exactly (the atoms inside) \( N \).
 This will imply, in particular, that each type must have size at least \( \mu \) by \cref{rk:mk_near_litter}.
 Together with the existence of a position function, the size of each type can be seen to be exactly \( \mu \).
-We cannot express the notion of a \( \bot \)-extension directly with the language available to us, but we do not need it in order to capture the information relevant for this section.
+We cannot express the notion of a \( \bot \)-extension directly with the language given to us in our hypotheses for this section, but we do not need it in order to capture the information relevant for this section.
 
 \begin{definition}
     Let \( \alpha \) be a proper type index with tangle data.
