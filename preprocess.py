@@ -57,7 +57,7 @@ def replaceLean(lean):
 def preprocess(file):
     with open(file, "r") as f:
         contents = f.read()
-    contents = re.sub(r"\\lean{(.*)}", replaceLean, contents.replace(".tex", ".l.tex"))
+    contents = re.sub(r"\\lean{([^}]*)}", replaceLean, contents.replace(".tex", ".l.tex"))
     with open(file[:-4] + ".l.tex", "w") as f:
         f.write(contents)
 
