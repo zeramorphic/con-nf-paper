@@ -1,0 +1,188 @@
+In 1937, Quine introduced \emph{New Foundations} (\( \mathsf{NF} \)) \cite{quine-nf}, a set theory with a very small collection of axioms.
+To give a proper exposition of the theory that we intend to prove consistent, we will first make a digression to introduce the related theory \( \mathsf{TST} \), as explained by Holmes in \cite{holmes2023nf}.
+We will then describe the theory \( \mathsf{TTT} \), which we will use to prove our theorem.
+
+\subsection{The simple theory of types}
+
+The \emph{simple theory of types} (known as \emph{théorie simple des types} or \( \mathsf{TST} \)) is a first order set theory with several sorts, indexed by the nonnegative integers.
+Each sort, called a \emph{type}, is comprised of \emph{sets} of that type; each variable \( x \) has a nonnegative integer \( \ttype(\mquote x) \) which denotes the type it belongs to.
+For convenience, we may write \( x^n \) to denote a variable \( x \) with type \( n \).
+
+The primitive predicates of this theory are equality and membership.
+An equality \( \mquote{x = y} \) is a well-formed formula precisely when \( \ttype(\mquote{x}) = \ttype(\mquote{y}) \), and similarly a membership formula \( \mquote{x \in y} \) is well-formed precisely when \( \ttype(\mquote{x}) + 1 = \ttype(\mquote{y}) \).
+
+The axioms of this theory are extensionality
+\[ \forall x^{n + 1}.\, \forall y^{n + 1}.\, (\forall z^n.\, z^n \in x^{n+1} \leftrightarrow z^n \in y^{n+1}) \to x^{n+1} = y^{n+1} \]
+and comprehension
+\[ \exists x^{n + 1}.\, \forall y^n.\, (y^n \in x^{n+1} \leftrightarrow \varphi(y^n)) \]
+where \( \varphi \) is any well-formed formula, possibly with parameters.
+
+\begin{remarks}\mbox{\negthinspace}
+	\begin{enumerate}
+		\item These are both axiom schemes, instantiated for all type levels \( n \), and (in the latter case) for all well-formed formulae \( \varphi \).
+		\item The inhabitants of type 0, called \emph{individuals}, cannot be examined using these axioms.
+		\item By comprehension, there is a set at each nonzero type that contains all sets of the previous type.
+		Russell-style paradoxes are avoided as formulae of the form \( x^n \in x^n \) are ill-formed.
+		% \item A theory has \emph{atoms}, or \emph{urelements}, if there are objects that have no members yet are not equal.
+		% The axiom of extensionality prohibits atoms from existing in any positive type, since any two such objects would be equal.
+		% Note that there is a different empty set in each type, but they are not atoms; the formula \( \varnothing^n \neq \varnothing^m \) is ill-formed for \( n \neq m \), so they cannot be called `not equal'.
+	\end{enumerate}
+\end{remarks}
+% Replacing the extensionality axiom with
+% \[ \forall x^{n + 1}.\, \forall y^{n + 1}.\, \forall w^n.\, w \in x \to ((\forall z^n.\, z^n \in x^{n+1} \leftrightarrow z^n \in y^{n+1}) \to x^{n+1} = y^{n+1}) \]
+% yields a theory in which atoms in positive types are permitted.
+% We will name the resulting theory \( \mathsf{TST} \)U, or \( \mathsf{TST} \) with urelements.
+
+\subsection{New Foundations}
+
+New Foundations is a one-sorted first-order theory based on \( \mathsf{TST} \).
+Its primitive propositions are equality and membership.
+There are no well-formedness constraints on these primitive propositions.
+
+Its axioms are precisely the axioms of \( \mathsf{TST} \) with all type annotations erased.
+That is, it has an axiom of extensionality
+\[ \forall x.\, \forall y.\, (\forall z.\, z \in x \leftrightarrow z \in y) \to x = y \]
+and an axiom scheme of comprehension
+\[ \exists x.\, \forall y.\, (y \in x \leftrightarrow \varphi(y)) \]
+the latter of which is defined for those formulae \( \varphi \) that can be obtained by erasing the type annotations of a well-formed formula of \( \mathsf{TST} \).
+Such formulae are called \emph{stratified}.
+To avoid the explicit dependence on \( \mathsf{TST} \), we can equivalently characterise the stratified formulae as follows.
+A formula \( \varphi \) is said to be stratified when there is a function \( \sigma \) from the set of variables to the nonnegative integers, in such a way that for each subformula \( \mquote{x = y} \) of \( \varphi \) we have \( \sigma(\mquote{x}) = \sigma(\mquote{y}) \), and for each subformula \( \mquote{x \in y} \) we have \( \sigma(\mquote{x}) + 1 = \sigma(\mquote{y}) \).
+
+\begin{remarks}\mbox{\negthinspace}
+	\begin{enumerate}
+		\item It is important to emphasise that while the axioms come from a many-sorted theory, \( \mathsf{NF} \) is not one; it is well-formed to ask if any set is a member of, or equal to, any other.
+		\item Russell's paradox is avoided because the set \( \{ x \mid x \notin x \} \) cannot be formed; indeed, \( x \notin x \) is an unstratified formula.
+		Note, however, that the set \( \{ x \mid x = x \} \) is well-formed, and so we have a universe set.
+		% (TODO: add reference for Burali--Forti and Cantor)
+		% \item The infinite set of stratified comprehension axioms can be captured by a finite subset; this is a result of Hailperin \cite{hailperin-finite-axiomatisation}.
+		\item Specker showed in \cite{specker-choice-nf} that \( \mathsf{NF} \) disproves the Axiom of Choice.
+	\end{enumerate}
+\end{remarks}
+
+While our main result is that New Foundations is consistent, we attack the problem by means of an indirection through a third theory.
+
+\subsection{Tangled type theory}
+\label{ss:theories:ttt}
+
+Introduced by Holmes in \cite{holmes-ttt}, \emph{tangled type theory} (\( \mathsf{TTT} \)) is a multi-sorted first order theory based on \( \mathsf{TST} \).
+This theory is parametrised by a limit ordinal \( \lambda \), the elements of which will index the sorts; \( \omega \) works, but we prefer generality.
+As in \( \mathsf{TST} \), each variable \( x \) has a type that it belongs to, denoted \( \ttype(\mquote x) \).
+However, in \( \mathsf{TTT} \), this is not a positive integer, but an element of \( \lambda \).
+
+The primitive predicates of this theory are equality and membership.
+An equality \( \mquote{x = y} \) is a well-formed formula when \( \ttype(\mquote{x}) = \ttype(\mquote{y}) \).
+A membership formula \( \mquote{x \in y} \) is well-formed when \( \ttype(\mquote{x}) < \ttype(\mquote{y}) \).
+
+The axioms of \( \mathsf{TTT} \) are obtained by taking the axioms of \( \mathsf{TST} \) and replacing all type indices in a consistent way with elements of \( \lambda \).
+More precisely, for any order-embedding \( s : \omega \to \lambda \), we can convert a well-formed formula \( \varphi \) of \( \mathsf{TST} \) into a well-formed formula \( \varphi^s \) of \( \mathsf{TTT} \) by replacing each type variable \( \alpha \) with \( s(\alpha) \).
+
+\begin{remarks}\mbox{\negthinspace}
+	\begin{enumerate}
+		\item Membership across types in \( \mathsf{TTT} \) behaves in some quite bizarre ways.
+		Let \( \alpha \in \lambda \), and let \( x \) be a set of type \( \alpha \).
+		For any \( \beta < \alpha \), the extensionality axiom implies that \( x \) is uniquely determined by its type-\( \beta \) elements.
+		However, it is simultaneously determined by its type-\( \gamma \) elements for any \( \gamma < \alpha \).
+		In this way, one extension of a set controls all of the other extensions.
+		\item The comprehension axiom allows a set to be built which has a specified extension in a single type.
+		The elements not of this type may be considered `controlled junk'.
+	\end{enumerate}
+\end{remarks}
+
+We now present the following striking theorem.
+
+\begin{theorem}[Holmes]
+	\( \mathsf{NF} \) is consistent if and only if \( \mathsf{TTT} \) is consistent. \cite{holmes-ttt}
+\end{theorem}
+
+We will actually prove something slightly stronger.
+
+\begin{theorem}
+    \label{thm:nf_ttt}
+    Let \( T \) be a theory in the language of \( \mathsf{TST} \).
+    Let \( T_{\mathsf{NF}} \) be the theory in the language of \( \mathsf{NF} \) given by erasing the type annotations of \( T \).
+    Let \( T_{\mathsf{TTT}} \) be the theory in the language of \( \mathsf{TTT} \) given by instantiating the sentences of \( T \) at all possible combinations of type levels.
+    Then \( T_{\mathsf{NF}} \) is consistent if and only if \( T_{\mathsf{TTT}} \) is consistent.
+\end{theorem}
+\begin{proof}
+    Suppose that \( T_{\mathsf{NF}} \) has a model \( M \).
+    Let \( N \) be the structure in the language of \( \mathsf{TTT} \) where each type \( \alpha \) is interpreted as \( M \), and where the membership relation is given by that on \( M \).
+    It is easy to see by induction that all sentences in \( T_{\mathsf{TTT}} \) hold in \( N \), as required.
+
+    Now suppose that \( T_{\mathsf{TTT}} \) has some model \( M \).
+    This proof that \( T_{\mathsf{NF}} \) is consistent proceeds in two stages.
+    In the first stage, we show that \( T + \mathsf{Amb} \) is consistent, where \( \mathsf{Amb} \) is the \emph{ambiguity scheme}
+    \[ \mathsf{Amb} \equiv \{ \varphi \leftrightarrow \varphi^+ \mid \varphi \text{ is a sentence in the language of } \mathsf{TST} \} \]
+    % TODO: Write about the (-)^+ operation
+    This result is due to Holmes in \cite{holmes-ttt}.
+    We will then use this to show that \( T_{\mathsf{NF}} \) is consistent, using a result due to Specker in \cite{typical-ambiguity}.
+
+    Suppose that \( T + \mathsf{Amb} \) is not consistent.
+    By compactness, there is some finite set of sentences \( \Sigma \) in the language of \( \mathsf{TST} \) such that \( T + \mathsf{Amb}_\Sigma \) is inconsistent, where
+    \[ \mathsf{Amb}_\Sigma \equiv \{ \varphi \leftrightarrow \varphi^+ \mid \varphi \in \Sigma \} \]
+    Suppose that \( \Sigma \) uses only type indices \( 0, \dots, n - 1 \).
+    Let \( [\lambda]^n \) be the collection of \( n \)-element subsets of \( \lambda \), and define a function \( \sigma : [\lambda]^n \to \mathcal P(\Sigma) \) as follows.
+    If
+    \[ A = \{\alpha_0, \dots, \alpha_{n-1}\} \text{ with } \alpha_0 < \dots < \alpha_{n-1} \]
+    then \( \varphi \in \sigma(A) \) if and only if the interpretation of \( \varphi \) in \( M \) at levels \( \alpha_0, \dots, \alpha_{n-1} \) is true.
+    % TODO: Write about interpreting TST formulas in a TTT structure
+    This defines a partition of \( [\lambda]^n \) into finitely many subsets.
+    By Ramsey's theorem, there is an infinite homogeneous set \( H \subseteq \lambda \) for this partition, that is, if \( A, B \in [H]^n \), then \( \sigma(A) = \sigma(B) \).
+    Let \( \alpha_0, \alpha_1, \dots \) be an increasing sequence in \( H \), and define a structure \( N \) in the language of \( \mathsf{TST} \) by interpreting type \( i \) as \( M_{\alpha_i} \).
+    Then, \( N \) models \( T + \mathsf{Amb}_\Sigma \) as required.
+
+    Now, we show that the consistency of \( T + \mathsf{Amb} \) implies that of \( T_{\mathsf{NF}} \).
+    This relies on a lemma of Specker in \cite{typical-ambiguity}.
+    An \emph{endomorphism} of a one-sorted language is an operation \( (-)^\ast \) on the function and relation symbols, mapping them to terms (respectively formulas) with the same free variables.
+    This extends in a natural way to formulas in the language.
+
+    We can reformalise \( T \) into a theory \( T' \) over a one-sorted language by adding a unary relation symbol \( T_n \) for each type index \( n \), and recursively replacing each instance of \( \exists x^n.\, \varphi \) with \( \exists x.\, T_n(x) \wedge \varphi \).
+    This language has an endomorphism \( (-)^+ \) which maps \( T_n \) to \( T_{n+1} \).
+
+    Specker's lemma can be phrased in the following way.
+    \begin{lemma}
+        Let \( U \) be a complete theory in a one-sorted language \( L \) with endomorphism \( (-)^\ast \).
+        Then if
+        \[ U + \{ \varphi \leftrightarrow \varphi^\star \mid \varphi \text{ is an \( L \)-sentence} \} \]
+        is consistent, then there is a model \( M \) of \( U \) that admits a function \( f : M \to M \) such that for every relation symbol \( R \) of \( L \),
+        \[ M \vDash R(x_1, \dots, x_m) \text{ if and only if } M \vDash R(f(x_1), \dots, f(x_m)) \]
+    \end{lemma}
+    In our case, \( T + \mathsf{Amb} \) is consistent, so the corresponding one-sorted theory as required for the lemma is consistent (and has a complete extension).
+    This requires choosing an interpretation of the membership relation for pairs of type indices that do not differ by one, but this does not interfere with anything that we need (for instance, the relation can always be interpreted as false).
+    This yields a model of \( T' \) with a type-raising function \( f \).
+    This naturally gives rise to a model of \( T \) in the language of \( \mathsf{TST} \) in which all type levels are isomorphic.
+    Therefore, the carrier set of each type level of this model provides a model of \( T_{\mathsf{NF}} \) as required.
+\end{proof}
+
+Thus, our task of proving \( \mathsf{NF} \) consistent is reduced to the task of proving \( \mathsf{TTT} \) consistent.
+We will do this by exhibiting an explicit model (albeit one that requires a great deal of Choice to construct).
+As \( \mathsf{TTT} \) has types indexed by a limit ordinal, and sets can only contain sets of lower type, we can construct a model by recursion over \( \lambda \).
+In particular, a model of \( \mathsf{TTT} \) is a well-founded structure.
+This was not an option with \( \mathsf{NF} \) directly, as the universe set \( \{ x \mid x = x \} \) would necessarily be constructed before many of its elements.
+
+\subsection{Finitely axiomatising tangled type theory}
+
+Hailperin showed in \cite{hailperin-finite-axiomatisation} that the comprehension scheme of \( \mathsf{NF} \) is equivalent to a finite conjunction of its instances.
+These axioms are all stratified (as is extensionality), so \( \mathsf{NF} \) is equivalent to a theory of the form \( T_{\mathsf{NF}} \) where \( T \) is a particular finite theory in the language of \( \mathsf{TST} \).
+Then, by \cref{thm:nf_ttt}, the consistency of \( \mathsf{NF} \) can be established by witnessing a model of \( T_{\mathsf{TTT}} \).
+The same theorem shows that any model of \( T_{\mathsf{TTT}} \) is a model of \( \mathsf{TTT} \), by executing Hailperin's proof in the language of \( \mathsf{NF} \) and transporting the result back to the language of \( \mathsf{TTT} \).
+
+We will exhibit one such theory \( T \) here, with a list of eleven axioms.
+Our choice of axioms for the comprehension scheme are inspired by those used in the Metamath implementation of Hailperin's algorithm in \cite{metamath-nf}.
+In the following table, the notation \( \langle a, b \rangle \) denotes the Kuratowski pair \( \{ \{ a \}, \{ a, b \} \} \).
+The first column is Hailperin's name for the axiom.
+\begin{center}
+    \begin{tabular}{lll}
+        \( - \) & extensionality & \( \forall x^1.\, \forall y^1.\, (\forall z^0.\, z \in x \leftrightarrow z \in y) \to x = y \) \\
+        P1 & anti-intersection & \( \forall x^1 y^1.\, \exists z^1.\, \forall w^0.\, w \in z \leftrightarrow \neg(w \in x \wedge w \in y) \) \\
+        P2 & singleton image & \( \forall x^3.\, \exists y^4.\, \forall z^0 w^0.\, \langle \{ z \}, \{ w \} \rangle \in y \leftrightarrow \langle z, w \rangle \in x \) \\
+        \( - \) & singleton & \( \forall x^0.\, \exists y^1.\, \forall z^0.\, z \in y \leftrightarrow z = x \) \\
+        P3 & insertion two & \( \forall x^3.\, \exists y^5.\, \forall z^0 w^0 t^0.\, \langle \{ \{ z \} \}, \langle w, t \rangle \rangle \in y \leftrightarrow \langle z, t \rangle \in x \) \\
+        P4 & insertion three & \( \forall x^3.\, \exists y^5.\, \forall z^0 w^0 t^0.\, \langle \{ \{ z \} \}, \langle w, t \rangle \rangle \in y \leftrightarrow \langle z, w \rangle \in x \) \\
+        P5 & cross product & \( \forall x^1.\, \exists y^3.\, \forall z^2.\, z \in y \leftrightarrow \exists w^0 t^0.\, z = \langle w, t \rangle \wedge t \in x \) \\
+        P6 & type lowering & \( \forall x^4.\, \exists y^1.\, \forall z^0.\, z \in y \leftrightarrow \forall w^1.\, \langle w, \{ z \} \rangle \in x \) \\
+        P7 & converse & \( \forall x^2.\, \exists y^2.\, \forall z^0 w^0.\, \langle z, w \rangle \in y \leftrightarrow \langle w, z \rangle \in x \) \\
+        P8 & cardinal one & \( \exists x^2.\, \forall y^1.\, y \in x \leftrightarrow \exists z^0.\, \forall w.\, w \in y \leftrightarrow w = z \) \\
+        P9 & subset & \( \exists x^3.\, \forall y^1 z^1.\, \langle y, z \rangle \in x \leftrightarrow \forall w^0.\, w \in y \to w \in z \)
+    \end{tabular}
+\end{center}
