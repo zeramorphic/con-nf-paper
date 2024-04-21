@@ -16,6 +16,10 @@
 \setmathfont[Path=fonts/,range=\star]{TeXGyrePagellaMath}
 \setmonofont[Path=fonts/,Scale=MatchLowercase]{FiraCode-Regular}
 
+\usepackage{xcolor}
+\definecolor{codebg}{gray}{0.95}
+\definecolor{codeframe}{gray}{0.8}
+
 \usepackage[backend=biber]{biblatex}
 \addbibresource{refs.bib}
 
@@ -44,7 +48,7 @@
 
 \setoperatorfont\symsf
 
-\newcommand{\ttype}{\texttt{type}}
+\newcommand{\ttype}{\operatorname{type}}
 \newcommand{\mquote}[1]{\ensuremath{\text{`}#1\text{'}}}
 \newcommand{\symmdiff}{\mathrel{\raisebox{1pt}{\( \mathsmaller\triangle \)}}}
 \newcommand{\dom}{\operatorname{dom}}
@@ -70,9 +74,12 @@
 \newtheorem{remarks}[theorem]{Remarks}
 \newtheorem*{note}{Note}
 
-\title{New Foundations is consistent}
+\title{New Foundations is consistent:\\an exposition and formal verification}
 \author{Sky Wilshaw}
-\date{January 2024}
+\date{\today}
+
+\newcommand{\inlinecode}[1]{\fcolorbox{codeframe}{codebg}{\small\!\texttt{#1}\!}}
+\newcommand{\lean}[1]{\inlinecode{#1}}
 
 \begin{document}
 
@@ -80,65 +87,37 @@
 
 \begin{abstract}
 	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent relative to the metatheory ZFC.
-	This is a `deformalisation' of the formal proof written in Lean at \cite{leanprover-community-con-nf}.
+	We have formalised this proof in the Lean interactive theorem prover \cite{leanprover-community-con-nf}, and this paper is a `deformalisation' of that work.
+	We discuss the challenges of formalising new and untested mathematics in an interactive theorem prover, and how the process of completing the formalisation has influenced our presentation of the proof.
 \end{abstract}
 
 \tableofcontents
 
 \section{Overview}
+\label{s:overview}
 
-\lean{inflexible_iff}
+In \cref{s:lean}, we will briefly discuss Lean \cite{lean}, the interactive theorem prover in which our result is formalised.
+We will also explain why our formalisation in \cite{leanprover-community-con-nf} can be trusted as evidence that Holmes' proof in \cite{holmes2023nf} is correct, without needing to understand the underlying details of the proof.
+We have made frequent use of the community-made repository \texttt{mathlib} \cite{mathlib2020}, which encodes standard mathematical definitions and theorems in Lean; without this, we would have needed to write our own libraries for (for example) abstract algebra and cardinal and ordinal arithmetic.
 
-In \cref{sec:theories}, we outline the context for the proof we will present.
-The mathematical background expected in subsequent sections will be limited to basic familiarity with cardinals and ordinals.
-We will then give an outline of the proof in \cref{sec:outline}.
-In \cref{sec:structure}, we introduce some basic preliminaries, and explicitly describe the structure within which our model will reside.
-The objects of our model will be constructed in \cref{sec:construction}.
-We then show the main technical theorem, the \emph{freedom of action theorem}, in \cref{sec:foa}.
+Lean is based on a version of the \emph{calculus of constructions}, which is a dependent type theory.
+In order to authentically present the formalised proof, the mathematics of this paper will take place in this type theory, or some suitable variant of it.
+We will rarely make note of this choice, and readers are not expected to be familiar with such type theories.
+However, this will be relevant for some discussion sections, as some parts of the proof were made significantly harder by the fact that we are working in a type theory.
 
-All proofs given in \cref{sec:structure,sec:construction,sec:foa} are verified by Lean \cite{lean}, which is a functional programing language and interactive theorem prover.
-Most of our proofs are written in Lean's \emph{tactic mode}, in which Lean tracks a number of hypotheses and goals, and we instruct it via tactics to update these hypotheses and goals according to logical rules.
-There are a large variety of tactics to perform different tasks, such as simplification (\texttt{simp}), rewriting of subexpressions (\texttt{rw}), case splitting (\texttt{cases} and \texttt{by\_cases}), and so on.
-These tactics output a \emph{proof term}, which is then passed to Lean's \emph{kernel}.
-The kernel is a small program that verifies proofs by performing a type-checking algorithm.
-Lean's kernel is the only code that must be `trusted' in order to guarantee that a proof accepted by Lean as a whole is correct, since any unsound tactics would output a proof term that is not type-correct.
+In \cref{s:theories}, we will establish the mathematical context for the proof we will present.
+In particular, our proof will not directly show the consistency of \( \mathsf{NF} \); instead, we will construct a model of a related theory known as \emph{tangled type theory}, or \( \mathsf{TTT} \).
+This is the result which has been formally verified: there is a structure that satisfies a particular axiomatisation of \( \mathsf{TTT} \) which we will discuss in \cref{s:theories}.
+The expected conclusion that \( \mathsf{NF} \) is consistent then follows from the fact that \( \mathsf{NF} \) and \( \mathsf{TTT} \) are equiconsistent \cite{holmes-ttt}.
 
-We made frequent use of the community-made repository \texttt{mathlib} \cite{mathlib2020}, which encodes standard mathematical definitions and theorems in Lean; without this, we would have needed to write our own libraries for abstract algebra and cardinal and ordinal arithmetic.
+[Finish the introduction\dots]
 
-It is important to note that although theorems can be verified by Lean's kernel, it has no way of knowing whether a formal definition written in Lean matches the familiar mathematical definition; any definitions used in a theorem statement must be manually checked.
-For example, if verifying a proof of Fermat's last theorem, it would suffice to manually check the definitions of natural numbers, addition, exponentiation, and natural equalities and inequalities.
-
-Carneiro proved in \cite{leantt} that Lean's type theory is consistent relative to
-\[ \text{ZFC} + \{ \text{there are } n \text{ inaccessible cardinals} \mid n < \omega \} \]
-These inaccessible cardinals are needed to support Lean's hierarchy of type universes.
-Higher universes are used by \texttt{mathlib} whenever they are convenient, for example in its definitions of cardinals and ordinals.
-However, these uses are not strictly necessary for our purposes, and the entire proof can be carried out in plain ZFC, as shown by \cite{holmes2023nf} and this paper.
-
-\emph{%
-	Note: At the present time, the formal proof \cite{leanprover-community-con-nf} is incomplete, and this paper reflects the unfinished state of that proof.
-	We aim to keep this paper proof in line with the formal proof, although as the project is ongoing, some variance is to be expected.
-	The current version of the paper is available at \url{https://zeramorphic.github.io/con-nf-paper/main.pdf}.
-}
+\section{The Lean interactive theorem prover}
+\label{s:lean}
+\input{lean.tex}
 
 \section{The theories at issue}
-\label{sec:theories}
-\input{theories.tex}
-
-\section{Outline}
-\label{sec:outline}
-\input{outline.tex}
-
-\section{The underlying structure}
-\label{sec:structure}
-\input{structure.tex}
-
-\section{Constructing the types}
-\label{sec:construction}
-\input{construction.tex}
-
-\section{Freedom of action}
-\label{sec:foa}
-\input{foa.tex}
+\label{s:theories}
 
 \printbibliography
 

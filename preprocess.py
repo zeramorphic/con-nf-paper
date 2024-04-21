@@ -38,11 +38,12 @@ errored = False
 
 def replaceLean(lean):
     global errored
-    if lean[1] not in indexDict:
-        print("did not find", lean[1])
+    name = lean[1].replace('\\', '')
+    if name not in indexDict:
+        print("did not find", name)
         errored = True
         return
-    results = indexDict[lean[1]]
+    results = indexDict[name]
     if len(results) == 1:
         (name, module, line, column) = results[0]
         base = "https://leanprover-community.github.io/con-nf/doc/"
@@ -50,7 +51,7 @@ def replaceLean(lean):
         url = base + page + ".html#" + name
         return r"\href{" + url + r"}{\(\forall\)}"
     else:
-        print("definition", lean[1], "was ambiguous")
+        print("definition", name, "was ambiguous")
         errored = True
 
 def preprocess(file):
