@@ -334,6 +334,11 @@ OUTPUT build/main.l.xdv
 INPUT ./lean.l.tex
 INPUT ./lean.l.tex
 INPUT lean.l.tex
+INPUT ./theories.l.tex
+INPUT ./theories.l.tex
+INPUT theories.l.tex
+INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+INPUT /opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
 INPUT build/main.l.aux
 INPUT build/main.l.out
 INPUT build/main.l.out

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.3.15)  21 APR 2024 20:51
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.3.15)  21 APR 2024 23:09
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -275,6 +275,44 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/STIXTwoText(1)/b/n on input line 15
 .
 
+Package fontspec Info: Font family 'SourceSans3-Regular(0)' created for font
+(fontspec)             'SourceSans3-Regular' with options
+(fontspec)             [Ligatures=TeX,Path=fonts/Source_Sans_3/static/,Ligature
+s={Common,TeX}].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[fonts/Source_Sans_3/static/SourceSans3-Regular]/OT:
+script=latn;language=dflt;+liga;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"[fonts/Source_Sans_3/static/SourceSans3-Regular]/OT:
+script=latn;language=dflt;+liga;+smcp;mapping=tex-text;"
+
+
+Package fontspec Info: Font family 'SourceSans3-Regular(1)' created for font
+(fontspec)             'SourceSans3-Regular' with options
+(fontspec)             [Path=fonts/Source_Sans_3/static/,Ligatures={Common,TeX}
+].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->"[fonts/Source_Sans_3/static/SourceSans3-Regular]/OT:
+script=latn;language=dflt;+liga;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->"[fonts/Source_Sans_3/static/SourceSans3-Regular]/OT:
+script=latn;language=dflt;+liga;+smcp;mapping=tex-text;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> TU/SourceSans3-Regular(1)/m/n on input
+ line 15.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> TU/SourceSans3-Regular(1)/b/n on inpu
+t line 15.
+
 Package fontspec Info: Font family 'STIXTwoMath-Regular(0)' created for font
 (fontspec)             'STIXTwoMath-Regular' with options
 (fontspec)             [BoldItalicFont={},ItalicFont={},SmallCapsFont={},Script
@@ -307,15 +345,15 @@ sty=0;"<-6.25>"[fonts/STIXTwoMath-Regular]/OT:script=math;language=dflt;+ssty=1
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 16.
+(Font)              `operators' in the math version `normal' on input line 17.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> TU/STIXTwoMath-Regular(1)/m/n on input 
-line 16.
+line 17.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 16.
+(Font)              `operators' in the math version `bold' on input line 17.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/STIXTwoMath-Regular(1)/b/n on input
- line 16.
+ line 17.
 
 Package fontspec Info: STIXTwoMath-Regular scale = 1.0001.
 
@@ -368,15 +406,15 @@ ipt=math;language=dflt;+ssty=1;"
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 16.
+(Font)              `symbols' in the math version `normal' on input line 17.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
 (Font)                  OMS/cmsy/m/n --> TU/STIXTwoMath-Regular(2)/m/n on input
- line 16.
+ line 17.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 16.
+(Font)              `symbols' in the math version `bold' on input line 17.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
 (Font)                  OMS/cmsy/b/n --> TU/STIXTwoMath-Regular(2)/b/n on input
- line 16.
+ line 17.
 
 Package fontspec Info: STIXTwoMath-Regular scale = 0.9999.
 
@@ -418,16 +456,16 @@ ipt=math;language=dflt;+ssty=1;"
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
 (Font)              `largesymbols' in the math version `normal' on input line 1
-6.
+7.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
 (Font)                  OMX/cmex/m/n --> TU/STIXTwoMath-Regular(3)/m/n on input
- line 16.
+ line 17.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 16.
+(Font)              `largesymbols' in the math version `bold' on input line 17.
 
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
 (Font)                  OMX/cmex/m/n --> TU/STIXTwoMath-Regular(3)/b/n on input
- line 16.
+ line 17.
 
 Package fontspec Info: Font family 'TeXGyrePagellaMath(0)' created for font
 (fontspec)             'TeXGyrePagellaMath' with options
@@ -448,10 +486,10 @@ y=0;"<-6.25>"[fonts/TeXGyrePagellaMath]/OT:script=math;language=dflt;+ssty=1;"
 \sym__um_fam1=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `normal'
 (Font)                  TU/TeXGyrePagellaMath(0)/m/n --> TU/TeXGyrePagellaMath(
-0)/m/n on input line 17.
+0)/m/n on input line 18.
 LaTeX Font Info:    Overwriting symbol font `__um_fam1' in version `bold'
 (Font)                  TU/TeXGyrePagellaMath(0)/m/n --> TU/TeXGyrePagellaMath(
-0)/b/n on input line 17.
+0)/b/n on input line 18.
 
 Package fontspec Info: FiraCode-Regular scale = 0.8983822540632027.
 
@@ -498,10 +536,10 @@ ript=latn;language=dflt;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
 (Font)                  OT1/cmtt/m/n --> TU/FiraCode-Regular(1)/m/n on input li
-ne 18.
+ne 19.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/FiraCode-Regular(1)/b/n on input li
-ne 18.
+ne 19.
  (/opt/texlive/texdir/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
@@ -1280,7 +1318,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count454
 \enitdp@description=\count455
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 47.
+Package hyperref Info: Option `colorlinks' set `true' on input line 48.
 \c@theorem=\count456
 \@quotelevel=\count457
 \@quotereset=\count458
@@ -1288,26 +1326,26 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 47.
 (build/main.l.aux)
 \openout1 = `main.l.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 84.
-LaTeX Font Info:    ... okay on input line 84.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 85.
+LaTeX Font Info:    ... okay on input line 85.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1343,10 +1381,6 @@ LaTeX Font Info:    ... okay on input line 84.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 84.
-LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 84.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 (/opt/texlive/texdir/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1362,25 +1396,25 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.l.bbl' found.
 
 (build/main.l.bbl)
-Package biblatex Info: Reference section=0 on input line 84.
-Package biblatex Info: Reference segment=0 on input line 84.
-Package hyperref Info: Link coloring ON on input line 84.
+Package biblatex Info: Reference section=0 on input line 85.
+Package biblatex Info: Reference segment=0 on input line 85.
+Package hyperref Info: Link coloring ON on input line 85.
  (build/main.l.out) (build/main.l.out)
 \@outlinefile=\write5
 \openout5 = `main.l.out'.
 
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 87.
+(Font)              scaled to size 12.00128pt on input line 88.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 87.
+(Font)              scaled to size 8.00085pt on input line 88.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 87.
+(Font)              scaled to size 6.00064pt on input line 88.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 87.
+(Font)              scaled to size 11.99872pt on input line 88.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 87.
+(Font)              scaled to size 7.99915pt on input line 88.
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 87.
+(Font)              scaled to size 5.99936pt on input line 88.
  (build/main.l.toc
 LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(2)/m/n' will be
 (Font)              scaled to size 10.00107pt on input line 3.
@@ -1399,33 +1433,33 @@ LaTeX Font Info:    Font shape `TU/STIXTwoMath-Regular(3)/m/n' will be
 \openout6 = `main.l.toc'.
 
 LaTeX Font Info:    Font shape `TU/FiraCode-Regular(0)/m/n' will be
-(Font)              scaled to size 8.98376pt on input line 101.
+(Font)              scaled to size 8.98376pt on input line 102.
 
 [1
 
-] (./lean.l.tex)
+] (./lean.l.tex) (./theories.l.tex [2] [3] [4] [5])
 
 Package biblatex Warning: No driver for 'masterthesis'.
-(biblatex)                Using fallback driver on input line 122.
+(biblatex)                Using fallback driver on input line 124.
 
-[2] [3] (build/main.l.aux)
+[6] [7] (build/main.l.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-03-14>
  ***********
 Package rerunfilecheck Info: File `main.l.out' has not changed.
-(rerunfilecheck)             Checksum: 8BF003DBCFB36F07D4271F7290EE7FB7;784.
+(rerunfilecheck)             Checksum: B95BB26D2526335C22282B72CF115F6D;1550.
 Package logreq Info: Writing requests to 'main.l.run.xml'.
 \openout1 = `main.l.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36970 strings out of 474761
- 757843 string characters out of 5759289
- 1938145 words of memory out of 5000000
- 58611 multiletter control sequences out of 15000+600000
- 562035 words of font info for 100 fonts, out of 8000000 for 9000
+ 37060 strings out of 474761
+ 761746 string characters out of 5759289
+ 1950145 words of memory out of 5000000
+ 58680 multiletter control sequences out of 15000+600000
+ 563571 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 131i,6n,135p,1275b,4988s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 131i,7n,135p,1275b,4990s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on build/main.l.xdv (3 pages, 80988 bytes).
+Output written on build/main.l.xdv (7 pages, 211464 bytes).

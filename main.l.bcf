@@ -2372,6 +2372,16 @@
     <bcf:citekey order="9" intorder="1">lean</bcf:citekey>
     <bcf:citekey order="10" intorder="1">leantt</bcf:citekey>
     <bcf:citekey order="11" intorder="1">holmes2023nf</bcf:citekey>
+    <bcf:citekey order="12" intorder="1">quine-nf</bcf:citekey>
+    <bcf:citekey order="13" intorder="1">holmes2023nf</bcf:citekey>
+    <bcf:citekey order="14" intorder="1">specker-choice-nf</bcf:citekey>
+    <bcf:citekey order="15" intorder="1">holmes-ttt</bcf:citekey>
+    <bcf:citekey order="16" intorder="1">holmes-ttt</bcf:citekey>
+    <bcf:citekey order="17" intorder="1">holmes-ttt</bcf:citekey>
+    <bcf:citekey order="18" intorder="1">typical-ambiguity</bcf:citekey>
+    <bcf:citekey order="19" intorder="1">typical-ambiguity</bcf:citekey>
+    <bcf:citekey order="20" intorder="1">hailperin-finite-axiomatisation</bcf:citekey>
+    <bcf:citekey order="21" intorder="1">metamath-nf</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">
