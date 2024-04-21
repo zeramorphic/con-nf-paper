@@ -93,38 +93,6 @@
       \endverb
       \keyw{formal proof,formal library,Lean,mathlib}
     \endentry
-    \entry{hailperin-finite-axiomatisation}{article}{}
-      \name{author}{1}{}{%
-        {{hash=e3fe4418aa30ff62ebec4882e1e914b1}{%
-           family={Hailperin},
-           familyi={H\bibinitperiod},
-           given={Theodore},
-           giveni={T\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \strng{fullhash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \strng{bibnamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \strng{authorbibnamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \strng{authornamehash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \strng{authorfullhash}{e3fe4418aa30ff62ebec4882e1e914b1}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Symbolic Logic}
-      \field{number}{1}
-      \field{title}{A set of axioms for logic}
-      \field{volume}{9}
-      \field{year}{1944}
-      \field{pages}{1\bibrangedash 19}
-      \range{pages}{19}
-      \verb{doi}
-      \verb 10.2307/2267307
-      \endverb
-    \endentry
     \entry{holmes2023nf}{misc}{}
       \name{author}{1}{}{%
         {{hash=432d6d9b1e5ece343f85180d2cd1639f}{%
@@ -267,81 +235,6 @@
       \verb https://api.semanticscholar.org/CorpusID:123927264
       \endverb
     \endentry
-    \entry{specker-choice-nf}{article}{}
-      \name{author}{1}{}{%
-        {{hash=19746952d00c7f5aed0070e226fb58b2}{%
-           family={Specker},
-           familyi={S\bibinitperiod},
-           given={Ernst\bibnamedelima P.},
-           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {National Academy of Sciences}%
-      }
-      \strng{namehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{fullhash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{bibnamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authorbibnamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authornamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authorfullhash}{19746952d00c7f5aed0070e226fb58b2}
-      \field{extraname}{1}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{00278424}
-      \field{journaltitle}{Proceedings of the National Academy of Sciences of the United States of America}
-      \field{number}{9}
-      \field{title}{The Axiom of Choice in Quine's New Foundations for Mathematical Logic}
-      \field{volume}{39}
-      \field{year}{1953}
-      \field{pages}{972\bibrangedash 975}
-      \range{pages}{4}
-      \verb{urlraw}
-      \verb http://www.jstor.org/stable/88561
-      \endverb
-      \verb{url}
-      \verb http://www.jstor.org/stable/88561
-      \endverb
-    \endentry
-    \entry{typical-ambiguity}{incollection}{}
-      \name{author}{1}{}{%
-        {{hash=19746952d00c7f5aed0070e226fb58b2}{%
-           family={Specker},
-           familyi={S\bibinitperiod},
-           given={Ernst\bibnamedelima P.},
-           giveni={E\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=0268d984f67c323e38f14d75b5dcf555}{%
-           family={Nagel},
-           familyi={N\bibinitperiod},
-           given={Ernst},
-           giveni={E\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Stanford University Press}%
-      }
-      \strng{namehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{fullhash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{bibnamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authorbibnamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authornamehash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{authorfullhash}{19746952d00c7f5aed0070e226fb58b2}
-      \strng{editorbibnamehash}{0268d984f67c323e38f14d75b5dcf555}
-      \strng{editornamehash}{0268d984f67c323e38f14d75b5dcf555}
-      \strng{editorfullhash}{0268d984f67c323e38f14d75b5dcf555}
-      \field{extraname}{2}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Logic, Methodology and Philosophy of Science}
-      \field{title}{Typical Ambiguity}
-      \field{year}{1962}
-      \field{pages}{116\bibrangedash 123}
-      \range{pages}{8}
-    \endentry
     \entry{leanprover-community-con-nf}{misc}{}
       \true{moreauthor}
       \true{morelabelname}
@@ -376,7 +269,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{GitHub repository}
-      \field{title}{The consistency of New Foundations}
+      \field{title}{New Foundations is consistent}
       \field{year}{2022--2023}
       \verb{urlraw}
       \verb https://leanprover-community.github.io/con-nf/
