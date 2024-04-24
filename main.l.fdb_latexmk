@@ -1,17 +1,17 @@
 # Fdb version 4
-["biber build/main.l"] 1713741304.03286 "build/main.l.bcf" "build/main.l.bbl" "build/main.l" 1713741315.46047 0
-  "build/main.l.bcf" 1713741315.04478 109138 eecc4a95e0aa0ee3739902e394484c95 "xelatex"
-  "refs.bib" 1713741292.6928 6187 c42b7f2e766e9cf59a7bdfb28bb0df08 ""
+["biber build/main.l"] 1713917452.03379 "build/main.l.bcf" "build/main.l.bbl" "build/main.l" 1713917463.78315 0
+  "build/main.l.bcf" 1713917463.34545 109305 a7e735c28a7dfd46fe9ecdf33b0edd32 "xelatex"
+  "refs.bib" 1713917440.24127 6197 d6341f8d0e9b5947b6aa9af23ef16e6d ""
   (generated)
   "build/main.l.bbl"
   "build/main.l.blg"
   (rewritten before read)
-["xdvipdfmx"] 1713741315.18548 "build/main.l.xdv" "build/main.l.pdf" "build/main.l" 1713741315.46338 0
-  "build/main.l.xdv" 1713741315.04478 215972 079bf66b88cb579f2345784e46abcacd "xelatex"
+["xdvipdfmx"] 1713917463.48835 "build/main.l.xdv" "build/main.l.pdf" "build/main.l" 1713917463.78621 0
+  "build/main.l.xdv" 1713917463.34545 354744 06be4c2a0cf1cc94fbd8e8e06f3e1c6f "xelatex"
   (generated)
   "build/main.l.pdf"
   (rewritten before read)
-["xelatex"] 1713741312.93585 "main.l.tex" "build/main.l.xdv" "main.l" 1713741315.46059 0
+["xelatex"] 1713917461.13637 "main.l.tex" "build/main.l.xdv" "main.l" 1713917463.78327 0
   "/opt/texlive/texdir/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/opt/texlive/texdir/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/opt/texlive/texdir/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -177,15 +177,16 @@
   "/opt/texlive/texdir/texmf-dist/web2c/texmf.cnf" 1708706663 41649 5d6ae549fbbcb850a863f69aa41f3d10 ""
   "/opt/texlive/texdir/texmf-var/web2c/xetex/xelatex.fmt" 1710526881 10850539 a89beffc3d7e92adc701d976b885b44e ""
   "/opt/texlive/texdir/texmf.cnf" 1710526736 555 bd60ff59e4d560b42d96b004436f91d3 ""
-  "build/main.l.aux" 1713741315.04078 4203 f2f1bbf80eb05794e68b427ad89a8816 "xelatex"
-  "build/main.l.bbl" 1713741308.39679 17879 a7040833181e316500be412aed5a2a83 "biber build/main.l"
-  "build/main.l.out" 1713741315.04478 1550 b95bb26d2526335c22282b72cf115f6d "xelatex"
-  "build/main.l.run.xml" 1713741315.04478 2348 f24ba034d0294f02fadca70dc268eb62 "xelatex"
-  "build/main.l.toc" 1713741315.04478 766 2891bfea8fcdf6573a0be0ed00645832 "xelatex"
-  "lean.l.tex" 1713741292.9048 3114 6dbb7d22dcea7770c4347e411a8f7869 ""
-  "main.l.tex" 1713741292.9048 5182 26249d14db6cc8044c7ef5a168c47e0a ""
-  "quiver.sty" 1713741292.6928 1523 14976bbc0a58d76b37e513e98177c31f ""
-  "theories.l.tex" 1713741292.9048 17903 176ca27def532fed3d39b502d5c0afe1 ""
+  "build/main.l.aux" 1713917463.34145 7897 b5f44213c610f9ccc921a7728908fcb6 "xelatex"
+  "build/main.l.bbl" 1713917456.39739 18000 38aa4edd6f2a7d47a0665ee1c9fb6b88 "biber build/main.l"
+  "build/main.l.out" 1713917463.34145 2252 4db62fdf2d7cffd4d0a20ba4f616d6f6 "xelatex"
+  "build/main.l.run.xml" 1713917463.34545 2348 f24ba034d0294f02fadca70dc268eb62 "xelatex"
+  "build/main.l.toc" 1713917463.34545 1112 c68903427216789c9c7f10decb455f02 "xelatex"
+  "lean.l.tex" 1713917440.54527 3132 fa81a452684ebe93668d818455dea3cc ""
+  "main.l.tex" 1713917440.54527 7644 236ca76ecafa0dd47cf0e8a7d3686dda ""
+  "quiver.sty" 1713917440.24127 1523 14976bbc0a58d76b37e513e98177c31f ""
+  "structure.l.tex" 1713917440.54527 16836 3884e922237018b190e83bf44336e6e0 ""
+  "theories.l.tex" 1713917440.54527 18455 eb521570fdc2fc7934609bc5f7b413f0 ""
   (generated)
   "build/main.l.aux"
   "build/main.l.bcf"

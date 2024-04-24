@@ -152,33 +152,6 @@
       \verb 10.2307/2267307
       \endverb
     \endentry
-    \entry{holmes2023nf}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=432d6d9b1e5ece343f85180d2cd1639f}{%
-           family={Holmes},
-           familyi={H\bibinitperiod},
-           given={M.\bibnamedelimi Randall},
-           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
-      }
-      \strng{namehash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \strng{fullhash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \strng{bibnamehash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \strng{authorbibnamehash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \strng{authornamehash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \strng{authorfullhash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \field{extraname}{1}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{math.LO}
-      \field{eprinttype}{arXiv}
-      \field{title}{NF is Consistent}
-      \field{year}{2023}
-      \verb{eprint}
-      \verb 1503.01406
-      \endverb
-    \endentry
     \entry{holmes-ttt}{article}{}
       \name{author}{1}{}{%
         {{hash=432d6d9b1e5ece343f85180d2cd1639f}{%
@@ -196,7 +169,6 @@
       \strng{authorbibnamehash}{432d6d9b1e5ece343f85180d2cd1639f}
       \strng{authornamehash}{432d6d9b1e5ece343f85180d2cd1639f}
       \strng{authorfullhash}{432d6d9b1e5ece343f85180d2cd1639f}
-      \field{extraname}{2}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
       \field{labelnamesource}{author}
@@ -215,6 +187,37 @@
       \endverb
       \verb{url}
       \verb http://www.jstor.org/stable/2275515
+      \endverb
+    \endentry
+    \entry{con-nf}{misc}{}
+      \name{author}{2}{}{%
+        {{hash=432d6d9b1e5ece343f85180d2cd1639f}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={M.\bibnamedelimi Randall},
+           giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=82c6c2ec5811ce45b4318d5d282eb76c}{%
+           family={Wilshaw},
+           familyi={W\bibinitperiod},
+           given={Sky},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{99623369830fdaa0006182ad1379fc10}
+      \strng{fullhash}{99623369830fdaa0006182ad1379fc10}
+      \strng{bibnamehash}{99623369830fdaa0006182ad1379fc10}
+      \strng{authorbibnamehash}{99623369830fdaa0006182ad1379fc10}
+      \strng{authornamehash}{99623369830fdaa0006182ad1379fc10}
+      \strng{authorfullhash}{99623369830fdaa0006182ad1379fc10}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{math.LO}
+      \field{eprinttype}{arXiv}
+      \field{title}{NF is Consistent}
+      \field{year}{2024}
+      \verb{eprint}
+      \verb 1503.01406
       \endverb
     \endentry
     \entry{lean}{inproceedings}{}
@@ -404,7 +407,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{GitHub repository}
       \field{title}{New Foundations is consistent}
-      \field{year}{2022--2023}
+      \field{year}{2022--2024}
       \verb{urlraw}
       \verb https://leanprover-community.github.io/con-nf/
       \endverb
