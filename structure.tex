@@ -1,0 +1,195 @@
+We will now begin our exposition of the proof of the consistency of tangled type theory.
+This section is based on the \texttt{BaseType} and \texttt{Structural} directories in the formalisation.
+
+\subsection{Model parameters}
+\label{ss:structure:params}
+
+As described in \cref{ss:theories:ttt}, the types of a given model of tangled type theory are indexed by a limit ordinal \( \lambda \).
+\begin{definition}
+    \llabel{Params}
+    A collection of \emph{model parameters} consists of types \( \lambda, \kappa, \mu \) satisfying the following requirements.
+    \begin{enumerate}
+        \item \( \lambda, \kappa, \mu \) have well-orderings.
+        The order type of \( \lambda \) is a limit ordinal.
+        The order types of \( \kappa \) and \( \mu \) are initial ordinals.\footnote{Set theorists would simply require that \( \kappa, \mu \) be cardinals. In our type theory, a cardinal is an equivalence class of types in a given universe that biject.}
+        \item The cardinalities of \( \lambda, \kappa, \mu \) satisfy
+        \[ \aleph_0 \leq \abs{\lambda} < \abs{\kappa} < \abs{\mu} \]
+        \item \( \abs{\kappa} \) is a regular cardinal.
+        \( \abs{\mu} \) is a strong limit cardinal, and \( \mu \) has cofinality at least \( \abs{\kappa} \).
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \llabel{Small}
+    Sets smaller than size \( \kappa \) are called \emph{small}.
+\end{definition}
+\begin{remarks}\mbox\negthinspace
+    \begin{enumerate}
+        \item \llabel{κ-addMonoid} \( \kappa \) has an additive monoid structure given from its well-ordered structure as follows.
+        % TODO: Probably just remove the addMonoid structure from Params and just define it outside
+        Write \( f : \kappa \to \mathrm{Ord} \) for the function that maps each inhabitant \( i \) of \( \kappa \) to the order type of \( \{ j \mid j < i \} \).
+        Then \( f \) is an injection with image equal to the order type of \( \kappa \).
+        We may now define
+        \[ i + j = f^{-1}(f(i) + f(j)) \]
+        We cannot define this operation constructively, so we directly include it in the model parameters in the Lean formalisation and prove its existence separately.
+        \item \llabel{minimalParams}
+        We remark that these constraints are satisfiable; \( \lambda = \aleph_0, \kappa = \aleph_1, \mu = \beth_{\omega_1} \) suffice.
+    \end{enumerate}
+\end{remarks}
+
+\subsection{Atoms, litters, and near-litters}
+
+As described in \cref{s:overview}, our model has an additional level of objects below type zero.
+To index the levels of the model, together with this new level, we make the following definition.
+\begin{definition}
+    \llabel{TypeIndex}
+    A \emph{type index} is an element of \( \lambda \) or a distinguished symbol \( \bot \).
+    We impose an order on type indices by setting \( \bot < \alpha \) for all \( \alpha \in \lambda \).
+    The collection of type indices is denoted \( \lambda^\bot \).
+\end{definition}
+Elements of \( \lambda \) may be called \emph{proper type indices}.
+
+Our base type is a set of \emph{atoms}, organised into \emph{litters}.
+The litters index as large amorphous sets of atoms that can be used as `junk' data.
+\begin{definition}
+    \llabel{Litter}
+    A \emph{litter} is a triple \( L = (\nu, \beta, \gamma) \) where \( \nu \in \mu \), \( \beta \) is a type index, and \( \gamma \neq \beta \) is a proper type index.\footnote{Readers of \cite{con-nf} will note that Holmes defines a litter as a particular set of atoms. We instead define litters to be names for such sets, which will be called \emph{litter sets}.}
+\end{definition}
+This somewhat arcane definition will be used later when defining the fuzz map.
+A litter \( L = (\nu, \beta, \gamma) \) encodes data coming from type \( \beta \) and going into type \( \gamma \).
+Note that \( \beta \) may be \( \bot \), but \( \gamma \) may not; this corresponds to the fact that we never construct data in type \( \bot \) from data at higher levels.
+The first component \( \nu \) is an index allowing us to have \( \mu \) distinct litters with the same source and target types.
+\begin{remark}
+    \llabel{mk-litter}
+    There are precisely \( \abs{\mu} \) litters.
+\end{remark}
+\begin{definition}
+    \llabel{Atom}
+    An \emph{atom} is a pair \( a = (L, i) \) where \( L \) is a litter and \( i \in \kappa \).
+    The \emph{associated litter} of an atom is its first projection \( \pr_1(a) \), written \( a^\circ \) for brevity.
+    The \emph{litter set} \( \LS(L) \) of a given litter \( L \) is the set of atoms whose associated litter is \( L \); that is, \( \LS(L) = \{ (L, i) \mid i \in \kappa \} \).
+    The litter sets partition the type of atoms into \( \abs{\mu} \) sets of \( \kappa \) atoms, and there are \( \abs{\mu} \) atoms in total.
+\end{definition}
+\begin{remark}
+    Many of our constructions for symmetry arguments rely on having only a small set of constraints.
+    If our constraints take the form of atoms, the smallness assumption guarantees that most of the atoms in a given litter set are unconstrained.
+    Motivated by smallness concerns, we make the following definition.
+\end{remark}
+\begin{definition}
+    \llabel{NearLitter}
+    A \emph{near-litter} is a pair \( N = (L, s) \) where \( L \) is a litter and \( s \) is a set of atoms with small symmetric difference to the litter set of \( L \).
+    We say that the \emph{associated litter} of \( N \) is \( N^\circ = \pr_1(N) \), or that \( N \) is \emph{near} \( L \).
+    For brevity, we will frequently identify a near-litter with its underlying set.
+\end{definition}
+\begin{remarks}\mbox{\negthinspace}
+    \label{rk:mk_near_litter}
+    \begin{enumerate}
+        \item \llabel{NearLitter.isNearLitter} A set of atoms can be near at most one litter.
+        \item \llabel{Litter.toNearLitter} The litter set of any litter \( L \) can be made into a near-litter: \( \NL(L) = (L, \LS(L)) \).
+        \item \llabel{mk-nearLitter''} Each (second projection of a) near-litter has size exactly \( \kappa \).
+    \end{enumerate}
+\end{remarks}
+\begin{lemma}
+    \llabel{mk-nearLitter}
+    There are precisely \( \abs{\mu} \) near-litters.
+\end{lemma}
+\begin{proof}
+    It suffices to show that if \( \abs{\alpha} \) is a strong limit cardinal and \( \alpha \) is well-ordered with initial order type, then \( \alpha \) has precisely \( \abs{\alpha} \) bounded subsets.
+    Indeed, this would imply that there are only \( \abs{\mu} \) small sets of atoms, since the cofinality of \( \mu \) is at least \( \abs{\kappa} \), from which it follows that there are precisely \( \abs{\mu} \) near-litters near a given litter, and so precisely \( \abs{\mu} \) in total.
+    Note that
+    \[ \abs{\{ s \subseteq \alpha \mid s \text{ bounded} \}} = \abs{\bigcup_{i : \alpha} \mathcal P(\{ j \mid j < i \})} \leq \abs{\alpha} \cdot \sup_{i : \alpha} \abs{\mathcal P(\{ j \mid j < i \})} \]
+    As \( \alpha \) has initial order type, \( \{ j \mid j < i \} \) has cardinality strictly less than \( \abs{\alpha} \).
+    As \( \abs{\alpha} \) is a strong limit, its power set also has cardinality strictly smaller than \( \abs{\alpha} \), so the supremum is bounded above by \( \abs{\alpha} \).
+\end{proof}
+We can now define the allowable permutations of type \( \bot \), although we will give them a different name for now; they will be precisely those permutations of atoms that respect the structure of near-litters.
+\begin{definition}
+    \llabel{BasePerm}
+    A \emph{base permutation} \( \pi \) consists of a permutation of atoms \( \pi^A \) and a permutation of litters \( \pi^L \) such that if \( N = (L, s) \) is a near-litter, then
+    \[ (\pi^L(L), \pi^A[s]) \]
+    is also a near-litter.
+    The type of base permutations will occasionally be denoted \( \Base \).
+\end{definition}
+We will often simply use \( \pi \) to denote the permutations \( \pi^A, \pi^L \) of atoms and litters.
+Such a base permutation \( \pi \) induces a permutation of near-litters \( \pi^N \), given by
+\[ \pi^N(L, s) = (\pi^L(L), \pi^A[s]) \]
+We will also call this permutation \( \pi \).
+\begin{remarks}\mbox\negthinspace
+    \begin{enumerate}
+        \item \llabel{BasePerm.ext}
+        A base permutation is determined by its action on atoms.
+        \item \llabel{instGroupBasePerm}
+        Base permutations form a group.
+    \end{enumerate}
+\end{remarks}
+\begin{details}\mbox\negthinspace
+    \begin{enumerate}
+        \item Lean's type theory does not allow us to directly write \( \pi \) for the two different functions \( \pi^A, \pi^L \).
+        We instead use the syntax \( \pi \bullet a, \pi \bullet L \), which is the \texttt{mathlib} notation for group actions.
+        In these expressions, the head symbol is \( \bullet \), not \( \pi \) itself.
+        This allows Lean to trigger typeclass resolution and dynamically choose the interpretation of \( \bullet \) based on the type of the right-hand side.
+        \item We use an alternative formalisation of the pointwise image \( \pi^A[s] \) under a permutation; instead, we write \( ((\pi^A)^{-1})^{-1}(s) \).
+        This has the advantage that the bi-implication
+        \[ a \in ((\pi^A)^{-1})^{-1}(s) \leftrightarrow (\pi^A)^{-1}(a) \in s \]
+        is a definitional equality.
+    \end{enumerate}
+\end{details}
+
+\subsection{Higher type structure}
+
+A type-\( \alpha \) object has elements of any type \( \beta < \alpha \), which have elements of any type \( \gamma < \beta \), and so on; we must eventually reach \( \bot \) in a finite number of steps by well-foundedness.
+We will now make a definition to deal with sequences of type indices obtained in this way.
+\begin{definition}
+    \llabel{instQuiverTypeIndex}
+    A \emph{path of type indices} \( \alpha \rightsquigarrow \varepsilon \) is a finite sequence of type indices
+    \[ \alpha > \beta > \gamma > \dots > \varepsilon \]
+    If \( \alpha \) is a type index, an \emph{\( \alpha \)-extended type index} is a path \( \alpha \rightsquigarrow \bot \).
+    If \( A \) is a path \( \alpha \rightsquigarrow \beta \) and \( B \) is a path \( \beta \rightsquigarrow \gamma \), their composition \( A \pcomp B \) is a path \( \alpha \rightsquigarrow \gamma \) obtained by concatenation of the sequences but removing the duplicated index \( \beta \).
+\end{definition}
+\begin{detail}
+    We define a quiver structure on \( \lambda^\bot \) by setting the type of morphisms \( \alpha \to \beta \) to be the type \( \alpha > \beta \); that is, there is a single morphism \( \alpha \to \beta \) whenever \( \alpha > \beta \).
+    Paths of type indices are then defined as paths in this quiver.
+    In \texttt{mathlib}, paths in quivers are defined as an inductive data type, with a \texttt{cons} operation on the end.
+    That is, it is easy to reason about paths of the form \( \alpha \rightsquigarrow \beta > \gamma \), but difficult to reason about paths of the form \( \alpha > \beta \rightsquigarrow \gamma \).
+    In our formalisation, we frequently append segments to the end of paths, but infrequently prepend to the start of paths.
+    This gives rise to technical hurdles whenever analysing the start of paths is required.
+    An alternative implementation is to encode paths as finite sets, as is done in \cite{con-nf}, but this representation has worse definitional equalities.
+\end{detail}
+\begin{remark}
+    \llabel{mk-extendedIndex}
+    For any \( \alpha \in \lambda^\bot \), the set of \( \alpha \)-extended type indices has size at most \( \abs{\lambda} \).
+\end{remark}
+In our model, the iterated extensions of objects of type \( \alpha \) are indexed by the \( \alpha \)-extended type indices.
+We frequently want to analyse or modify an object `along paths': to easily package such data, we make the following definition.
+\begin{definition}
+    \llabel{Tree}
+    Let \( \tau \) be a type and \( \alpha \) be a type index.
+    Then the type of \emph{\( \alpha \)-trees of \( \tau \)} is
+    \[ \Tree(\tau)_\alpha = (\alpha \rightsquigarrow \bot) \to \tau \]
+    That is, an \( \alpha \)-tree of \( \tau \) assigns an inhabitant of \( \tau \) to each \( \alpha \)-extended type index.
+\end{definition}
+Trees made out of base permutations are called structural permutations.
+\begin{definition}
+    \llabel{StructPerm}
+    An \emph{\( \alpha \)-structural permutation} is an \( \alpha \)-tree of base permutations.
+    We write
+    \[ \Str_\alpha = \Tree(\Base)_\alpha \]
+    An \( \alpha \)-structural permutation \( \pi \) assigns a base permutation to each \( \alpha \)-extended index.
+\end{definition}
+\begin{remarks}\mbox\negthinspace
+    \begin{enumerate}
+        \item \llabel{Tree.group} Trees on \( \tau \) are given the group structure of \( \tau \) by acting `along paths': for \( \alpha \)-trees \( a, b \), we define \( (ab)_A = a_A b_A \).
+        \item \llabel{Tree.comp} We can extend the notation \( a_A \) to paths \( A : \alpha \rightsquigarrow \beta \) where \( \beta \) is arbitrary.
+        Given such a path \( A : \alpha \rightsquigarrow \beta \), we obtain a \emph{derivative} group homomorphism
+        \[ \Tree(\tau)_\alpha \to \Tree(\tau)_\beta \]
+        written \( a \mapsto a_A \) and given by
+        \[ (a_A)_B = a_{A \pcomp B} \]
+        where \( A \pcomp B \) is the concatenation of the paths \( A, B \).
+        This operates similarly to a restriction map.
+        \item \llabel{Tree.toBotIso} There is a canonical group isomorphism \( \Tree(\tau)_\bot \cong \tau \), as there is precisely one path \( \bot \rightsquigarrow \bot \).
+        In particular, we may identify \( \bot \)-structural permutations with base permutations.
+    \end{enumerate}
+\end{remarks}
+
+At proper type indices \( \alpha \), we will define the set of \( \alpha \)-allowable permutations to be a certain subgroup of the group of \( \alpha \)-structural permutations.
+These permutations will be chosen in such a way that gives an action on the set of model elements at level \( \alpha \).
+Not every structural permutation will have such an action.
+

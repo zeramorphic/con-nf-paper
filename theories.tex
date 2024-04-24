@@ -1,5 +1,5 @@
 In 1937, Quine introduced \emph{New Foundations} (\( \mathsf{NF} \)) \cite{quine-nf}, a set theory with a very small collection of axioms.
-To give a proper exposition of the theory that we intend to prove consistent, we will first make a digression to introduce the related theory \( \mathsf{TST} \), as explained by Holmes in \cite{holmes2023nf}.
+To give a proper exposition of the theory that we intend to prove consistent, we will first make a digression to introduce the related theory \( \mathsf{TST} \), as explained by Holmes in \cite{con-nf}.
 We will then describe the theory \( \mathsf{TTT} \), which we will use to prove our theorem.
 
 \subsection{The simple theory of types}
@@ -168,17 +168,17 @@ Then, by \cref{thm:nf_ttt}, the consistency of \( \mathsf{NF} \) can be establis
 The same theorem shows that any model of \( T_{\mathsf{TTT}} \) is a model of \( \mathsf{TTT} \), by executing Hailperin's proof in the language of \( \mathsf{NF} \) and transporting the result back to the language of \( \mathsf{TTT} \).
 
 We will exhibit one such theory \( T \) here, with a list of twelve axioms.
-We have formally verified the consistency of \( T_{\mathsf{TTT}} \), and the relevant proof for each axiom is linked.
+We have formally verified the consistency of \( T_{\mathsf{TTT}} \), and the relevant Lean proof for each axiom is linked.
 Our choice of axioms for the comprehension scheme are inspired by those used in the Metamath implementation of Hailperin's algorithm in \cite{metamath-nf}.
 In the following table, the notation \( \langle a, b \rangle \) denotes the Kuratowski pair \( \{ \{ a \}, \{ a, b \} \} \).
-The first column is Hailperin's name for the axiom.
+The first column is Hailperin's name for the axiom, and the second is (usually) the name from \cite{metamath-nf}.
 \begin{center}
     \begin{tabular}{llcl}
         \( - \) & extensionality & \lean{ConNF.ext} & \( \forall x^1.\, \forall y^1.\, (\forall z^0.\, z \in x \leftrightarrow z \in y) \to x = y \) \\
         P1(a) & intersection & \lean{ConNF.inter} & \( \forall x^1 y^1.\, \exists z^1.\, \forall w^0.\, w \in z \leftrightarrow (w \in x \wedge w \in y) \) \\
         P1(b) & complement & \lean{ConNF.compl} & \( \forall x^1.\, \exists z^1.\, \forall w^0.\, w \in z \leftrightarrow w \notin x \) \\
         P2 & singleton image & \lean{ConNF.singletonImage} & \( \forall x^3.\, \exists y^4.\, \forall z^0 w^0.\, \langle \{ z \}, \{ w \} \rangle \in y \leftrightarrow \langle z, w \rangle \in x \) \\
-        \( - \) & singleton & \lean{ConNF.mem\_singleton\_iff} & \( \forall x^0.\, \exists y^1.\, \forall z^0.\, z \in y \leftrightarrow z = x \) \\
+        \( - \) & singleton & \lean{ConNF.mem-singleton-iff} & \( \forall x^0.\, \exists y^1.\, \forall z^0.\, z \in y \leftrightarrow z = x \) \\
         P3 & insertion two & \lean{ConNF.insertion2} & \( \forall x^3.\, \exists y^5.\, \forall z^0 w^0 t^0.\, \langle \{ \{ z \} \}, \langle w, t \rangle \rangle \in y \leftrightarrow \langle z, t \rangle \in x \) \\
         P4 & insertion three & \lean{ConNF.insertion3} & \( \forall x^3.\, \exists y^5.\, \forall z^0 w^0 t^0.\, \langle \{ \{ z \} \}, \langle w, t \rangle \rangle \in y \leftrightarrow \langle z, w \rangle \in x \) \\
         P5 & cross product & \lean{ConNF.cross} & \( \forall x^1.\, \exists y^3.\, \forall z^2.\, z \in y \leftrightarrow \exists w^0 t^0.\, z = \langle w, t \rangle \wedge t \in x \) \\
@@ -188,3 +188,7 @@ The first column is Hailperin's name for the axiom.
         P9 & subset & \lean{ConNF.subset} & \( \exists x^3.\, \forall y^1 z^1.\, \langle y, z \rangle \in x \leftrightarrow \forall w^0.\, w \in y \to w \in z \)
     \end{tabular}
 \end{center}
+\begin{remark}
+    Axioms P1--P9 except for P6 are \emph{predicative}: they stipulate the existence of a set with type at least that of all of the parameters.
+    It is relatively straightforward to prove the consistency of predicative \( \mathsf{TTT} \), and we will see later that the proof of P6 in our model takes a different form to the proofs of the other axioms.
+\end{remark}

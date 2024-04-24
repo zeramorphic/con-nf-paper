@@ -73,6 +73,10 @@
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{remarks}[theorem]{Remarks}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{detail}[theorem]{Implementation detail}
+\newtheorem{details}[theorem]{Implementation details}
 \newtheorem*{note}{Note}
 
 \title{New Foundations is consistent:\\an exposition and formal verification}
@@ -81,13 +85,19 @@
 
 \newcommand{\inlinecode}[1]{\fcolorbox{codeframe}{codebg}{\small\!\texttt{#1}\!}}
 \newcommand{\lean}[1]{\inlinecode{#1}}
+\newcommand{\llabel}[1]{\label{#1}\inlinecode{#1}}
+\newcommand{\abs}[1]{\left|#1\right|}
+
+\newcommand{\Base}{\mathsf{Base}}
+\newcommand{\Str}{\mathsf{Str}}
+\newcommand{\Tree}{\mathsf{Tree}}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-	We give a self-contained account of a version of Holmes' proof \cite{holmes2023nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent relative to the metatheory ZFC.
+	We give a self-contained account of a version of Holmes' proof \cite{con-nf} that Quine's set theory \emph{New Foundations} \cite{quine-nf} is consistent relative to the metatheory ZFC.
 	We have formalised this proof in the Lean interactive theorem prover \cite{leanprover-community-con-nf}, and this paper is a `deformalisation' of that work.
 	We discuss the challenges of formalising new and untested mathematics in an interactive theorem prover, and how the process of completing the formalisation has influenced our presentation of the proof.
 \end{abstract}
@@ -98,7 +108,7 @@
 \label{s:overview}
 
 In \cref{s:lean}, we will briefly discuss Lean \cite{lean}, the interactive theorem prover in which our result is formalised.
-We will also explain why our formalisation in \cite{leanprover-community-con-nf} can be trusted as evidence that Holmes' proof in \cite{holmes2023nf} is correct, without needing to understand the underlying details of the proof.
+We will also explain why our formalisation in \cite{leanprover-community-con-nf} can be trusted as evidence that Holmes' proof in \cite{con-nf} is correct, without needing to understand the underlying details of the proof.
 We have made frequent use of the community-made repository \texttt{mathlib} \cite{mathlib2020}, which encodes standard mathematical definitions and theorems in Lean; without this, we would have needed to write our own libraries for (for example) abstract algebra and cardinal and ordinal arithmetic.
 
 Lean is based on a version of the \emph{calculus of constructions}, which is a dependent type theory.
@@ -111,7 +121,28 @@ In particular, our proof will not directly show the consistency of \( \mathsf{NF
 This is the result which has been formally verified: there is a structure that satisfies a particular axiomatisation of \( \mathsf{TTT} \) which we will discuss in \cref{s:theories}.
 The expected conclusion that \( \mathsf{NF} \) is consistent then follows from the fact that \( \mathsf{NF} \) and \( \mathsf{TTT} \) are equiconsistent \cite{holmes-ttt}.
 
+We will now outline our general strategy for the construction of a model of tangled type theory.
+As we will outline in \cref{ss:theories:ttt}, \( \mathsf{TTT} \) is a many-sorted theory with types indexed by a limit ordinal \( \lambda \).
+In order to impose symmetry conditions on our structure, we will add an additional level of objects below type zero.
+These will not be a part of the final model we construct.
+This base type will be comprised of objects called \emph{atoms} (although they are not atoms in the traditional model-theoretic sense).
+Alongside the construction of the types of our model, we will also construct a group of permutations of each type, called the \emph{allowable permutations}.
+Such permutations will preserve the structure of the model in a strong sense; for instance, they preserve membership.
+
+The construction of a given type can only be done under certain hypotheses on the construction of lower types.
+The most restrictive condition that we will need to satisfy is a bound on the size of each type.
+In order to do this, we will need to show that there are a lot of allowable permutations.
+The main technical lemma establishing this, called the \emph{freedom of action theorem}, roughly states that a partial function that locally behaves like an allowable permutation can be extended to an allowable permutation.
+Much of this paper will be allocated to proving the freedom of action theorem and its various corollaries, and it will be outlined in more detail when we are in a position to prove it.
+
+We can then finish the main induction to build the entire model out of the types we have constructed.
+This step, while invisible to a human reader in set theory, takes substantial effort to formally establish in a dependent type theory.
+% TODO: Add a section about it and \cref it here
+It then remains to show that this is a model of \( \mathsf{TTT} \) as desired, or more precisely, a model of a particular finite axiomatisation.
+
 [Finish the introduction\dots]
+
+% TODO: Use outline.tex from the previous version
 
 \section{The Lean interactive theorem prover}
 \label{s:lean}
@@ -120,6 +151,10 @@ The expected conclusion that \( \mathsf{NF} \) is consistent then follows from t
 \section{The theories at issue}
 \label{s:theories}
 \input{theories.tex}
+
+\section{The supertype structure}
+\label{s:structure}
+\input{structure.tex}
 
 \printbibliography
 

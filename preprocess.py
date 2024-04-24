@@ -38,7 +38,7 @@ errored = False
 
 def replaceLean(lean):
     global errored
-    name = lean[1].replace('\\', '')
+    name = lean[1].replace('-', '_')
     if name not in indexDict:
         print("did not find", name)
         errored = True
@@ -49,7 +49,7 @@ def replaceLean(lean):
         base = "https://leanprover-community.github.io/con-nf/doc/"
         page = "/".join(module.split("."))
         url = base + page + ".html#" + name
-        return r"\href{" + url + r"}{\(\forall\)}"
+        return r"\href{" + url + r"}{\(\exists\!\forall\)}"
     else:
         print("definition", name, "was ambiguous")
         errored = True
@@ -57,7 +57,11 @@ def replaceLean(lean):
 def preprocess(file):
     with open(file, "r") as f:
         contents = f.read()
-    contents = re.sub(r"\\lean{([^}]*)}", replaceLean, contents.replace(".tex", ".l.tex"))
+    contents = contents.replace(".tex", ".l.tex")
+    contents = re.sub(r"\\llabel{([^}]*)}",
+                      lambda s: r"\label{" + s[1] + r"}\lean{" + s[1] + r"}",
+                      contents)
+    contents = re.sub(r"\\lean{([^}]*)}", replaceLean, contents)
     with open(file[:-4] + ".l.tex", "w") as f:
         f.write(contents)
 

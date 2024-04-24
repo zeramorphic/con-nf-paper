@@ -6,7 +6,7 @@ Carneiro proved in \cite{leantt} that Lean's type theory is consistent relative 
 \[ \mathsf{ZFC} + \{ \text{there are } n \text{ inaccessible cardinals} \mid n < \omega \} \]
 These inaccessible cardinals are needed to support Lean's hierarchy of type universes.
 Higher universes are commonly used whenever they are convenient, for example in definitions of cardinals and ordinals.
-However, these uses are not strictly necessary for our purposes, and the entire proof can be carried out in plain \( \mathsf{ZFC} \), as shown by \cite{holmes2023nf} and this paper.
+However, these uses are not strictly necessary for our purposes, and the entire proof can be carried out in plain \( \mathsf{ZFC} \), as shown by \cite{con-nf} and this paper.
 
 Proofs in Lean may be written in its \emph{tactic mode}, which tracks hypotheses and goals, and enables the use of \emph{tactics} to update these hypotheses and goals according to logical rules.
 There are a large variety of tactics to perform different tasks, such as simplification (\texttt{simp}), rewriting of subexpressions (\texttt{rw}), structural induction (\texttt{induction}), and so on.
@@ -26,4 +26,4 @@ For example, if verifying a formalised proof of Fermat's last theorem, one shoul
 
 All of the proofs in this paper (except in \cref{s:theories}, upon which no other results depend) are verified by Lean.
 To help with the verification step, our main result can be found in the \texttt{Result.lean} file (\href{https://github.com/leanprover-community/con-nf/blob/main/ConNF/Model/Result.lean}{source}, \href{https://leanprover-community.github.io/con-nf/doc/ConNF/Model/Result.html}{documentation}).
-Each result is tagged with a hyperlink (such as \lean{ConNF.ext}) to the documentation generated from the corresponding Lean code.
+Each definition and result is tagged with a hyperlink (such as \lean{ConNF.ext}) to the documentation generated from the corresponding Lean code.
